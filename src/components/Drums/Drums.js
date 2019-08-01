@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Key from './Key';
 import './Drums.css';
+import sound from './audio/boom.wav';
 
 const Drums = () => {
     const keys = [
@@ -14,6 +15,24 @@ const Drums = () => {
         {dataKey: 75, key: 'K', label: 'TOM'},
         {dataKey: 76, key: 'L', label: 'TINK'},
     ];
+
+    const Boom = new Audio(sound);
+
+
+    const keyHandler = (d) => {
+        console.log('key Down', d.keyCode);
+        Boom.currentTime = 0;
+        Boom.play();
+        console.log('boom :', Boom, typeof Boom);
+    }
+
+    useEffect(() => {
+        window.addEventListener('keydown', keyHandler);
+        return () => {
+            window.removeEventListener('keydown', keyHandler);
+            console.log('removed eventListener');
+        }
+    }, []);
     
     
     return (
@@ -26,6 +45,8 @@ const Drums = () => {
                    )
                })}
             </div>
+            {/* <Boom /> */}
+            
         </div>
     )
 }

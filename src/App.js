@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 import Clock from './components/Clock';
 import Header from './components/Header';
@@ -6,14 +6,7 @@ import Drums from './components/Drums';
 import Back from './45621.jpg';
 import './App.css';
 
-function App() {
-    const keyHandler = (d) => {
-        console.log('key Down', d.keyCode);
-    }
-
-    useEffect(() => {
-        window.addEventListener('keydown', keyHandler);
-    }, []);
+function App() {    
 
     return (
         <div className="App">        
