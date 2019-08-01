@@ -1,0 +1,18 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Header.css';
+
+const Header = () => {
+    return (
+        <header className="App-header">
+            <div className="Logo"><h1>React App</h1></div>
+            <div className="Menu">
+                <Link to="/" >Home</Link>
+                <Link to="/clock">Clock</Link>
+                <Link to="/drums">Drums</Link>
+            </div>
+        </header>
+    )
+}
+
+export default Header;

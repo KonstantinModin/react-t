@@ -1,0 +1,29 @@
+.Key {
+    font-size: 1.5.rem;
+    transition: all 0.07s;
+    width: 100px;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
+}
+
+kbd {
+    display: block;
+    font-size: 40px;
+}
+
+.sound {
+    color: #ffc600;
+    display: block;
+    margin-top: 5px;
+}
