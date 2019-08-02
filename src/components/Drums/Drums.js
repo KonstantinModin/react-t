@@ -12,29 +12,44 @@ import hammock from './audio/hammock.wav';
 import triangle from './audio/triangle.wav';
 
 const Drums = () => {
-    const keys = [
-        {dataKey: 65, key: 'A', label: 'CLAP'},
-        {dataKey: 83, key: 'S', label: 'HIHAT'},
-        {dataKey: 68, key: 'D', label: 'KICK'},
-        {dataKey: 70, key: 'F', label: 'OPENHAT'},
-        {dataKey: 71, key: 'G', label: 'BOOM'},
-        {dataKey: 72, key: 'H', label: 'HEY'},
-        {dataKey: 74, key: 'J', label: 'SCREECH'},
-        {dataKey: 75, key: 'K', label: 'HAMMOCK'},
-        {dataKey: 76, key: 'L', label: 'TRIANGLE'}
-    ];
+    // const keys = [
+    //     {dataKey: 65, key: 'A', label: 'CLAP'},
+    //     {dataKey: 83, key: 'S', label: 'HIHAT'},
+    //     {dataKey: 68, key: 'D', label: 'KICK'},
+    //     {dataKey: 70, key: 'F', label: 'OPENHAT'},
+    //     {dataKey: 71, key: 'G', label: 'BOOM'},
+    //     {dataKey: 72, key: 'H', label: 'HEY'},
+    //     {dataKey: 74, key: 'J', label: 'SCREECH'},
+    //     {dataKey: 75, key: 'K', label: 'HAMMOCK'},
+    //     {dataKey: 76, key: 'L', label: 'TRIANGLE'}
+    // ];
 
-    const sounds = {
-        65: clap,
-        83: hihat,
-        68: kick,
-        70: openhat,
-        71: boom,
-        72: hey,
-        74: screech,
-        75: hammock,
-        76: triangle
+    const keys = {
+        65: {key: 'A', label: 'CLAP', file: clap},
+        83: {key: 'S', label: 'HIHAT', file: hihat},
+        68: {key: 'D', label: 'KICK', file: kick},
+        70: {key: 'F', label: 'OPENHAT', file: openhat},
+        71: {key: 'G', label: 'BOOM', file: boom},
+        72: {key: 'H', label: 'HEY', file: hey},
+        74: {key: 'J', label: 'SCREECH', file: screech},
+        75: {key: 'K', label: 'HAMMOCK', file: hammock},
+        76: {key: 'L', label: 'TRIANGLE', file: triangle}
     };
+
+    // console.log('keys', keys);
+    console.log('keyss', Object.entries(keys));
+
+    // const sounds = {
+    //     65: clap,
+    //     83: hihat,
+    //     68: kick,
+    //     70: openhat,
+    //     71: boom,
+    //     72: hey,
+    //     74: screech,
+    //     75: hammock,
+    //     76: triangle
+    // };
 
     // const [playing, setPlaying] = useState({
     //     65: false,
@@ -51,26 +66,26 @@ const Drums = () => {
     const [playing, setPlaying] = useState(0);    
     
     const keyHandler = ({ keyCode }) => {
-        if (!sounds[keyCode]) return
-        const sound = new Audio(sounds[keyCode]);
+        if (!keys[keyCode]) return
+        const sound = new Audio(keys[keyCode].file);
         setPlaying(keyCode);
         sound.currentTime = 0;
         sound.play();
 
-        console.log('sound', sound);
-        console.log('boom :', sound, typeof sound);
+        // console.log('sound', sound);
+        // console.log('boom :', sound, typeof sound);
     }
 
     useEffect(() => {
         window.addEventListener('keydown', keyHandler);
         return () => {
             window.removeEventListener('keydown', keyHandler);
-            console.log('removed eventListener');
+            // console.log('removed eventListener');
         }
     }, []);
 
     function transitionEndHandler(e) {
-        e.persist();
+        // e.persist();
         if (e.propertyName !== 'transform') return
         setPlaying(0);
         // console.log('transitionEndHandler', e);
@@ -82,7 +97,7 @@ const Drums = () => {
         <div className="Drums">
             <h1>Drums</h1>
             <div className="Keys">
-               {keys.map(({ dataKey, key, label}) => {                    
+               {Object.entries(keys).map(([dataKey, { key, label}]) => {                    
                     return (
                         <Key 
                             dataKey={dataKey} 
