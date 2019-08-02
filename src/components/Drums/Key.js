@@ -1,14 +1,14 @@
 import React from 'react';
 import './Key.css';
 
-const Key = ({ dataKey, letter, label, playing, onTransitionEnd}) => {
+const Key = ({ letter, label, playing, onTransitionEnd }) => {
     // const play = playing ? 'playing' : null;
     // console.log('play :', play); 
     // console.log('playing :', playing);
 
     return (        
         <div 
-            data-key={dataKey} 
+            // id={id} 
             className={['Key', playing ? 'playing' : null].join` `}
             onTransitionEnd={onTransitionEnd}
         >
