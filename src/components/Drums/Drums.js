@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Key from './Key';
 import './Drums.css';
 import clap from './audio/clap.mp3';
@@ -21,8 +21,9 @@ const Drums = () => {
         {dataKey: 72, key: 'H', label: 'HEY'},
         {dataKey: 74, key: 'J', label: 'SCREECH'},
         {dataKey: 75, key: 'K', label: 'HAMMOCK'},
-        {dataKey: 76, key: 'L', label: 'TRIANGLE'},
+        {dataKey: 76, key: 'L', label: 'TRIANGLE'}
     ];
+
     const sounds = {
         65: clap,
         83: hihat,
@@ -32,16 +33,31 @@ const Drums = () => {
         72: hey,
         74: screech,
         75: hammock,
-        76: triangle,
-    }
+        76: triangle
+    };
 
+    // const [playing, setPlaying] = useState({
+    //     65: false,
+    //     83: false,
+    //     68: false,
+    //     70: false,
+    //     71: true,
+    //     72: false,
+    //     74: false,
+    //     75: false,
+    //     76: false
+    // });
+
+    const [playing, setPlaying] = useState(0);    
     
-    
-    const keyHandler = (d) => {
-        const sound = new Audio(sounds[d.keyCode]);
-        console.log('key Down', d.keyCode, sounds);
+    const keyHandler = ({ keyCode }) => {
+        if (!sounds[keyCode]) return
+        const sound = new Audio(sounds[keyCode]);
+        setPlaying(keyCode);
         sound.currentTime = 0;
         sound.play();
+
+        console.log('sound', sound);
         console.log('boom :', sound, typeof sound);
     }
 
@@ -52,20 +68,34 @@ const Drums = () => {
             console.log('removed eventListener');
         }
     }, []);
+
+    function transitionEndHandler(e) {
+        e.persist();
+        if (e.propertyName !== 'transform') return
+        setPlaying(0);
+        // console.log('transitionEndHandler', e);
+        // console.log('this :', this);
+    }
     
     
     return (
         <div className="Drums">
             <h1>Drums</h1>
             <div className="Keys">
-               {keys.map(({ dataKey, key, label}) => {
-                   return (
-                       <Key dataKey={dataKey} key={key} letter={key} label={label}/>
+               {keys.map(({ dataKey, key, label}) => {                    
+                    return (
+                        <Key 
+                            dataKey={dataKey} 
+                            key={key} 
+                            letter={key} 
+                            label={label} 
+                            // playing={playing[dataKey]}
+                            playing={playing === dataKey}
+                            onTransitionEnd={transitionEndHandler}
+                        />
                    )
                })}
-            </div>
-            {/* <Boom /> */}
-            
+            </div>           
         </div>
     )
 }
