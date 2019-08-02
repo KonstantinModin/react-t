@@ -11,8 +11,7 @@ import screech from './audio/screech.wav';
 import hammock from './audio/hammock.wav';
 import triangle from './audio/triangle.wav';
 
-const Drums = () => {    
-
+const Drums = () => {
     const keys = {
         65: {id: 1, key: 'A', label: 'CLAP', file: clap},
         83: {id: 2, key: 'S', label: 'HIHAT', file: hihat},
@@ -23,24 +22,24 @@ const Drums = () => {
         74: {id: 7, key: 'J', label: 'SCREECH', file: screech},
         75: {id: 8, key: 'K', label: 'HAMMOCK', file: hammock},
         76: {id: 9, key: 'L', label: 'TRIANGLE', file: triangle}
-    };
-    
-    console.log('keyss', Object.entries(keys));    
+    }; 
 
     const [playing, setPlaying] = useState(0);    
     
-    const keyHandler = ({ keyCode }) => {
-        console.log('keyCode', keyCode);
-        if (!keys[keyCode]) return
-        const sound = new Audio(keys[keyCode].file);
-        setPlaying(keyCode);
+    const keyHandler = (event) => {
+        const key = event.keyCode || Number(event.target.dataset.key);        
+        if (!keys[key]) return
+        
+        const sound = new Audio(keys[key].file);
+        setPlaying(key);
         sound.currentTime = 0;
         sound.play();
     };
 
     useEffect(() => {
-        window.addEventListener('keydown', keyHandler);
+        window.addEventListener('keydown', keyHandler);        
         return () => window.removeEventListener('keydown', keyHandler);
+        // eslint-disable-next-line
     }, []);
 
     const transitionEndHandler = (e) => {        
@@ -57,11 +56,13 @@ const Drums = () => {
                {Object.entries(keys).sort(sortFunction).map(([dataKey, { id, key, label}]) => {
                     return (
                         <Key                              
+                            dataKey={dataKey}
                             key={id} 
                             letter={key} 
                             label={label}                            
                             playing={playing === Number(dataKey)}
                             onTransitionEnd={transitionEndHandler}
+                            onClick={keyHandler}
                         />
                     )
                })}

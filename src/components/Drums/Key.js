@@ -1,20 +1,18 @@
 import React from 'react';
 import './Key.css';
 
-const Key = ({ letter, label, playing, onTransitionEnd }) => {
-    // const play = playing ? 'playing' : null;
-    // console.log('play :', play); 
-    // console.log('playing :', playing);
-
+const Key = ({ dataKey, letter, label, playing, onTransitionEnd, onClick }) => {
     return (        
-        <div 
-            // id={id} 
+        <div             
             className={['Key', playing ? 'playing' : null].join` `}
             onTransitionEnd={onTransitionEnd}
+            onClick={onClick}
+            data-key={dataKey}
         >
-            <kbd>{letter}</kbd>
-            <span className="sound">{label}</span>
+            <kbd data-key={dataKey}>{letter}</kbd>
+            <span className="sound" data-key={dataKey}>{label}</span>
         </div>        
     )
 }
+
 export default Key;
