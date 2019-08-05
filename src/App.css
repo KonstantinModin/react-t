@@ -1,8 +1,8 @@
 .Container {
     /* height: 90vh; */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     /* border: 1px solid red; */
     position: fixed;
     top: 75px;
