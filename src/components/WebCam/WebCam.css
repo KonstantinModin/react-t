@@ -1,0 +1,23 @@
+.WebCam {
+    margin: auto;
+}
+.RGB {
+    margin: 15px 0;
+}
+
+.RGB input {
+    padding: 2px;
+    margin: 0 20px 0 0;
+}
+
+.Controls button {
+    padding: 10px 25px;
+    margin: 15px 0;
+}
+
+.RGB label {
+    padding: 2px;
+    margin-right: 10px;
+    position: relative;
+    top: -10px;
+}
