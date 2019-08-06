@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import snap from './snap.wav';
 import './WebCam.css';
 
 const WebCam = () => {
     const videoRef = React.createRef();
     const canvasRef = React.createRef();
     
-    // const [ canvasSize, setCanvasSize ] = useState([320, 240]);
+    // const [ isVideoLoading, setIsVideoLoading ] = useState(true);
     
     const getVideo = () => {
         navigator.mediaDevices.getUserMedia({video: true, audio: false})
@@ -19,11 +20,16 @@ const WebCam = () => {
                 
             })
             .catch(err => console.error('Ошибка!', err));
+        videoRef.current.addEventListener('canplay', paintToCanvas);
     };
 
-    const paintToCanvas = () => {
+    const paintToCanvas = () => {        
+        // console.log('paint');
         const canvas = canvasRef.current;
         const video = videoRef.current;
+        // console.log(video.readyState);
+
+        if (video.readyState !== video.HAVE_ENOUGH_DATA) return
 
         const width = video.videoWidth;
         const height = video.videoHeight;
@@ -35,15 +41,28 @@ const WebCam = () => {
         // console.log(canvasRef.current.getContext.toString());
         
         const ctx = canvas.getContext('2d');
-        console.log('canvas.width', canvas.width);
+        // console.log('canvas.width', canvas.width);
         ctx.drawImage(videoRef.current, 0, 0, width, height);
-        
+        requestAnimationFrame(paintToCanvas);
     };
 
-    useEffect(() => {
-        // console.log('videoRef :', videoRef);
+    const takePhoto = () => {
+        const sound = new Audio(snap);
+        sound.currentTime = 0;
+        sound.play();
+    }
+
+    useEffect(() => {       
         getVideo();
-        // paintToCanvas();
+        return () => {
+            // videoRef.current.srcObject.stop();
+            // // if (this.stream.getVideoTracks && this.stream.getAudioTracks) {
+            // //     this.stream.getVideoTracks().map(track => track.stop());
+            // //     this.stream.getAudioTracks().map(track => track.stop());
+            // //   } else {
+            // //     this.stream.stop();
+            // //   }
+        }
         // eslint-disable-next-line
     }, []);
 
@@ -52,7 +71,8 @@ const WebCam = () => {
             <h1>WebCam</h1>
             <div className="Upper">
                 <div className="Controls">
-                    <button type="button" className="btn btn-success" onClick={paintToCanvas}>Take Photo</button>
+                    <button type="button" className="btn btn-success" onClick={paintToCanvas}>Start Canvas</button>
+                    <button type="button" className="btn btn-success" onClick={takePhoto}>Take Photo</button>
                     <div className="RGB">
                         <label htmlFor="rmin">Red Min:</label>
                         <input type="range" min={0} max={255} name="rmin" />
