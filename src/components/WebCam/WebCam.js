@@ -24,8 +24,12 @@ const WebCam = () => {
         setCanvasSize([width, height]);
         console.log(width, height);
         // console.log(canvasRef.current.getContext.toString());
+        try {
         const ctx = canvasRef.current.getContext('2d');
-        ctx.drawImage(videoRef.current, 0, 0, width, height);
+        ctx.drawImage(videoRef.current.srcObject, 0, 0, width, height);
+        } catch(error) {
+            console.log('error', error);
+        };
     };
 
     useEffect(() => {
