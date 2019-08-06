@@ -3,6 +3,8 @@
 }
 .RGB {
     margin: 15px 0;
+    /* display: inline; */
+    /* border: 1px solid red; */
 }
 
 .RGB input {
@@ -15,9 +17,21 @@
     margin: 15px 0;
 }
 
+.Upper {
+    display: flex;    
+}
+
+
 .RGB label {
     padding: 2px;
     margin-right: 10px;
     position: relative;
     top: -10px;
+}
+
+.WebCam video {
+    height: 180px;
+    width: 240px;
+    display: inline;
+    margin: 0 0 0 100px;
 }
