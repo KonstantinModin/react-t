@@ -1,5 +1,5 @@
 .WebCam {
-    margin: auto;
+    margin: 0 auto 0 auto;
 }
 .RGB {
     margin: 15px 0;
@@ -34,4 +34,21 @@
     width: 240px;
     display: inline;
     margin: 0 0 0 100px;
+}
+
+.Strip {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    /* height: 156px; */
+    /* border: 1px solid red; */
+}
+
+.Strip img {
+    width: 64px;
+    height: 48px;
+}
+
+.Strip a {
+    padding: 0 10px 0 2px;    
 }

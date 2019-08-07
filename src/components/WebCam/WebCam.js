@@ -6,14 +6,16 @@ const WebCam = () => {
     const videoRef = React.createRef();
     const canvasRef = React.createRef();
     
-    // const [ isVideoLoading, setIsVideoLoading ] = useState(true);
+    const [ snapShots, setSnapShots ] = useState([]);
+    const [ globalStream, setGlobalStream ] = useState(null);
     
     const getVideo = () => {
         navigator.mediaDevices.getUserMedia({video: true, audio: false})
             .then(stream => {
-                // console.log(stream);                
+                // console.log(stream);
                 videoRef.current.srcObject = stream;
                 videoRef.current.play();
+                // setGlobalStream(stream);                
                 // requestAnimationFrame(paintToCanvas);
                 
                 // setCanvasSize([width, height]);
@@ -21,6 +23,7 @@ const WebCam = () => {
             })
             .catch(err => console.error('Ошибка!', err));
         videoRef.current.addEventListener('canplay', paintToCanvas);
+        console.log('navigator.mediaDevices', navigator.mediaDevices);
     };
 
     const paintToCanvas = () => {        
@@ -29,7 +32,7 @@ const WebCam = () => {
         const video = videoRef.current;
         // console.log(video.readyState);
 
-        if (video.readyState !== video.HAVE_ENOUGH_DATA) return
+        if (!video) return
 
         const width = video.videoWidth;
         const height = video.videoHeight;
@@ -44,17 +47,31 @@ const WebCam = () => {
         // console.log('canvas.width', canvas.width);
         ctx.drawImage(videoRef.current, 0, 0, width, height);
         requestAnimationFrame(paintToCanvas);
+       
     };
 
     const takePhoto = () => {
         const sound = new Audio(snap);
         sound.currentTime = 0;
         sound.play();
+        const data = canvasRef.current.toDataURL('image/jpeg');
+        // console.log('data :', data);
+        const newElement = {
+            name: new Date().toString().slice(4,21),
+            data: data            
+        };
+        const newSnapShots = [...snapShots, newElement]
+        setSnapShots(newSnapShots);
+        console.log('newSnapShots :', newSnapShots);
     }
 
     useEffect(() => {       
         getVideo();
         return () => {
+            // videoRef.current.stop();
+            // console.log('globalStream', globalStream);
+            // globalStream.stop();
+            // videoRef.current.removeEventListener('canplay', paintToCanvas);
             // videoRef.current.srcObject.stop();
             // // if (this.stream.getVideoTracks && this.stream.getAudioTracks) {
             // //     this.stream.getVideoTracks().map(track => track.stop());
@@ -64,9 +81,10 @@ const WebCam = () => {
             // //   }
         }
         // eslint-disable-next-line
-    }, []);
+    });
 
-    return (
+    return (      
+
         <div className="WebCam">
             <h1>WebCam</h1>
             <div className="Upper">
@@ -103,7 +121,17 @@ const WebCam = () => {
                 ref={canvasRef}                
             />
             
-            <div className="Strip"></div>
+            <div className="Strip">{
+                snapShots.map(({ data, name }) => {
+                    return (
+                        <a 
+                            href={data} 
+                            download={`photo${name}`}
+                            // innerHTML=
+                            ><img src={data} alt="SnapShot" />{name}</a>
+                        )
+                })}
+            </div>
         </div>
     )
 }
