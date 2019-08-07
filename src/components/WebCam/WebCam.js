@@ -67,11 +67,13 @@ const WebCam = () => {
             break;
             case 'split': rgbSplit(pixels);
             break;
+            case 'greenScreen': greenScreen(pixels);
+            break;
             default: break;
         } 
         
         ctx.globalAlpha = 0.8;
-        ctx.putImageData(pixels, 0, 0);
+        if (pixels) ctx.putImageData(pixels, 0, 0);
         requestAnimationFrame(paintToCanvas);       
     };
 
@@ -91,7 +93,22 @@ const WebCam = () => {
             pixels.data[i - 500] = pixels.data[i + 2];
         }
         return pixels;
-    }    
+    };
+    
+    const greenScreen = (pixels) => {
+        if (!pixels) return
+        const { rmin, rmax, gmax, gmin, bmax, bmin } = greenScreenParameters;
+        for (let i = 0; i < pixels.data.length; i += 4) {
+            const red = pixels.data[i + 0];
+            const green = pixels.data[i + 1];
+            const blue = pixels.data[i + 2];
+            if (red >= rmin && green >= gmin && blue >= bmin &&
+                red <= rmax && green <= gmax && blue <= bmax ) {
+                    pixels.data[i + 3] = 0;
+                }
+        }
+        return pixels;
+    };
 
     const takePhoto = () => {
         const sound = new Audio(snap);
@@ -116,12 +133,11 @@ const WebCam = () => {
         // eslint-disable-next-line
     });
 
-    const inputHandler = ({target: {name, value}}) => {
-        console.log('this is :', name, value);
+    const inputHandler = ({target: {name, value}}) => {        
         const newParameters = {...greenScreenParameters};
         newParameters[name] = value;
         setGreenScreenParameters(newParameters);
-    }
+    };
 
     return (      
 
@@ -131,6 +147,7 @@ const WebCam = () => {
                 <div className="Controls">
                     {/* <button type="button" className="btn btn-success" onClick={paintToCanvas}>Start Canvas</button> */}
                     <button type="button" className="btn btn-success" onClick={takePhoto}>Take Photo</button>
+                    <button className="btn btn-success" onClick={() => setEffect('greenScreen')}>Green Screen</button>
                     <button className="btn btn-success" onClick={() => setEffect('red')}>Red</button>
                     <button className="btn btn-success" onClick={() => setEffect('green')}>Green</button>
                     <button className="btn btn-success" onClick={() => setEffect('blue')}>Blue</button>
