@@ -7,7 +7,7 @@ const WebCam = () => {
     const canvasRef = React.createRef();
     
     const [ snapShots, setSnapShots ] = useState([]);
-    const [ globalStream, setGlobalStream ] = useState(null);
+    const [ effect, setEffect ] = useState('');
     
     const getVideo = () => {
         navigator.mediaDevices.getUserMedia({video: true, audio: false})
@@ -25,6 +25,8 @@ const WebCam = () => {
         videoRef.current.addEventListener('canplay', paintToCanvas);
         console.log('navigator.mediaDevices', navigator.mediaDevices);
     };
+
+    
 
     const paintToCanvas = () => {        
         // console.log('paint');
@@ -46,9 +48,41 @@ const WebCam = () => {
         const ctx = canvas.getContext('2d');
         // console.log('canvas.width', canvas.width);
         ctx.drawImage(videoRef.current, 0, 0, width, height);
+        let pixels = ctx.getImageData(0, 0, width, height);
+        
+        switch (effect) {
+            case 'red': redEffect(pixels);
+            break;
+            case 'split': rgbSplit(pixels);
+            break;
+            default: break;
+        } 
+        
+        ctx.globalAlpha = 0.8;
+        ctx.putImageData(pixels, 0, 0);
         requestAnimationFrame(paintToCanvas);
        
     };
+
+    const redEffect = (pixels) => {
+        for (let i = 0; i < pixels.data.length; i += 4) {
+            pixels.data[i + 0] = pixels.data[i + 0] + 100;
+            pixels.data[i + 1] = pixels.data[i + 1] - 50;
+            pixels.data[i + 2] = pixels.data[i + 2] * 0.5;
+        }
+        return pixels;
+    };
+
+    const rgbSplit = (pixels) => {
+        for (let i = 0; i < pixels.data.length; i += 4) {
+            pixels.data[i - 150] = pixels.data[i + 0];
+            pixels.data[i + 500] = pixels.data[i + 1];
+            pixels.data[i - 500] = pixels.data[i + 2];
+        }
+        return pixels;
+    }
+
+    
 
     const takePhoto = () => {
         const sound = new Audio(snap);
@@ -91,6 +125,9 @@ const WebCam = () => {
                 <div className="Controls">
                     <button type="button" className="btn btn-success" onClick={paintToCanvas}>Start Canvas</button>
                     <button type="button" className="btn btn-success" onClick={takePhoto}>Take Photo</button>
+                    <button className="btn btn-success" onClick={() => setEffect('red')}>Red</button>
+                    <button className="btn btn-success" onClick={() => setEffect('split')}>Split</button>
+                    <button className="btn btn-success" onClick={() => setEffect('')}>Norm</button>
                     <div className="RGB">
                         <label htmlFor="rmin">Red Min:</label>
                         <input type="range" min={0} max={255} name="rmin" />
