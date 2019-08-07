@@ -8,6 +8,14 @@ const WebCam = () => {
     
     const [ snapShots, setSnapShots ] = useState([]);
     const [ effect, setEffect ] = useState('');
+    const [ greenScreenParameters, setGreenScreenParameters ] = useState({
+        rmin: 10,
+        rmax: 40,
+        gmin: 10,
+        gmax: 40,
+        bmin: 10,
+        bmax: 40
+    });
     
     const getVideo = () => {
         navigator.mediaDevices.getUserMedia({video: true, audio: false})
@@ -21,18 +29,16 @@ const WebCam = () => {
                 // setCanvasSize([width, height]);
                 
             })
-            .catch(err => console.error('Ошибка!', err));
+            .catch(err => {});
         videoRef.current.addEventListener('canplay', paintToCanvas);
-        console.log('navigator.mediaDevices', navigator.mediaDevices);
+        // console.log('navigator.mediaDevices', navigator.mediaDevices);
     };
 
     
 
-    const paintToCanvas = () => {        
-        // console.log('paint');
+    const paintToCanvas = () => {         
         const canvas = canvasRef.current;
-        const video = videoRef.current;
-        // console.log(video.readyState);
+        const video = videoRef.current;        
 
         if (!video) return
 
@@ -40,18 +46,24 @@ const WebCam = () => {
         const height = video.videoHeight;
 
         canvas.height = height;
-        canvas.width = width;
-
-        // console.log(width, height);
-        // console.log(canvasRef.current.getContext.toString());
+        canvas.width = width;       
         
         const ctx = canvas.getContext('2d');
-        // console.log('canvas.width', canvas.width);
-        ctx.drawImage(videoRef.current, 0, 0, width, height);
-        let pixels = ctx.getImageData(0, 0, width, height);
-        
+       
+        ctx.drawImage(video, 0, 0, width, height);
+        let pixels;
+        try {
+            pixels = ctx.getImageData(0, 0, width, height);
+        } catch(error) {
+            console.error('Ошибка в CTX', error);
+        }
+
         switch (effect) {
-            case 'red': redEffect(pixels);
+            case 'red': colorEffect(pixels, 90, -20, 0);
+            break;
+            case 'green': colorEffect(pixels, 0, 50, 0);
+            break;
+            case 'blue': colorEffect(pixels, 0, -50, 100);
             break;
             case 'split': rgbSplit(pixels);
             break;
@@ -60,15 +72,14 @@ const WebCam = () => {
         
         ctx.globalAlpha = 0.8;
         ctx.putImageData(pixels, 0, 0);
-        requestAnimationFrame(paintToCanvas);
-       
+        requestAnimationFrame(paintToCanvas);       
     };
 
-    const redEffect = (pixels) => {
+    const colorEffect = (pixels, R, G, B) => {
         for (let i = 0; i < pixels.data.length; i += 4) {
-            pixels.data[i + 0] = pixels.data[i + 0] + 100;
-            pixels.data[i + 1] = pixels.data[i + 1] - 50;
-            pixels.data[i + 2] = pixels.data[i + 2] * 0.5;
+            pixels.data[i + 0] = pixels.data[i + 0] + R;
+            pixels.data[i + 1] = pixels.data[i + 1] + G;
+            pixels.data[i + 2] = pixels.data[i + 2] + B;
         }
         return pixels;
     };
@@ -80,42 +91,37 @@ const WebCam = () => {
             pixels.data[i - 500] = pixels.data[i + 2];
         }
         return pixels;
-    }
-
-    
+    }    
 
     const takePhoto = () => {
         const sound = new Audio(snap);
         sound.currentTime = 0;
         sound.play();
         const data = canvasRef.current.toDataURL('image/jpeg');
-        // console.log('data :', data);
+       
         const newElement = {
             name: new Date().toString().slice(4,21),
             data: data            
         };
-        const newSnapShots = [...snapShots, newElement]
+        const newSnapShots = [...snapShots, newElement];
         setSnapShots(newSnapShots);
-        console.log('newSnapShots :', newSnapShots);
-    }
+        // console.log('newSnapShots :', newSnapShots);
+    };
 
     useEffect(() => {       
         getVideo();
         return () => {
-            // videoRef.current.stop();
-            // console.log('globalStream', globalStream);
-            // globalStream.stop();
-            // videoRef.current.removeEventListener('canplay', paintToCanvas);
-            // videoRef.current.srcObject.stop();
-            // // if (this.stream.getVideoTracks && this.stream.getAudioTracks) {
-            // //     this.stream.getVideoTracks().map(track => track.stop());
-            // //     this.stream.getAudioTracks().map(track => track.stop());
-            // //   } else {
-            // //     this.stream.stop();
-            // //   }
+           //add camera turn-off
         }
         // eslint-disable-next-line
     });
+
+    const inputHandler = ({target: {name, value}}) => {
+        console.log('this is :', name, value);
+        const newParameters = {...greenScreenParameters};
+        newParameters[name] = value;
+        setGreenScreenParameters(newParameters);
+    }
 
     return (      
 
@@ -123,26 +129,28 @@ const WebCam = () => {
             <h1>WebCam</h1>
             <div className="Upper">
                 <div className="Controls">
-                    <button type="button" className="btn btn-success" onClick={paintToCanvas}>Start Canvas</button>
+                    {/* <button type="button" className="btn btn-success" onClick={paintToCanvas}>Start Canvas</button> */}
                     <button type="button" className="btn btn-success" onClick={takePhoto}>Take Photo</button>
                     <button className="btn btn-success" onClick={() => setEffect('red')}>Red</button>
+                    <button className="btn btn-success" onClick={() => setEffect('green')}>Green</button>
+                    <button className="btn btn-success" onClick={() => setEffect('blue')}>Blue</button>
                     <button className="btn btn-success" onClick={() => setEffect('split')}>Split</button>
                     <button className="btn btn-success" onClick={() => setEffect('')}>Norm</button>
                     <div className="RGB">
                         <label htmlFor="rmin">Red Min:</label>
-                        <input type="range" min={0} max={255} name="rmin" />
+                        <input onChange={inputHandler} type="range" min={0} max={255} name="rmin" value={greenScreenParameters.rmin} />
                         <label htmlFor="rmax">Red Max:</label>
-                        <input type="range" min={0} max={255} name="rmax" />
+                        <input onChange={inputHandler} type="range" min={0} max={255} name="rmax" value={greenScreenParameters.rmax} />
                         <br />
                         <label htmlFor="gmin">Green Min:</label>
-                        <input type="range" min={0} max={255} name="gmin" />
+                        <input onChange={inputHandler} type="range" min={0} max={255} name="gmin" value={greenScreenParameters.gmin} />
                         <label htmlFor="gmax">Green Max:</label>
-                        <input type="range" min={0} max={255} name="gmax" />
+                        <input onChange={inputHandler} type="range" min={0} max={255} name="gmax" value={greenScreenParameters.gmax}/>
                         <br />
                         <label htmlFor="bmin">Blue Min:</label>
-                        <input type="range" min={0} max={255} name="bmin" />
+                        <input onChange={inputHandler} type="range" min={0} max={255} name="bmin" value={greenScreenParameters.bmin}/>
                         <label htmlFor="bmax">Blue Max:</label>
-                        <input type="range" min={0} max={255} name="bmax" />
+                        <input onChange={inputHandler} type="range" min={0} max={255} name="bmax" value={greenScreenParameters.bmax}/>
                         <br />
                     </div>
                 </div>
