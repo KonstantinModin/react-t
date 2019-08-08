@@ -1,34 +1,34 @@
 :root {
     --base: #ffc600;
     --spacing: 10px;
-    --blur: 10px;
+    --blur: 0px;
+    --brightness: 100%;
+    --grayscale: 0%;
+    --hue: 0deg;
+    --invert: 0%;
+    --opacity: 100%;
 }
 .VariblesSubDiv img {
     padding: var(--spacing);
     background: var(--base);
-    filter: blur(var(--blur));
+    filter: blur(var(--blur)) brightness(var(--brightness)) grayscale(var(--grayscale)) hue-rotate(var(--hue)) invert(var(--invert)) opacity(var(--opacity));
 }
 
 .Variables .hl {
     color: var(--base);
 }
 
-
 .Variables {
     margin: 50px 0 0 50px;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    justify-content: space-between;    
     /* border: 1px solid red; */
 }
 
 .VariblesSubDiv {
     height: 540px;
     /* border: 1px solid red; */
-}
-
-.Info {
-    /* border: 1px solid red; */
-    /* display: none; */
 }
 
 .VarControls label {
@@ -44,4 +44,25 @@
 .VarControls .ColorInput {
     position: relative;
     top: -7px;    
+}
+
+.Info {
+    /* border: 1px solid grey; */
+}
+
+.Info > * {
+    font-size: 70%;
+    /* border: 1px solid grey; */
+    /* margin: auto auto auto 0;  */
+    /* position: absolute;
+    top: 85vh; */
+}
+
+.Info .AccContent {
+    /* border: 1px solid grey; */
+    /* display: none; */
+}
+
+.Info .AccLabel {
+    /* border: 1px solid grey; */
 }
