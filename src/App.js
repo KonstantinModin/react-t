@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Drums from './components/Drums';
 import WebCam from './components/WebCam';
 import Home from './components/Home';
+import Draw from './components/Draw';
+import Variables from './components/Variables';
 import Back from './45621.jpg';
 import './App.css';
 
@@ -23,6 +25,8 @@ function App() {
                 <Route path="/clock" component={Clock} />
                 <Route path="/drums" component={Drums} />
                 <Route path="/webcam" component={WebCam} />
+                <Route path="/draw" component={Draw} />
+                <Route path="/variables" component={Variables} />
                 <Redirect to="/" />
             </div>
         </div>

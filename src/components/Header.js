@@ -11,6 +11,8 @@ const Header = () => {
                 <Link to="/clock">Clock</Link>
                 <Link to="/drums">Drums</Link>
                 <Link to="/webcam">WebCam</Link>
+                <Link to="/draw">Draw</Link>
+                <Link to="/variables">CSS Variables</Link>
             </div>
         </header>
     )

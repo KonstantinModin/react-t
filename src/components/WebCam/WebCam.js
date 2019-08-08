@@ -9,38 +9,32 @@ const WebCam = () => {
     const [ snapShots, setSnapShots ] = useState([]);
     const [ effect, setEffect ] = useState('');
     const [ greenScreenParameters, setGreenScreenParameters ] = useState({
-        rmin: 10,
-        rmax: 40,
-        gmin: 10,
-        gmax: 40,
-        bmin: 10,
-        bmax: 40
+        rmin: 0,
+        rmax: 80,
+        gmin: 0,
+        gmax: 80,
+        bmin: 0,
+        bmax: 80
     });
+
+    let _global_stream = null;
     
     const getVideo = () => {
         navigator.mediaDevices.getUserMedia({video: true, audio: false})
-            .then(stream => {
-                // console.log(stream);
-                videoRef.current.srcObject = stream;
-                videoRef.current.play();
-                // setGlobalStream(stream);                
-                // requestAnimationFrame(paintToCanvas);
-                
-                // setCanvasSize([width, height]);
-                
+            .then(stream => {                
+                _global_stream = stream;
+                videoRef.current.srcObject = _global_stream;
+                videoRef.current.play(); 
             })
             .catch(err => {});
-        videoRef.current.addEventListener('canplay', paintToCanvas);
-        // console.log('navigator.mediaDevices', navigator.mediaDevices);
-    };
-
-    
+        videoRef.current.addEventListener('canplay', paintToCanvas);        
+    };    
 
     const paintToCanvas = () => {         
         const canvas = canvasRef.current;
         const video = videoRef.current;        
 
-        if (!video) return
+        if (!video) return;
 
         const width = video.videoWidth;
         const height = video.videoHeight;
@@ -48,9 +42,10 @@ const WebCam = () => {
         canvas.height = height;
         canvas.width = width;       
         
-        const ctx = canvas.getContext('2d');
-       
+        const ctx = canvas.getContext('2d');       
         ctx.drawImage(video, 0, 0, width, height);
+        // ctx.globalAlpha = 0.8;
+        
         let pixels;
         try {
             pixels = ctx.getImageData(0, 0, width, height);
@@ -72,7 +67,7 @@ const WebCam = () => {
             default: break;
         } 
         
-        ctx.globalAlpha = 0.8;
+        
         if (pixels) ctx.putImageData(pixels, 0, 0);
         requestAnimationFrame(paintToCanvas);       
     };
@@ -128,7 +123,7 @@ const WebCam = () => {
     useEffect(() => {       
         getVideo();
         return () => {
-           //add camera turn-off
+            if (_global_stream) _global_stream.getTracks()[0].stop();
         }
         // eslint-disable-next-line
     });
@@ -138,6 +133,8 @@ const WebCam = () => {
         newParameters[name] = value;
         setGreenScreenParameters(newParameters);
     };
+
+    const { rmin, rmax, gmax, gmin, bmax, bmin } = greenScreenParameters;
 
     return (      
 
@@ -154,19 +151,19 @@ const WebCam = () => {
                     <button className="btn btn-success" onClick={() => setEffect('split')}>Split</button>
                     <button className="btn btn-success" onClick={() => setEffect('')}>Norm</button>
                     <div className="RGB">
-                        <label htmlFor="rmin">Red Min:</label>
+                        <label htmlFor="rmin">Red Min: {rmin}</label>
                         <input onChange={inputHandler} type="range" min={0} max={255} name="rmin" value={greenScreenParameters.rmin} />
-                        <label htmlFor="rmax">Red Max:</label>
+                        <label htmlFor="rmax">Red Max: {rmax}</label>
                         <input onChange={inputHandler} type="range" min={0} max={255} name="rmax" value={greenScreenParameters.rmax} />
                         <br />
-                        <label htmlFor="gmin">Green Min:</label>
+                        <label htmlFor="gmin">Green Min: {gmin}</label>
                         <input onChange={inputHandler} type="range" min={0} max={255} name="gmin" value={greenScreenParameters.gmin} />
-                        <label htmlFor="gmax">Green Max:</label>
+                        <label htmlFor="gmax">Green Max: {gmax}</label>
                         <input onChange={inputHandler} type="range" min={0} max={255} name="gmax" value={greenScreenParameters.gmax}/>
                         <br />
-                        <label htmlFor="bmin">Blue Min:</label>
+                        <label htmlFor="bmin">Blue Min: {bmin}</label>
                         <input onChange={inputHandler} type="range" min={0} max={255} name="bmin" value={greenScreenParameters.bmin}/>
-                        <label htmlFor="bmax">Blue Max:</label>
+                        <label htmlFor="bmax">Blue Max: {bmax}</label>
                         <input onChange={inputHandler} type="range" min={0} max={255} name="bmax" value={greenScreenParameters.bmax}/>
                         <br />
                     </div>
