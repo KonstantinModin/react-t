@@ -1,0 +1,15 @@
+.Draw {
+    margin: 10px auto auto auto;
+}
+
+.Draw button {
+    margin-right: 5px;    
+}
+
+.Draw .Controls {
+    margin-left: 20px;
+}
+
+.Draw .Clear {
+    margin-left: 15px;
+}

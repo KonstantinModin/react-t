@@ -1,0 +1,47 @@
+:root {
+    --base: #ffc600;
+    --spacing: 10px;
+    --blur: 10px;
+}
+.VariblesSubDiv img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+}
+
+.Variables .hl {
+    color: var(--base);
+}
+
+
+.Variables {
+    margin: 50px 0 0 50px;
+    display: flex;
+    flex-direction: column;    
+    /* border: 1px solid red; */
+}
+
+.VariblesSubDiv {
+    height: 540px;
+    /* border: 1px solid red; */
+}
+
+.Info {
+    /* border: 1px solid red; */
+    /* display: none; */
+}
+
+.VarControls label {
+    position: relative;
+    top: -8px;
+    margin-right: 10px;
+}
+
+.VarControls input {    
+    margin-right: 10px;
+}
+
+.VarControls .ColorInput {
+    position: relative;
+    top: -7px;    
+}
