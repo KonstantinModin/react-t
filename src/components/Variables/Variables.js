@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import photo from './foto-1.jpg';
 import './Variables.css';
 
-const Variables = () => {
+const Variables = (props) => {
     const { appCodeName, appName, appVersion,  language, userAgent, vendor, geolocation } = navigator;
     const [ position, setPosition ] = useState([0, 0]);
     const [ controls, setControls ] = useState({
@@ -20,6 +20,7 @@ const Variables = () => {
         geolocation.getCurrentPosition((position) => {            
             setPosition([position.coords.latitude, position.coords.longitude]);
         });
+        console.log(props);
     // eslint-disable-next-line       
     }, []);
     
@@ -29,6 +30,20 @@ const Variables = () => {
         setControls({updatedControls});
         const suffix = dataset.sizing || '';
         document.documentElement.style.setProperty(`--${name}`, value + suffix);        
+    }
+
+    const resetHandler = () => {
+        setControls({
+            spacing: 10,
+            blur: 0,
+            base: '#ffc600',
+            brightness: 100,
+            grayscale: 0,
+            hue: 0,
+            invert: 0,
+            opacity: 100
+        });
+        console.log('reset!');
     }
 
     return (
@@ -68,6 +83,7 @@ const Variables = () => {
                     <input 
                         className="ColorInput" type="color" name="base" value={controls.base}  
                         onChange={inputHandler}/>
+                    <button className="btn btn-danger Reset" onClick={resetHandler}>Reset</button>
                 </div>
                 <img src={photo} alt="sample"/>
             </div>        

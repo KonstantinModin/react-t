@@ -46,23 +46,18 @@
     top: -7px;    
 }
 
+.VarControls .Reset {
+    /* position: relative;
+    top: -8px; */
+    margin: 10px 15px;
+    width: 200px;
+    float: right;
+}
+
 .Info {
     /* border: 1px solid grey; */
 }
 
 .Info > * {
-    font-size: 70%;
-    /* border: 1px solid grey; */
-    /* margin: auto auto auto 0;  */
-    /* position: absolute;
-    top: 85vh; */
-}
-
-.Info .AccContent {
-    /* border: 1px solid grey; */
-    /* display: none; */
-}
-
-.Info .AccLabel {
-    /* border: 1px solid grey; */
+    font-size: 70%;    
 }
