@@ -43,6 +43,14 @@ const Variables = (props) => {
             invert: 0,
             opacity: 100
         });
+        document.documentElement.style.setProperty('--spacing', '10px'); 
+        document.documentElement.style.setProperty('--blur', '0px'); 
+        document.documentElement.style.setProperty('--base', '#ffc600'); 
+        document.documentElement.style.setProperty('--brightness', '100%'); 
+        document.documentElement.style.setProperty('--grayscale', '0%'); 
+        document.documentElement.style.setProperty('--hue', '0deg'); 
+        document.documentElement.style.setProperty('--invert', '0%'); 
+        document.documentElement.style.setProperty('--opacity', '100%'); 
         console.log('reset!');
     }
 
