@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import photo from './foto-1.jpg';
 import './Variables.css';
 
-const Variables = (props) => {
+const Variables = () => {
     const { appCodeName, appName, appVersion,  language, userAgent, vendor, geolocation } = navigator;
     const [ position, setPosition ] = useState([0, 0]);
     const [ controls, setControls ] = useState({
@@ -19,8 +19,7 @@ const Variables = (props) => {
     useEffect(() => {    
         geolocation.getCurrentPosition((position) => {            
             setPosition([position.coords.latitude, position.coords.longitude]);
-        });
-        console.log(props);
+        });        
     // eslint-disable-next-line       
     }, []);
     
@@ -56,12 +55,12 @@ const Variables = (props) => {
 
     return (
         <div className="Variables">
-            <h1><span className="hl">CSS </span>Variables</h1>
             <div className="VariblesSubDiv">
+                <h1><span className="hl">CSS </span>Variables</h1>
                 <div className="VarControls">
                     <label htmlFor="spacing">Spacing:</label>
                     <input 
-                        type="range" name="spacing" min={10} max={100} value={controls.spacing} data-sizing="px"
+                        type="range" name="spacing" min={10} max={80} value={controls.spacing} data-sizing="px"
                         onChange={inputHandler}/>
                     <label htmlFor="blur">Blur:</label>
                     <input 
