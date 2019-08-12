@@ -10,7 +10,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1vw;
+    /* grid-gap: 1vw; */
     /* border: 3px dotted white; */
     /* box-sizing: border-box; */
     height: calc(100vh - 132px);
@@ -28,4 +28,9 @@
 .Features .Grid .innerDiv{
     /* border: 1px solid red; */
     margin: auto;
+}
+
+.Features .Grid .Block1 .innerDiv h1{
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 1);
+    font-size: 100%;
 }
