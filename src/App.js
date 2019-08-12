@@ -11,6 +11,9 @@ import Back from './45621.jpg';
 import './App.css';
 
 function App() {    
+    console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
+    console.dir(document);
+    console.dir(window);    
 
     return (
         <div className="App">        
@@ -20,7 +23,7 @@ function App() {
                 <img src={Back} alt="background"/>
             </div>
 
-            <div className="Container">            
+            <div className="Container">                                     
                 <Route exact path="/" component={Home} />        
                 <Route path="/clock" component={Clock} />
                 <Route path="/drums" component={Drums} />
