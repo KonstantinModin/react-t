@@ -7,6 +7,7 @@ import WebCam from './components/WebCam';
 import Home from './components/Home';
 import Draw from './components/Draw';
 import Variables from './components/Variables';
+import Features from './components/Features';
 import Back from './45621.jpg';
 import './App.css';
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/webcam" component={WebCam} />
                 <Route path="/draw" component={Draw} />
                 <Route path="/variables" component={Variables} />
+                <Route path="/features" component={Features} />
                 <Redirect to="/" />
             </div>
         </div>

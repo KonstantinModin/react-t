@@ -13,6 +13,7 @@ const Header = () => {
                 <Link to="/webcam">WebCam</Link>
                 <Link to="/draw">Draw</Link>
                 <Link to="/variables">CSS Variables</Link>
+                <Link to="/features">Features</Link>
             </div>
         </header>
     )
