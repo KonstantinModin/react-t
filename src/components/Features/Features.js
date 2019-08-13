@@ -8,30 +8,32 @@ const Features = () => {
     const [ mouseIn, setMouseIn ] = useState(false);
     const [xCircle, setXCircle] = useState(-50);
 
+    const calculateCircle = () => {
+        console.log('mouseIn :', mouseIn);
+        if (!mouseIn) {// let x = -50;
+            console.log('begin', xCircle);
+            // debugger;
+            let r = 50;
+            let y = Math.sqrt(r*r - xCircle*xCircle);
+            if (shadowText.current) draw(xCircle, y);
+            setXCircle(prev => {
+                console.log('state :', prev);
+                return prev > 50 ? -50 : prev + 1
+            });
+            
+            console.log('end', xCircle, y);
+        }
+            // debugger;
+    }
+
     useEffect(() => {
-        const cycle = setInterval(() => {
-            console.log('mouseIn :', mouseIn);
-            if (!mouseIn) {// let x = -50;
-                console.log('begin', xCircle);
-                // debugger;
-                let r = 50;
-                let y = Math.sqrt(r*r - xCircle*xCircle);
-                if (shadowText.current) draw(xCircle, y);
-                setXCircle(prev => {
-                    console.log('state :', prev);
-                    return prev > 50 ? -50 : prev + 1
-                });
-                
-                console.log('end', xCircle, y);
-                // debugger;
-            }
-        }, 1000);
+        const cycle = setInterval(() => calculateCircle(), 1000);
         return () => {
             clearInterval(cycle);
         }
     }, []);
 
-
+    
 
     const mouseMoveHandler = (e) => {
         const walk = 100;        
