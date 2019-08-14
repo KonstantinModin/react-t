@@ -14,6 +14,7 @@ const Header = () => {
                 <Link to="/draw">Draw</Link>
                 <Link to="/variables">CSS Variables</Link>
                 <Link to="/features">Features</Link>
+                <Link to="/recognition">Recognition</Link>
             </div>
         </header>
     )

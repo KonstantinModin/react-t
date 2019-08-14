@@ -7,21 +7,21 @@ const Features = () => {
         <div className="Features">
             <h1>Features</h1>                
             <div className="Grid">
-                <Shadow />                    
+                <Shadow />                                    
                 <div className="Block2">
-                    <div className="innerDiv">2</div>
+                    <span className="innerDiv">2</span>
                 </div>
                 <div className="Block3">
-                    <div className="innerDiv">3</div>
+                    <span className="innerDiv">3</span>
                 </div>
                 <div className="Block4">
-                    <div className="innerDiv">4</div>
+                    <span className="innerDiv">4</span>
                 </div>
                 <div className="Block5">
-                    <div className="innerDiv">5</div>
+                    <span className="innerDiv">5</span>
                 </div>
                 <div className="Block6">
-                    <div className="innerDiv">6</div>
+                    <span className="innerDiv">6</span>
                 </div>                
             </div>
         </div>

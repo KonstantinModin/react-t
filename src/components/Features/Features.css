@@ -17,12 +17,16 @@
 }
 
 .Grid > div {
-    font-size: 5vw;
+    /* font-size: 5vw; */
     /* padding: .5em; */
     /* background: rgba(40, 140, 10, .2); */
     /* text-align: center; */
     display: flex;
     /* border: 1px solid blue; */
+}
+
+.Grid > div > span {
+    font-size: 5vw;
 }
 
 .Features .Grid .innerDiv{
