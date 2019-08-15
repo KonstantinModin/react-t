@@ -1,0 +1,9 @@
+.LinkEffect {
+    flex-wrap: wrap;
+    
+}
+
+.LinkEffect a {
+    width: 100px;
+    border: 1px solid blue;
+}
