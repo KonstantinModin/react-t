@@ -1,0 +1,37 @@
+.Recognition {
+    margin: 20px auto 0 20px;
+    /* border: 1px solid red; */
+    width: 100vw;
+}
+
+.Recognition .tex {
+    font-size: 200%;
+    width: 49vw;
+    /* border: 1px solid blue; */
+}
+
+
+.Recognition .Unicorne {
+    /* border: 1px solid blue; */
+    position: absolute;
+    top: 50%;
+    left: 150%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.Recognition .Active {
+    /* border: 1px solid blue; */
+    /* position: absolute; */
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.Recognition .textContainer {
+    display: flex;
+    /* border: 1px solid red; */
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 88%;
+}
