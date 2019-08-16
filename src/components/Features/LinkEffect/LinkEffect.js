@@ -5,9 +5,10 @@ const LinkEffect = () => {
     const highlight = React.createRef();
     
     const highlightHandler = ({target}) => {
-        const linkCoords = target.getBoundingClientRect();
-        const {width, height, top, left } = linkCoords;
-        
+        console.dir(target);
+        const {offsetTop, offsetLeft, clientHeight, clientWidth } = target;
+        console.log(offsetTop, offsetLeft, clientHeight, clientWidth);
+        console.dir(highlight.current);
         highlight.current.style.top = offsetTop+"px";
         highlight.current.style.left = offsetLeft+"px";
         highlight.current.style.height = clientHeight+"px";
