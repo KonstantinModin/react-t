@@ -1,9 +1,22 @@
 .LinkEffect {
     flex-wrap: wrap;
+    /* justify-content: center; */
     
 }
 
 .LinkEffect a {
     width: 100px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 120%;
+}
+
+.LinkEffect .highlight {
+    background-color: rgba(255, 255, 255, 0.199);
+    position: absolute;
+    transition: all 0.1s ease-in-out;
+    /* border-radius: 3px; */
+    border: 1px solid white;
 }
