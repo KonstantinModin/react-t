@@ -3,7 +3,7 @@ import './Recognition.css';
 import unicorne from './photo/1.png';
 
 const Recognition = () => {
-    // const [ status, setStatus ] = useState(false);
+    
     const [ recText, setRecText ] = useState('');
     const [ wholeText, setWholeText ] = useState([]);
     const [ unicornClasses, setUnicornClasses ] = useState("Unicorne");
@@ -40,7 +40,7 @@ const Recognition = () => {
         recognition.start();
         
         return () => {
-            recognition.addEventListener('result', recFunction);
+            recognition.removeEventListener('result', recFunction);
             recognition.removeEventListener('end', recognition.start);
             recognition.stop();
         }
@@ -50,11 +50,9 @@ const Recognition = () => {
     const resetHandler = () => {
         setWholeText([]);
         setRecText('');
+        setUnicornClasses("Unicorne");
     }
-
-    // const classesHandler = () => {
-    //     setUnicornClasses(unicornClasses === "Unicorne" ? "Unicorne Active" : "Unicorne");
-    // }
+    
 
     return (
         <div className="Recognition">            
