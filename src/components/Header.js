@@ -15,6 +15,7 @@ const Header = () => {
                 <Link to="/variables">CSS Variables</Link>
                 <Link to="/features">Features</Link>
                 <Link to="/recognition">Recognition</Link>
+                <Link to="/synthesis">Speech Synthesis</Link>
             </div>
         </header>
     )

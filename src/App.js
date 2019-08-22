@@ -9,6 +9,7 @@ import Draw from './components/Draw';
 import Variables from './components/Variables';
 import Features from './components/Features';
 import Recognition from './components/Recognition';
+import SpeechSyn from './components/SpeechSyn';
 import Back from './45621.jpg';
 import './App.css';
 
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/variables" component={Variables} />
                 <Route path="/features" component={Features} />
                 <Route path="/recognition" component={Recognition} />
+                <Route path="/synthesis" component={SpeechSyn} />
                 <Redirect to="/" />
             </div>
         </div>

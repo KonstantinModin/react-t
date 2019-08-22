@@ -1,0 +1,80 @@
+:root {
+    --op-norm: 0.3;    
+    --op-hov: 0.5;    
+}
+
+.SpeechSyn {
+    --op: var(--op-hov);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:auto;
+    width: 450px;
+    height: 700px;
+    border: 2px solid white;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.Select, .Rate, .Pitch, .TextArea {
+    width: 100%;
+    margin: 10px 0px;
+    outline: none;
+    
+}
+
+.TextArea {
+    height: 320px;
+    font-size: 130%;
+    border-radius: 10px;
+    resize: none;
+    outline: none;
+    padding: 3px;
+    
+}
+
+.ButtonContainer {
+    display: flex;
+    height: 80px;
+    /* border: 1px solid red; */
+}
+
+.SpeechSyn .btn {
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: auto;
+    padding: 8px 50px;
+    transition: all 0.1s ease-in-out;
+    font-size: 120%;
+     
+    
+}
+.SpeechSyn .btn:hover {
+    transform: scale(1.2);
+    color: rgb(255, 255, 154);    
+}
+
+.SpeechSyn .StopButton {
+    --op: var(--op-norm);
+    background-color: rgba(255, 0, 0, var(--op));
+    /* color:red; */
+}
+
+.SpeechSyn .StopButton:hover {
+    --op: var(--op-hov);
+  
+   /* color:blueviolet; */
+}
+
+.SpeechSyn .SpeakButton {
+    --op: var(--op-norm);
+    background-color: rgba(0, 255, 20, var(--op));
+    /* color:red; */
+}
+
+.SpeechSyn .SpeakButton:hover {
+    --op: var(--op-hov);
+   
+   /* color:blueviolet; */
+}
+
