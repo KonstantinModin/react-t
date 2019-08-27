@@ -26,7 +26,7 @@
 .TextArea {
     height: 320px;
     font-size: 130%;
-    border-radius: 10px;
+    border-radius: 5px;
     resize: none;
     outline: none;
     padding: 3px;
