@@ -15,10 +15,15 @@ const SpeechSyn = () => {
     // eslint-disable-next-line
     }, [voices]);
 
-    useEffect(() => {        
-        speechSynthesis.addEventListener('voiceschanged', defineVoices);
+    useEffect(() => {
+        const timer = setInterval(defineVoices, 300);
+        
+        // speechSynthesis.addEventListener('voiceschanged', defineVoices);
+        console.log('timer added');
         return () => {
-            speechSynthesis.removeEventListener('voiceschanged', defineVoices);
+            clearInterval(timer);
+            // speechSynthesis.removeEventListener('voiceschanged', defineVoices);
+            console.log('timer removed');
         }
     }, []);
     
