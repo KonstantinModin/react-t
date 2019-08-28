@@ -1,6 +1,7 @@
 import React from 'react';
 import Shadow from './Shadow';
 import LinkEffect from './LinkEffect';
+import Menu from './Menu';
 import './Features.css';
 
 const Features = () => {
@@ -10,9 +11,7 @@ const Features = () => {
             <div className="Grid">
                 <Shadow />                                    
                 <LinkEffect />
-                <div className="Block3">
-                    <span className="innerDiv">3</span>
-                </div>
+                <Menu />
                 <div className="Block4">
                     <span className="innerDiv">4</span>
                 </div>
