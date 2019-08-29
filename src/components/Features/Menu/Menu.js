@@ -48,8 +48,10 @@ const Menu = () => {
     const [ classes, setClasses ] = useState({about: '', tec: '', link: ''});
 
     const handleEnter = (e) => {
-        console.log('target.name', e.target.name);
+        // e.stopPropagation();
         console.dir(e);
+        console.log('target.name', e.target.name);
+        // console.log('this', this);
         console.dir(e.target);
         // if (target.dataSet.n) {
             // console.log('event.target.dname', target.data.daraSet.n)
@@ -64,11 +66,12 @@ const Menu = () => {
             },150)
         // }
     }
-    const handleLeave = ({target}) => {
-        console.dir('target.name=', target.name);
-        console.dir(target);
+    const handleLeave = (e) => {
+        // console.dir('target.name=', target.name);
+        console.dir(e);
+        console.dir(e.target);
         const newClasses = {...classes};
-        newClasses[target.name] = '';
+        newClasses[e.target.name] = '';
         setClasses(newClasses);
 
     }
