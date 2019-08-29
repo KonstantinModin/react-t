@@ -1,0 +1,76 @@
+.MenuDrop {
+    /* position: relative;
+    perspective: 600px; */
+    box-sizing: border-box;
+    background: 
+        linear-gradient(45deg, hsla(340, 100%, 55%, 0.5) 0%, hsla(340, 100%, 55%, 0) 50%),
+        linear-gradient(135deg, hsla(225, 95%, 50%, 0.5) 0%, hsla(225, 95%, 50%, 0) 50%),
+        linear-gradient(225deg, hsla(140, 90%, 50%, 0.5) 0%, hsla(140, 90%, 50%, 0) 50%),
+        linear-gradient(315deg, hsla(34, 95%, 55%, 0.2) 100%, hsla(35, 95%, 55%, 0) 0%);
+    width:40vw;
+
+}
+
+.MenuDrop ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.MenuDrop > li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.MenuDrop ul li {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.MenuDrop li a {
+    padding: 10px 20px;
+    text-decoration: none;
+    background: rgba(0,0,0,0.2);
+    margin: 0 3px;
+    border-radius: 10px;
+    
+}
+
+.MenuDrop .dropdown {
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+    padding: 20px;
+    top: -20px;
+    border-radius: 2px;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(100px);
+    will-change: transform;
+    display: none;
+}
+
+.MenuDrop .trigger-enter .dropdown {
+    display: block;
+}
+
+.trigger-enter-active .dropdown {
+    opacity: 1;
+}
+
+.MenuDrop .dropDownBackground {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 50px 100px rgba(50,50,93,0.1), 0 15px 35px rgba(50,50,93,0.15), 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s, opacity 0.1s, translate 0.2s;
+    transform-origin: 50% 0%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+}
