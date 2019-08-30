@@ -2,7 +2,7 @@ import React from 'react';
 
 const MenuItem = ({name, onMouseEnter, onMouseLeave, liClass, caption, kids }) => {
     return (
-        <li name={name} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className={liClass}>
+        <li name={name} onMouseOver={onMouseEnter} onMouseOut={onMouseLeave} className={liClass}>
             <a name={name} href="#">{caption}</a>
             {kids}
         </li>

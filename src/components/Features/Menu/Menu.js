@@ -11,7 +11,7 @@ const Menu = () => {
                 <div className="dropdown dropdown1">
                     <div className="bio">
                         <img src="https://avatars2.githubusercontent.com/u/45493372?s=460&v=4" width={80}/>
-                        <p>Konstantin Modin Software Engineer: Web Development with React</p>
+                        <p>Konstantin Modin<br/>Software Engineer:<br/>Web Development with React</p>
                     </div>
                 </div>
                 )
@@ -47,33 +47,22 @@ const Menu = () => {
     ];
     const [ classes, setClasses ] = useState({about: '', tec: '', link: ''});
 
-    const handleEnter = (e) => {
-        // e.stopPropagation();
-        console.dir(e);
-        console.log('target.name', e.target.name);
-        // console.log('this', this);
-        console.dir(e.target);
-        // if (target.dataSet.n) {
-            // console.log('event.target.dname', target.data.daraSet.n)
-            const newClasses = {...classes};
+    const handleEnter = (e) => {       
+        if (e.target.name) {
+            const newClasses = {about: '', tec: '', link: ''};
             newClasses[e.target.name] = 'trigger-enter';
             setClasses(newClasses);
 
             setTimeout(()=> {
-                const newClasses = {...classes};
+                const newClasses = {about: '', tec: '', link: ''};
                 newClasses[e.target.name] = 'trigger-enter trigger-enter-active';
                 setClasses(newClasses);
             },150)
-        // }
+        }
+        
     }
-    const handleLeave = (e) => {
-        // console.dir('target.name=', target.name);
-        console.dir(e);
-        console.dir(e.target);
-        const newClasses = {...classes};
-        newClasses[e.target.name] = '';
-        setClasses(newClasses);
-
+    const handleLeave = (e) => {                   
+        setClasses({about: '', tec: '', link: ''});        
     }
     
     return (
@@ -81,7 +70,7 @@ const Menu = () => {
             <div className="dropDownBackground">
                 <span>+</span>
             </div>
-            <ul>
+            <ul className="cool">
                 {menuData.map(li=>(
                     <MenuItem 
                         name={li.name} 
