@@ -16,6 +16,7 @@ const Header = () => {
                 <Link to="/features">Features</Link>
                 <Link to="/recognition">Recognition</Link>
                 <Link to="/synthesis">Speech Synthesis</Link>
+                <Link to="/videoplayer">Video Player</Link>
             </div>
         </header>
     )

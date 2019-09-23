@@ -16,3 +16,7 @@
     height: calc(100vh - 75px);
     overflow: hidden;    
 }
+
+.Container h1 {
+    margin:auto;
+}
