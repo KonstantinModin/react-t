@@ -1,3 +1,131 @@
 .VideoPlayer {
     margin:auto;
+    position: relative;
+    /* font-size: 0; */
+    overflow: hidden;
 }
+
+.VideoPlayer video {
+    width:100%;
+    outline: none;
+}
+
+.VideoPlayer button {
+    background: none;
+    border: 0;
+    line-height: 1;
+    color: white;
+    text-align: center;
+    outline: 0;
+    /* padding: 0; */
+    cursor: pointer;
+    max-width: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.VideoPlayer button:focus {
+    border-color: #ffc600; 
+}
+
+.VideoPlayer input {
+    width: 10px;
+    height: 30px;
+}
+
+.VideoPlayer .playerControls {
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    transform: translateY(100%) translateY(6px);
+    transition: all .3s;
+    flex-wrap: wrap;
+    background: rgba(0,0,0,0.1); 
+    /* border: 1px solid red; */
+}
+
+.VideoPlayer:hover .playerControls {
+    transform: translateY(0px); 
+}
+
+.VideoPlayer:hover .progress {
+    height: 10px;
+}
+
+.VideoPlayer .playerControls > * {
+    flex:1;
+}
+
+.VideoPlayer .progress {
+    flex: 10;
+    position: relative;
+    display: flex;
+    flex-basis: 100%;
+    height: 3px;
+    transition: height 0.3s;
+    background: rgba(0,0,0,0.5);
+    cursor: ew-resize;
+}
+
+.VideoPlayer .progressFilled {
+    width: 50%;
+    background: #ffc80071;
+    flex: 0;
+    flex-basis: 50%;
+}
+
+.VideoPlayer input[type=range] {
+    -webkit-appearance: none;
+    background: transparent;
+    width: 100%;
+    margin: 0 5px;
+  }
+  
+  .VideoPlayer input[type=range]:focus {
+    outline: none;
+  }
+  
+  .VideoPlayer input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+    background: rgba(255,255,255,0.8);
+    border-radius: 1.3px;
+    border: 0.2px solid rgba(1, 1, 1, 0);
+  }
+  
+  .VideoPlayer input[type=range]::-webkit-slider-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background: #ffc600;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3.5px;
+    box-shadow:0 0 2px rgba(0,0,0,0.2);
+  }
+  
+  .VideoPlayer input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #bada55;
+  }
+  
+  .VideoPlayer input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+    background: #ffffff;
+    border-radius: 1.3px;
+    border: 0.2px solid rgba(1, 1, 1, 0);
+  }
+  
+  .VideoPlayer input[type=range]::-moz-range-thumb {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background: #ffc600;
+    cursor: pointer;
+  }

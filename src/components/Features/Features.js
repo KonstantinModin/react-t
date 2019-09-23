@@ -1,7 +1,7 @@
 import React from 'react';
 import Shadow from './Shadow';
 import LinkEffect from './LinkEffect';
-import Menu from './Menu';
+// import Menu from './Menu';
 import './Features.css';
 
 const Features = () => {
