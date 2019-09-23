@@ -10,8 +10,10 @@ const Features = () => {
             <h1>Features</h1>                
             <div className="Grid">
                 <Shadow />                                    
+                <div className="Block2">
+                    <span className="innerDiv">2</span>
+                </div>
                 <LinkEffect />
-                <Menu />
                 <div className="Block4">
                     <span className="innerDiv">4</span>
                 </div>

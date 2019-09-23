@@ -7,7 +7,7 @@
         linear-gradient(135deg, hsla(225, 95%, 50%, 0.5) 0%, hsla(225, 95%, 50%, 0) 50%),
         linear-gradient(225deg, hsla(140, 90%, 50%, 0.5) 0%, hsla(140, 90%, 50%, 0) 50%),
         linear-gradient(315deg, hsla(34, 95%, 55%, 0.2) 100%, hsla(35, 95%, 55%, 0) 0%);
-    width:40vw;
+    width:33vw;
     position: relative;
     perspective: 600px;
 
@@ -18,13 +18,14 @@
     margin:0;
     padding:0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .MenuDrop .cool > li {
     position: relative;
     display: flex;
     justify-content: center;
+    border: 2px solid red;
 }
 
 .MenuDrop ul li {
@@ -51,7 +52,7 @@
     overflow: hidden;
     padding: 20px;
     top: -20px;
-    border-radius: 2px;
+    border-radius: 10px;
     transition: all 0.5s ease-in-out;
     transform: translateY(100px);
     will-change: transform;
@@ -80,6 +81,10 @@
     opacity: 0;
 }
 
+.MenuDrop .dropDownBackground.open {
+    opacity: 1;
+}
+
 .MenuDrop .bio {
     min-width: 330px;
     /* display: flex; */
@@ -92,3 +97,23 @@
     float: left;
     margin-right: 20px;
 }
+
+.MenuDrop .courses {
+    min-width: 200px;
+}
+
+.MenuDrop .courses li {
+    padding: 10px 0;
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.MenuDrop .dropdown3 > li {
+    margin: 5px;
+    padding: 5px;
+}
+.linkedin {background: #fff;}
+.git {background: rgb(90, 90, 90);}
+.insta {background: rgb(218, 86, 196);}
+.twitter {background: #019fe9;}
+.whatsapp {background: rgb(20, 190, 28);}

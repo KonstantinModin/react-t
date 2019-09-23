@@ -35,39 +35,47 @@ const Menu = () => {
             caption: 'Links',
             kids: (
                 <ul className="dropdown dropdown3">
-                    <li>LinkedIn</li>
-                    <li>GitHub</li>
-                    <li>Instagram</li>
-                    <li>Twitter</li>
-                    <li>Whatsapp</li>                        
+                    <li className="linkedin">LinkedIn</li>
+                    <li className="git">GitHub</li>
+                    <li className="insta">Instagram</li>
+                    <li className="twitter">Twitter</li>
+                    <li className="whatsapp">Whatsapp</li>                        
                 </ul>
             )
 
         }
     ];
     const [ classes, setClasses ] = useState({about: '', tec: '', link: ''});
+    const [ ddback, setDdback ] = useState('dropDownBackground');
 
     const handleEnter = (e) => {       
-        if (e.target.name) {
+        console.dir(e.target);
+        if (e.target.className.slice(0,3)==='tar') {
+            console.log('hey');
             const newClasses = {about: '', tec: '', link: ''};
-            newClasses[e.target.name] = 'trigger-enter';
+            newClasses[e.target.className.split` `[1]] = 'trigger-enter';
             setClasses(newClasses);
+            setDdback('dropDownBackground open');
 
             setTimeout(()=> {
                 const newClasses = {about: '', tec: '', link: ''};
-                newClasses[e.target.name] = 'trigger-enter trigger-enter-active';
+                newClasses[e.target.className.split` `[1]] = 'trigger-enter trigger-enter-active';
                 setClasses(newClasses);
             },150)
         }
         
     }
-    const handleLeave = (e) => {                   
-        setClasses({about: '', tec: '', link: ''});        
+    const handleLeave = (e) => { 
+        // console.dir(e.target);
+        if (e.target.className.split` `[0] === 'dropdown') {
+            setClasses({about: '', tec: '', link: ''});
+            setDdback('dropDownBackground'); 
+        }       
     }
     
     return (
         <nav className="MenuDrop">
-            <div className="dropDownBackground">
+            <div className={ddback}>
                 <span>+</span>
             </div>
             <ul className="cool">
@@ -77,7 +85,7 @@ const Menu = () => {
                         key={li.name}
                         onMouseEnter={(e) => handleEnter(e.nativeEvent)}
                         onMouseLeave={(e) => handleLeave(e.nativeEvent)}
-                        liClass={classes[li.name]}
+                        liClass={'tar ' + li.name + ' ' + classes[li.name]}
                         caption={li.caption}
                         kids={li.kids}
                         />
