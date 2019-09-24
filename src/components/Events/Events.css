@@ -1,0 +1,23 @@
+.Events {
+    margin: auto;
+}
+
+.Events .outer {
+    background-color: rgba(255, 0, 0, 0.719);
+    width: 80vw;
+    height: 60vh;
+    display: flex;
+}
+.Events .mid {
+    background-color: rgba(0, 128, 0, 0.788);
+    width: 60vw;
+    height: 40vh;
+    margin: auto;
+    display: flex;
+}
+.Events .inn {
+    background-color: rgba(0, 0, 255, 0.644);
+    width: 40vw;
+    height: 20vh;
+    margin: auto;
+}
