@@ -1,0 +1,49 @@
+.Scroll {
+    /* height: 400px; */
+    padding: 100px;
+    width: 100%;
+    /* border: 1px solid white; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    transform: scale(0.98);
+    /* transform: rotateX(60deg); */
+    will-change: transform;
+    position: relative;
+    /* background: rgba(255,255,255,0.1); */
+    font-size: 0;
+    /* perspective: 100px; */
+}
+.Scroll.active {
+    /* background: rgba(255,255,255,0.3); */
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    transform: scale(1);
+}
+.Scroll .item {
+    width: 300px;
+    height: calc(100% - 20px);
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    /* font-weight: 100; */
+    color: rgba(0,0,0,0.15);
+    box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15);
+    
+}
+.Scroll .item:nth-child(9n+1) { background: dodgerblue;}
+.Scroll .item:nth-child(9n+2) { background: goldenrod;}
+.Scroll .item:nth-child(9n+3) { background: paleturquoise;}
+.Scroll .item:nth-child(9n+4) { background: gold;}
+.Scroll .item:nth-child(9n+5) { background: cadetblue;}
+.Scroll .item:nth-child(9n+6) { background: tomato;}
+.Scroll .item:nth-child(9n+7) { background: lightcoral;}
+.Scroll .item:nth-child(9n+8) { background: darkslateblue;}
+.Scroll .item:nth-child(9n+9) { background: rebeccapurple;}
+
+.Scroll .item:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
+.Scroll .item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
