@@ -4,6 +4,8 @@ import vid from './3.mp4';
 
 const VideoPlayer = () => {
     const video = createRef();
+    const progressRef = createRef();
+
     const [playButton, setPlayButton] = useState('►');
     const [volume, setVolume] = useState(0.5);
     const [rate, setRate] = useState(1);
@@ -25,8 +27,7 @@ const VideoPlayer = () => {
     const updateButton = () => {
         setPlayButton(video.current.paused ? '►' : '❚ ❚');
     }
-    const skip = ({ target }) => {
-        console.dir(target.dataset.skip);
+    const skip = ({ target }) => {        
         video.current.currentTime += parseFloat(target.dataset.skip);
     }
     const handleProgress = () => {        
@@ -36,7 +37,7 @@ const VideoPlayer = () => {
         // e.persist();
         e.nativeEvent.stopImmediatePropagation();
         console.log(e, e.target); 
-        video.current.currentTime = e.nativeEvent.offsetX / e.target.offsetWidth * video.current.duration;        
+        video.current.currentTime = e.nativeEvent.offsetX / progressRef.current.offsetWidth * video.current.duration;        
     }
     const toggleFulscreen = () => {
         console.log('fullscreen');
@@ -57,7 +58,7 @@ const VideoPlayer = () => {
                     <h2>Your browser doesn't support HTML5 video</h2>
             </video>
             <div className="playerControls">
-                <div className="progress" onClick={scrub}>
+                <div className="progress" onClick={scrub} ref={progressRef}>
                     <div className="progressFilled" style={{'flexBasis':progress+'%'}}></div>
                 </div>            
                 <button className="playerButton Toggle" title="Toggle Play" onClick={togglePlay}>{playButton}</button>

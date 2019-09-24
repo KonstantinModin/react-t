@@ -1,20 +1,23 @@
-import React, { useState, createRef } from 'react';
+import React, { useState, createRef, useEffect } from 'react';
 import './Events.css';
 
 const Events = () => {
     const [ targ, setTarg ] = useState(null);
-    const outerDiv = createRef();
-    console.log(this);
+    const [ offset, setOffset ] = useState(null);
+    const outerDiv = createRef();    
 
-    function eventHandler(e) {
-        console.log(this);
+    function eventHandler(e) {    
+        e.persist();
+        console.log(e);
+        console.log(e.target.offsetX);
         setTarg(e.target.className);
-    };
+        setOffset(e.nativeEvent.offsetX)
+    };    
 
     return (
-        <div className="Events" onClick={() => eventHandler.bind(outerDiv.current)} ref={outerDiv}>
+        <div className="Events" onClick={eventHandler} ref={outerDiv}>
             <h1>Events</h1>
-            <h2>Target: {targ}</h2>
+            <h2>Target: {targ}. <br/> OffsetX: {offset}</h2>
             <div className="outer" >
                 Внешний
                 <div className="mid" >
