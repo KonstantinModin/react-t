@@ -65,14 +65,14 @@
     height: 3px;
     transition: height 0.3s;
     background: rgba(0,0,0,0.5);
-    cursor: ew-resize;
+    cursor: ew-resize;    
 }
 
 .VideoPlayer .progressFilled {
-    width: 50%;
+    /* width: 50%; */
     background: #ffc80071;
     flex: 0;
-    flex-basis: 50%;
+    /* flex-basis: 50%; */    
 }
 
 .VideoPlayer input[type=range] {

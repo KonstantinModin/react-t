@@ -13,11 +13,12 @@ const Features = lazy(() => import('./components/Features'));
 const Recognition = lazy(() => import('./components/Recognition'));
 const SpeechSyn = lazy(() => import('./components/SpeechSyn'));
 const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
+const Events = lazy(() => import('./components/Events'));
 
 function App() {    
     console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
-    console.dir(document);
-    console.dir(window);    
+    // console.dir(document);
+    // console.dir(window);    
 
     return (
         <div className="App">        
@@ -39,6 +40,7 @@ function App() {
                     <Route path="/recognition" component={Recognition} />
                     <Route path="/synthesis" component={SpeechSyn} />
                     <Route path="/videoplayer" component={VideoPlayer} />
+                    <Route path="/events" component={Events} />
                     <Redirect to="/" />
                 </Suspense>
             </div>

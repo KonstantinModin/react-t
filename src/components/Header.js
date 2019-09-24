@@ -17,6 +17,7 @@ const Header = () => {
                 <Link to="/recognition">Recognition</Link>
                 <Link to="/synthesis">Speech Synthesis</Link>
                 <Link to="/videoplayer">Video Player</Link>
+                <Link to="/events">Events</Link>
             </div>
         </header>
     )
