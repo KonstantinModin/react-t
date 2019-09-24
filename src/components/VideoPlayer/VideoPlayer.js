@@ -1,4 +1,4 @@
-import React, { createRef, useState, useEffect } from 'react';
+import React, { createRef, useState } from 'react';
 import './VideoPlayer.css';
 import vid from './3.mp4';
 
@@ -7,20 +7,20 @@ const VideoPlayer = () => {
     const progressRef = createRef();
 
     const [playButton, setPlayButton] = useState('►');
-    const [volume, setVolume] = useState(0.5);
+    const [volume, setVolume] = useState(0.4);
     const [rate, setRate] = useState(1);
     const [progress, setProgress] = useState(0);
-
-    useEffect(()=>console.dir(video.current),[]);
-
+    
     const togglePlay = () => {
-        video.current.paused ? video.current.play() : video.current.pause();
+        if (!video.current.webkitDisplayingFullscreen) {
+            video.current.paused ? video.current.play() : video.current.pause();
+        }
     }
-    const handleVolume = ({ target: {value} }) => {    
+    const handleVolume = ({ target: { value } }) => {    
         setVolume(value);
         video.current.volume = value;        
     }
-    const handleRate = ({ target: {value} }) => {    
+    const handleRate = ({ target: { value } }) => {    
         setRate(value);
         video.current.playbackRate = value;        
     }
@@ -33,14 +33,15 @@ const VideoPlayer = () => {
     const handleProgress = () => {        
         setProgress(video.current.currentTime / video.current.duration * 100);
     }
-    const scrub = (e) => {
-        // e.persist();
-        e.nativeEvent.stopImmediatePropagation();
-        console.log(e, e.target); 
+    const scrub = (e) => {               
         video.current.currentTime = e.nativeEvent.offsetX / progressRef.current.offsetWidth * video.current.duration;        
     }
-    const toggleFulscreen = () => {
-        console.log('fullscreen');
+    const toggleFulscreen = () => {        
+        if (video.current.mozRequestFullScreen) {
+            video.current.mozRequestFullScreen();
+        } else if (video.current.webkitRequestFullScreen) {
+            video.current.webkitRequestFullScreen();
+        }  
     }
 
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import Shadow from './Shadow';
 import LinkEffect from './LinkEffect';
+import Scroll from './Scroll';
 // import Menu from './Menu';
 import './Features.css';
 
@@ -14,9 +15,7 @@ const Features = () => {
                     <span className="innerDiv">2</span>
                 </div>
                 <LinkEffect />
-                <div className="Block4">
-                    <span className="innerDiv">4</span>
-                </div>
+                <Scroll />
                 <div className="Block5">
                     <span className="innerDiv">5</span>
                 </div>

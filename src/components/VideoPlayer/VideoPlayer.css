@@ -5,7 +5,13 @@
     overflow: hidden;
 }
 
+.VideoPlayer:fullscreen {
+    max-width: none;
+    width: 100%;
+}
+
 .VideoPlayer video {
+    margin-top: 1rem;
     width:100%;
     outline: none;
 }

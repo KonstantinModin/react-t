@@ -18,6 +18,7 @@ const Events = () => {
         <div className="Events" onClick={eventHandler} ref={outerDiv}>
             <h1>Events</h1>
             <h2>Target: {targ}. <br/> OffsetX: {offset}</h2>
+            <div className="other"></div>
             <div className="outer" >
                 Внешний
                 <div className="mid" >

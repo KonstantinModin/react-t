@@ -15,12 +15,14 @@ export default class Shadow extends Component {
 
     calculateCircle = () => {
         const { mouseIn, xCircle, xDirection } = this.state;
+        let yDirection = 1;
 
         if (!mouseIn) {
-            let r = 50;
-            let yCircle = Math.sqrt(r * r - xCircle * xCircle) * xDirection;
+            // let r = 50;
+            // let yCircle = Math.sqrt(r * r - xCircle * xCircle) * xDirection;
+            let yCircle = Math.cos(xCircle/50*Math.PI) * 50 ;
             if (this.shadowText.current) this.draw(xCircle, yCircle);
-
+            console.log(yCircle,xCircle/50);
             const nextXCircle = xCircle + 1 * xDirection;            
             this.setState({xCircle: nextXCircle}, () => {
                 if (nextXCircle > 49 || nextXCircle < -49) this.setState({xDirection: xDirection * -1});
