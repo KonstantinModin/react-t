@@ -29,12 +29,10 @@ const Clock = () => {
             setTime(new Date().toString());            
         } 
 
-        const timeInterval = setInterval(timeTicking, 1000);
-        console.log('timeInterval :', timeInterval);
+        const timeInterval = setInterval(timeTicking, 1000);        
 
         return () => {
-            clearInterval(timeInterval);
-            console.log('timer Cleared');
+            clearInterval(timeInterval);            
         }
     }, []);
     
