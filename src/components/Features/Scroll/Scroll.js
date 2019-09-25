@@ -17,13 +17,13 @@ const Scroll = () => {
         //scroll left-right
         const x = e.nativeEvent.pageX - scrollDiv.current.offsetLeft;
         const walk = x - startX;
-        scrollDiv.current.scrollLeft = scrollLeft - walk*1;
+        scrollDiv.current.scrollLeft = scrollLeft - walk * 1;
 
         //perspective
-        const notSoMuch = (a) => a < 40 ? 40 : a;
+        const notSoMuch = (a) => a < 50 ? 50 : a;
         const y = e.nativeEvent.pageY - scrollDiv.current.offsetTop;
         const walkY = y - startY;
-        scrollDiv.current.style.perspective = notSoMuch(persp - walkY*1)+'px'; 
+        scrollDiv.current.style.perspective = notSoMuch(persp - walkY * 1)+'px'; 
 
     }
     const handleMouseDown = (e) => {
@@ -33,22 +33,16 @@ const Scroll = () => {
         setScrollLeft(scrollDiv.current.scrollLeft);
 
         //perspective
-        setStartY(e.nativeEvent.pageY - scrollDiv.current.offsetTop);
-        console.dir(scrollDiv.current.style.perspective);
+        setStartY(e.nativeEvent.pageY - scrollDiv.current.offsetTop);        
         setPersp(parseInt(scrollDiv.current.style.perspective));
-
-    }
-    const handleMouseUp = () => {
-        setIsDown(false);        
     }
 
-    
     return (
         <div 
             className={'Scroll' + (isDown? ' active' : '')}
             onMouseDown={handleMouseDown}
             onMouseLeave={() => setIsDown(false)}
-            onMouseUp={handleMouseUp}
+            onMouseUp={() => setIsDown(false)}
             onMouseMove={handleMouseMove}
             ref={scrollDiv}
             style={{perspective:'100px'}}
