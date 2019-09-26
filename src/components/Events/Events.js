@@ -1,4 +1,5 @@
 import React, { useState, createRef } from 'react';
+import axios from 'axios';
 import './Events.css';
 
 const Events = () => {
@@ -15,7 +16,13 @@ const Events = () => {
         setTarg(e.target.className);
         setOffset(e.nativeEvent.offsetX)
         setPageX(e.nativeEvent.pageX-outerDiv.current.offsetLeft);
-    };    
+    };
+    const getData = async () => {
+        const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+        const data = await axios(endpoint);
+        console.log(data);
+
+    }    
 
     return (
         <div className="Events" onClick={eventHandler} ref={outerDiv}>
@@ -32,6 +39,7 @@ const Events = () => {
                     </div>
                 </div>
             </div>
+            <button onClick={getData}>Get Data</button>
         </div>
     )
 }
