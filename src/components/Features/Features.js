@@ -2,6 +2,7 @@ import React from 'react';
 import Shadow from './Shadow';
 import LinkEffect from './LinkEffect';
 import Scroll from './Scroll';
+import Cities from './Cities';
 // import Menu from './Menu';
 import './Features.css';
 
@@ -11,9 +12,7 @@ const Features = () => {
             <h1>Features</h1>                
             <div className="Grid">
                 <Shadow />                                    
-                <div className="Block2">
-                    <span className="innerDiv">2</span>
-                </div>
+                <Cities />
                 <LinkEffect />
                 <Scroll />
                 <div className="Block5">
