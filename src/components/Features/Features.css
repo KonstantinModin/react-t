@@ -6,7 +6,7 @@
     /* display: flex; */
 }
 
-.Grid {
+.Features .Grid {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
@@ -16,7 +16,7 @@
     height: calc(100vh - 132px);
 }
 
-.Grid > div {
+.Features .Grid > div {
     /* font-size: 5vw; */
     /* padding: .5em; */
     /* background: rgba(40, 140, 10, .2); */
@@ -25,7 +25,7 @@
     /* border: 1px solid blue; */
 }
 
-.Grid > div > span {
+.Features .Grid > div > span {
     font-size: 5vw;
 }
 

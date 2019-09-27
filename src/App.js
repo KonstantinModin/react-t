@@ -17,7 +17,7 @@ const Events = lazy(() => import('./components/Events'));
 const Game = lazy(() => import('./components/Game'));
 
 function App() {    
-    console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
+    // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
     // console.dir(document);
     // console.dir(window);    
 
