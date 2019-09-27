@@ -14,6 +14,7 @@ const Recognition = lazy(() => import('./components/Recognition'));
 const SpeechSyn = lazy(() => import('./components/SpeechSyn'));
 const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
 const Events = lazy(() => import('./components/Events'));
+const Game = lazy(() => import('./components/Game'));
 
 function App() {    
     console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
@@ -41,6 +42,7 @@ function App() {
                     <Route path="/synthesis" component={SpeechSyn} />
                     <Route path="/videoplayer" component={VideoPlayer} />
                     <Route path="/events" component={Events} />
+                    <Route path="/game" component={Game} />
                     <Redirect to="/" />
                 </Suspense>
             </div>

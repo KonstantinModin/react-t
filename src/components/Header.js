@@ -12,12 +12,13 @@ const Header = () => {
                 <Link to="/drums">Drums</Link>
                 <Link to="/webcam">WebCam</Link>
                 <Link to="/draw">Draw</Link>
-                <Link to="/variables">CSS Variables</Link>
+                <Link to="/variables">CSS Vars</Link>
                 <Link to="/features">Features</Link>
                 <Link to="/recognition">Recognition</Link>
-                <Link to="/synthesis">Speech Synthesis</Link>
+                <Link to="/synthesis">Speech Synth</Link>
                 <Link to="/videoplayer">Video Player</Link>
-                <Link to="/events">Events</Link>
+                <Link to="/events">E</Link>
+                <Link to="/game">Game</Link>
             </div>
         </header>
     )
