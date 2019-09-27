@@ -27,7 +27,7 @@
     transition: background 0.2s;
     display: flex;
     justify-content: space-between;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
   
 .Cities .suggestions li:nth-child(even) {

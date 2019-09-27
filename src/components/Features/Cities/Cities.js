@@ -37,6 +37,9 @@ const Cities = () => {
                 <ul className="suggestions">
                     {citiesFiltered.map(a=>{
                         const regex = RegExp(text, 'gi');
+                        const matchedTextCity = (a.city.match(regex)||[])[0];
+                        const matchedTextState = (a.state.match(regex)||[])[0];
+                        console.log(matchedTextCity, a.city);
                         const cityName = a.city.split(regex);
                         const stateName = a.state.split(regex);
                         return (
@@ -44,8 +47,8 @@ const Cities = () => {
                                 <span 
                                     className="name"
                                 >
-                                    {cityName[0]}<span className="hl">{cityName[1]&&text}</span>{cityName[1]},{' '} 
-                                    {stateName[0]}<span className="hl">{stateName[1]&&text}</span>{stateName[1]}                                
+                                    {cityName[0]}<span className="hl">{cityName[1]&&matchedTextCity}</span>{cityName[1]}<span className="hl">{cityName[2]&&matchedTextCity}</span>{cityName[2]},{' '} 
+                                    {stateName[0]}<span className="hl">{stateName[1]&&matchedTextState}</span>{stateName[1]}<span className="hl">{stateName[2]&&matchedTextState}</span>{stateName[2]}                                
                                 </span>
                                 <span className="population">{a.population.replace(/(\d)(?=(\d{3})+$)/g,'$1,')}</span>
                             </li>
