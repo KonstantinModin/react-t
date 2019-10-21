@@ -21,6 +21,20 @@
     /* border: 1px solid red; */
 }
 
+.Game .gameOver {
+    position: absolute;
+    z-index: 3;
+    width:100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+.Game .gameOver h3 {
+    margin: auto;
+    font-size: 400%;
+}
+
 .Game .Grid {
     
     width:95%;
