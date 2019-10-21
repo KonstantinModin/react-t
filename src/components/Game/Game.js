@@ -9,11 +9,12 @@ const Game = () => {
     const [ score, setScore ] = useState(0);
     const [ gameOver, setGameOver ] = useState(false);
     const [ playing, setPlaying ] = useState(false);
-    const [ finishTime, setFinishTime ] = useState(null);
+    // const [ startTime, setStartTime ] = useState(null);
     const soundHit = new Audio(sound);
     
     const timerId = useRef('');
     const timePassedId = useRef('');
+    const startTime = useRef('');
 
     const showSlide = () => {
         console.log('show Slide!');
@@ -27,11 +28,12 @@ const Game = () => {
     
     const startGame = () => {
         setPlaying(true);
-        setFinishTime(Date.now());
+        startTime.current = Date.now();
+        // const start = Date.now();
         
         const updateTimeLeft = () => {
-            console.log(finishTime||Date.now(),timeLeft*1000,Date.now());
-            setTimeLeft(((finishTime||Date.now()+timeLeft*1000-Date.now())/1000)|0);            
+            console.log(startTime.current, timeLeft*1000, Date.now(),(startTime.current + timeLeft*1000-Date.now())/1000);
+            setTimeLeft(((startTime.current + timeLeft*1000-Date.now())/1000)|0);            
         }
         startNewLevel();
         timePassedId.current = setInterval(updateTimeLeft, 1000);
@@ -39,11 +41,12 @@ const Game = () => {
     }
 
     const moleClicked = () => {
-        setTimeLeft(time=>time+6);
+        startTime.current = startTime.current + 1000;
         setRandHole(null);
         setScore(score => score + 1);
         soundHit.currentTime = 0;
         soundHit.play();
+        console.log('start time current=',startTime.current);
     }
 
     useEffect(()=>{
