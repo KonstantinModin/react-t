@@ -7,32 +7,28 @@ const Game = () => {
     const [ timeLeft, setTimeLeft ] = useState(20);
     const [ level, setLevel ] = useState(1);
     const [ score, setScore ] = useState(0);
+    const [ scoreVis, setScoreVis ] = useState(0);
     const [ gameOver, setGameOver ] = useState(false);
     const [ playing, setPlaying ] = useState(false);
-    // const [ startTime, setStartTime ] = useState(null);
+    
     const soundHit = new Audio(sound);
     
     const timerId = useRef('');
     const timePassedId = useRef('');
     const startTime = useRef('');
 
-    const showSlide = () => {
-        console.log('show Slide!');
-        setRandHole(Math.round(Math.random()*20)%5);           
-    }
+    const showSlide = () => setRandHole(Math.round(Math.random()*20)%5);
 
     const startNewLevel = () => {
         clearInterval(timerId.current);
-        timerId.current = setInterval(showSlide, 800-level*100);
+        timerId.current = setInterval(showSlide, 1900-level*100);
     }    
     
     const startGame = () => {
         setPlaying(true);
-        startTime.current = Date.now();
-        // const start = Date.now();
+        startTime.current = Date.now();        
         
-        const updateTimeLeft = () => {
-            console.log(startTime.current, timeLeft*1000, Date.now(),(startTime.current + timeLeft*1000-Date.now())/1000);
+        const updateTimeLeft = () => {            
             setTimeLeft(((startTime.current + timeLeft*1000-Date.now())/1000)|0);            
         }
         startNewLevel();
@@ -44,39 +40,46 @@ const Game = () => {
         startTime.current = startTime.current + 1000;
         setRandHole(null);
         setScore(score => score + 1);
+        setScoreVis(score => score + level);
         soundHit.currentTime = 0;
-        soundHit.play();
-        console.log('start time current=',startTime.current);
+        soundHit.play();        
     }
 
     useEffect(()=>{
-        console.log('timeLeft Effect');
+        // console.log('timeLeft Effect');
         if (timeLeft < 1) {
             console.log('game Over!');
             clearInterval(timerId.current);            
             clearInterval(timePassedId.current);           
             setGameOver(true);
+            setPlaying(false);
+            const localScore = parseInt(localStorage.getItem('topScore'));
+            // console.log(score, localScore, score > localScore, !localScore  )
+            if (scoreVis > localScore || !localScore) {
+                localStorage.setItem('topScore', scoreVis);
+            }
         }
     }, [timeLeft]);
 
     useEffect(()=> {
         if (playing){
-            console.log('score effect');
-            if (!(score % 10) && score) setLevel(level=>level+1);
+            if (!(score % 10) && score) {
+                setLevel(level=>level+1);
+                console.log('levelup');
+            }
         }
-    },[score]);
+    }, [ score ]);
 
-    useEffect(()=>{
-        
+    useEffect(()=>{        
         if (playing){
-            console.log('level effect');
+            console.log('level effect changing intervals');
             startNewLevel();            
         }
-    },[level]);
+    }, [ level ]);
 
 
     useEffect(() => {
-        console.log('only cleaning effect');        
+        // console.log('only cleaning effect');        
         return () => {
             clearInterval(timerId.current);
             clearInterval(timePassedId.current);
@@ -87,19 +90,37 @@ const Game = () => {
     const clearGameOver = () => {
         setGameOver(false);
         setScore(0);
+        setScoreVis(0);
         setRandHole(null);
         setTimeLeft(20);
+        setLevel(1);
     }
+    // const setlocScore=()=>{
+    //     localStorage.setItem('topScore',localStorage.getItem('topScore')+1);
+    // }
+    // const getlocScore=()=>{
+    //     alert(localStorage.getItem('topScore'));
+    // }
+    // const clearlocScore = () => {
+    //     localStorage.removeItem('topScore');
+
+    // }
 
     return (
         <div className="Game">
-            <div className="item"><h1>Game</h1></div>
+            <div className="item"><h1>Wack a Mole Game</h1></div>
             <div className="topBar">
                 <div className="item"><h3 className="level">Level: {level}</h3></div>                            
-                <div className="item"><h3 className="score">Score: {score}</h3></div>                            
-                <div className="item"><h3 className="time">Time left: {timeLeft}</h3></div>                            
+                <div className="item"><h3 className="score">Score: {scoreVis}</h3></div>                            
+                <div className="item"><h3 className="time">Time left: {playing && timeLeft}</h3></div>                            
             </div>
-            {gameOver&&<div className="gameOver" onDoubleClick={clearGameOver}><h3>Game Over!</h3></div>}
+            {gameOver&&<div className="gameOver" onDoubleClick={clearGameOver}>
+                <div className="label">
+                    <div><h1>Game Over!</h1></div>
+                    <div><h2>Your score is: {scoreVis}. Top Score is: {localStorage.getItem('topScore')||scoreVis}</h2></div>
+                    <div><h3>Double click to continue ... </h3></div>
+                </div>
+            </div>}
             <div className="Grid">
                 {[...Array(6)].map((e,i)=>
                     <div key={i} className={`hole hole${i+1}${i===randHole?' up':''}`}>
@@ -109,6 +130,9 @@ const Game = () => {
             </div>
             <div>
                 <button onClick={startGame}>Start!</button>
+                {/* <button onClick={setlocScore}>SetScore++</button>
+                <button onClick={getlocScore}>getScore</button>
+                <button onClick={clearlocScore}>clear Score</button> */}
             </div>
         </div>
     )
