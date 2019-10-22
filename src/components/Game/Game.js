@@ -21,7 +21,7 @@ const Game = () => {
 
     const startNewLevel = () => {
         clearInterval(timerId.current);
-        timerId.current = setInterval(showSlide, 1900-level*100);
+        timerId.current = setInterval(showSlide, 800-level*100);
     }    
     
     const startGame = () => {
@@ -59,6 +59,7 @@ const Game = () => {
                 localStorage.setItem('topScore', scoreVis);
             }
         }
+    // eslint-disable-next-line
     }, [timeLeft]);
 
     useEffect(()=> {
@@ -68,6 +69,7 @@ const Game = () => {
                 console.log('levelup');
             }
         }
+    // eslint-disable-next-line
     }, [ score ]);
 
     useEffect(()=>{        
@@ -75,6 +77,7 @@ const Game = () => {
             console.log('level effect changing intervals');
             startNewLevel();            
         }
+    // eslint-disable-next-line
     }, [ level ]);
 
 
