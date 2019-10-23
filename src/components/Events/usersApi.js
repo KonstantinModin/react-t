@@ -19,7 +19,8 @@ function all(){
 function get(id){
     return emulateRequest().then(()=>{
         const index = users.findIndex(user=> user.id === id);
-        return ~index ? users[index] : null
+        // console.log(id,index, users[index]);
+        return ~index ? users[index] : null ;
     });
 }
 

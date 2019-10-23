@@ -17,7 +17,7 @@ const Game = () => {
     const timePassedId = useRef('');
     const startTime = useRef('');
 
-    const showSlide = () => setRandHole(Math.round(Math.random()*20)%5);
+    const showSlide = () => setRandHole(Math.round(Math.random()*20)%6);
 
     const startNewLevel = () => {
         clearInterval(timerId.current);
@@ -33,7 +33,6 @@ const Game = () => {
         }
         startNewLevel();
         timePassedId.current = setInterval(updateTimeLeft, 1000);
-
     }
 
     const moleClicked = () => {
@@ -127,7 +126,10 @@ const Game = () => {
             <div className="Grid">
                 {[...Array(6)].map((e,i)=>
                     <div key={i} className={`hole hole${i+1}${i===randHole?' up':''}`}>
-                        <div onClick={moleClicked} className="mole"></div>
+                        <div 
+                            onClick={moleClicked} 
+                            className="mole">
+                        </div>
                     </div>
                 )}
             </div>

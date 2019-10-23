@@ -20,3 +20,10 @@
 .Container h1 {
     margin:auto;
 }
+
+.Container .twoComp {
+    display: flex;
+    width: 100vw;
+    /* border: 1px solid red; */
+    justify-content: space-around;
+}

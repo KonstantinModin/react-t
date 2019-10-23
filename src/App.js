@@ -3,6 +3,10 @@ import { Route, Redirect } from 'react-router-dom';
 import Back from './45621.jpg';
 import Header from './components/Header';
 import './App.css';
+import Events from './components/Events';
+import EventsH from './components/Events/hooks';
+
+
 const Clock = lazy(() => import('./components/Clock'));
 const Drums = lazy(() => import('./components/Drums'));
 const WebCam = lazy(() => import('./components/WebCam'));
@@ -13,14 +17,13 @@ const Features = lazy(() => import('./components/Features'));
 const Recognition = lazy(() => import('./components/Recognition'));
 const SpeechSyn = lazy(() => import('./components/SpeechSyn'));
 const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
-const Events = lazy(() => import('./components/Events'));
 const Game = lazy(() => import('./components/Game'));
 
 function App() {    
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
     // console.dir(document);
     // console.dir(window);    
-
+    console.log(Events);
     return (
         <div className="App">        
             <Route path="/" component={Header} />
@@ -41,7 +44,7 @@ function App() {
                     <Route path="/recognition" component={Recognition} />
                     <Route path="/synthesis" component={SpeechSyn} />
                     <Route path="/videoplayer" component={VideoPlayer} />
-                    <Route path="/events" component={Events} />
+                    <Route path="/events" render={()=><div className="twoComp"><Events/><EventsH/></div>} />
                     <Route path="/game" component={Game} />
                     <Redirect to="/" />
                 </Suspense>
