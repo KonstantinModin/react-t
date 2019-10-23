@@ -23,7 +23,8 @@ function App() {
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
     // console.dir(document);
     // console.dir(window);    
-    console.log(Events);
+    // console.log(Clock);      
+    
     return (
         <div className="App">        
             <Route path="/" component={Header} />
@@ -32,6 +33,7 @@ function App() {
                 <img src={Back} alt="background"/>
             </div>
 
+        
             <div className="Container">                                     
                 <Suspense fallback={<h1>Loading...</h1>}>
                     <Route exact path="/" component={Home} />        
@@ -49,6 +51,7 @@ function App() {
                     <Redirect to="/" />
                 </Suspense>
             </div>
+        
         </div>
     );
 }

@@ -19,7 +19,8 @@ const PersonInfo = ({ id }) => {
 
     useEffect(()=>{
         // console.log('effect person info');
-        fetchData(); 
+        fetchData();
+       // eslint-disable-next-line  
     },[ id ]);
 
     const [num, setNum] = useState(0);

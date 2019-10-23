@@ -58,7 +58,7 @@ class Draw extends Component {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         console.log('Clear done!')
     }
-
+        
     render() {        
         return (
             <div className="Draw">
@@ -109,7 +109,7 @@ class Draw extends Component {
                     width="900" 
                     height="800"
                 />
-            </div>
+            </div>            
         )
     }
 };
