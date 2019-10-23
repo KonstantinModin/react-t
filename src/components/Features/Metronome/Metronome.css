@@ -1,0 +1,15 @@
+.Metronome {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+    width: 70%;
+    /* border: 1px solid red; */
+}
+
+.Metronome .beet {
+    color: red;
+    font-size: 150%;
+    font-weight: 1000;
+}
