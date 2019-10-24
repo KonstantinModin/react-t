@@ -15,7 +15,7 @@ const Recognition = lazy(() => import('./components/Recognition'));
 const SpeechSyn = lazy(() => import('./components/SpeechSyn'));
 const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
 const Game = lazy(() => import('./components/Game'));
-const Static = lazy(() => import('./components/Static'));
+const Misc = lazy(() => import('./components/Misc'));
 
 function App() {    
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
@@ -42,7 +42,6 @@ function App() {
             <div className="Background" >
                 <img src={Back} alt="background"/>
             </div>
-
         
             <div className="Container">                                     
                 <Suspense fallback={<h1>Loading...</h1>}>
@@ -55,14 +54,12 @@ function App() {
                     <Route path="/features" component={Features} />
                     <Route path="/recognition" component={Recognition} />
                     <Route path="/synthesis" component={SpeechSyn} />
-                    <Route path="/videoplayer" component={VideoPlayer} />
-                    {/* <Route path="/events" render={()=><div className="twoComp"><Events/><EventsH/></div>} /> */}
+                    <Route path="/videoplayer" component={VideoPlayer} />                    
                     <Route path="/game" component={Game} />
-                    <Route path="/static" component={Static} />
+                    <Route path="/misc" component={Misc} />
                     <Redirect to="/" />
                 </Suspense>
-            </div>
-        
+            </div>        
         </div>
         </Profiler>
     );
