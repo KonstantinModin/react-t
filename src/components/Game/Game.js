@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Game.css';
-import sound from './sound.wav';
+import sound from './oink.wav';
 
 const Game = () => {
     const [ randHole, setRandHole ] = useState(null);
@@ -21,7 +21,7 @@ const Game = () => {
 
     const startNewLevel = () => {
         clearInterval(timerId.current);
-        timerId.current = setInterval(showSlide, 800-level*100);
+        timerId.current = setInterval(showSlide, 2000-level*100);
     }    
     
     const startGame = () => {
@@ -110,7 +110,7 @@ const Game = () => {
 
     return (
         <div className="Game">
-            <div className="item"><h1>Wack a Mole Game</h1></div>
+            <div className="item"><h1>Catch Peppa!</h1></div>
             <div className="topBar">
                 <div className="item"><h3 className="level">Level: {level}</h3></div>                            
                 <div className="item"><h3 className="score">Score: {scoreVis}</h3></div>                            

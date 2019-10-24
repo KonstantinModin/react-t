@@ -1,11 +1,8 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, Profiler } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import Back from './45621.jpg';
 import Header from './components/Header';
 import './App.css';
-import Events from './components/Events';
-import EventsH from './components/Events/hooks';
-
 
 const Clock = lazy(() => import('./components/Clock'));
 const Drums = lazy(() => import('./components/Drums'));
@@ -18,14 +15,27 @@ const Recognition = lazy(() => import('./components/Recognition'));
 const SpeechSyn = lazy(() => import('./components/SpeechSyn'));
 const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
 const Game = lazy(() => import('./components/Game'));
+const Static = lazy(() => import('./components/Static'));
 
 function App() {    
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
     // console.dir(document);
     // console.dir(window);    
     // console.log(Clock);      
+    const onRenderCallback = (
+        id, // the "id" prop of the Profiler tree that has just committed
+        phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
+        actualDuration, // time spent rendering the committed update
+        baseDuration, // estimated time to render the entire subtree without memoization
+        startTime, // when React began rendering this update
+        commitTime, // when React committed this update
+        interactions // the Set of interactions belonging to this update
+    ) => {
+        // console.table({id, phase, actualDuration, baseDuration, startTime, commitTime, interactions});
+    }
     
     return (
+        <Profiler id="App" onRender={onRenderCallback}>
         <div className="App">        
             <Route path="/" component={Header} />
 
@@ -46,13 +56,15 @@ function App() {
                     <Route path="/recognition" component={Recognition} />
                     <Route path="/synthesis" component={SpeechSyn} />
                     <Route path="/videoplayer" component={VideoPlayer} />
-                    <Route path="/events" render={()=><div className="twoComp"><Events/><EventsH/></div>} />
+                    {/* <Route path="/events" render={()=><div className="twoComp"><Events/><EventsH/></div>} /> */}
                     <Route path="/game" component={Game} />
+                    <Route path="/static" component={Static} />
                     <Redirect to="/" />
                 </Suspense>
             </div>
         
         </div>
+        </Profiler>
     );
 }
 

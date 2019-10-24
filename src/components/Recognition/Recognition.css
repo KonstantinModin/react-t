@@ -11,6 +11,15 @@
     /* border: 1px solid blue; */
 }
 
+.Recognition .controls {
+    width: 300px;
+    /* border: 1px solid red;     */
+}
+
+.Recognition .controls button {
+    margin-right: 40px;
+}
+
 
 .Recognition .Unicorne {
     /* border: 1px solid blue; */

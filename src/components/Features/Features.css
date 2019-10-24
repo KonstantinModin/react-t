@@ -2,26 +2,23 @@
     margin: auto;
     width: 100vw;
     height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
     /* border: 1px solid red;     */
-    /* display: flex; */
 }
 
 .Features .Grid {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-gap: 2px; */
-    /* border: 3px dotted white; */
-    /* box-sizing: border-box; */
     height: calc(100vh - 132px);
+    /* grid-gap: 2px; */
+    /* border: 1px dotted white; */
+    /* box-sizing: border-box; */
 }
 
 .Features .Grid > div {
-    /* font-size: 5vw; */
-    /* padding: .5em; */
-    /* background: rgba(40, 140, 10, .2); */
-    /* text-align: center; */
-    display: flex;
+    display: flex;    
     /* border: 1px solid blue; */
 }
 
@@ -30,8 +27,8 @@
 }
 
 .Features .Grid .innerDiv{
-    /* border: 1px solid red; */
     margin: auto;
+    /* border: 1px solid red; */
 }
 
 

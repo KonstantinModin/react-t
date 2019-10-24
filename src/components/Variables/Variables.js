@@ -25,8 +25,8 @@ const Variables = () => {
     
     const inputHandler = ({ target: {dataset, name, value}}) => {
         const updatedControls = {...controls};
-        updatedControls[name] = value
-        setControls({updatedControls});
+        updatedControls[name] = value;
+        setControls({...updatedControls});
         const suffix = dataset.sizing || '';
         document.documentElement.style.setProperty(`--${name}`, value + suffix);        
     }

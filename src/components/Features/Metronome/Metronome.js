@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import hihat from './hihat.wav';
 import './Metronome.css';
 
 export default class Metronome extends Component {
@@ -20,8 +21,10 @@ export default class Metronome extends Component {
         }
     }
 
-    playBeet = () => {
-        console.log('beet', this.timerId, this.state.beet);
+    playBeet = () => {        
+        const sound = new Audio(hihat);        
+        sound.currentTime = 0;
+        sound.play();
     }
 
     startButtonHandler = () => {

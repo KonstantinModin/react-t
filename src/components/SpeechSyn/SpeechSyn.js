@@ -3,7 +3,7 @@ import './SpeechSyn.css';
 
 const SpeechSyn = () => {    
     const [ start, setStart ] = useState(false);
-    const [ text, setText ] = useState("Hello! I love JavaScript!");
+    const [ text, setText ] = useState("Hello! I love React and I really have fan with it !");
     const [ voices, setVoices ] = useState([]);
     const [ currentVoice, setCurrentVoice ] = useState(null);
     const [ [rate, pitch], setOptions ] = useState([1, 1]);
@@ -12,8 +12,8 @@ const SpeechSyn = () => {
 
     useEffect(()=> {        
         if (!currentVoice) setCurrentVoice(voices[0]);
-    // eslint-disable-next-line
-    }, [voices]);
+    
+    }, [voices, currentVoice]);
 
     useEffect(() => {
         const timer = setInterval(defineVoices, 300);

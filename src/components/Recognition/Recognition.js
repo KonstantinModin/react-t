@@ -5,6 +5,7 @@ import unicorne from './photo/1.png';
 const Recognition = () => {
     
     const [ recText, setRecText ] = useState('');
+    const [ lang, setLang ] = useState('en-US');
     const [ wholeText, setWholeText ] = useState([]);
     const [ unicornClasses, setUnicornClasses ] = useState("Unicorne");
 
@@ -13,6 +14,8 @@ const Recognition = () => {
         
         const recognition = new window.SpeechRecognition();
         recognition.interimResults = true;
+        recognition.lang = lang;
+        // console.dir(recognition);
        
         const recFunction = (e) => {
             const transcript = Array.from(e.results)
@@ -21,17 +24,17 @@ const Recognition = () => {
            
             setRecText(transcript);
 
-            if (transcript.includes('единорог')) {
+            if (transcript.includes('единорог') || transcript.includes('unicorn')) {
                 setUnicornClasses("Unicorne Active");
             };
-            if (transcript.includes('не хочу') || transcript.includes('хватит')) {
+            if (transcript.includes('не хочу') || transcript.includes('хватит') || transcript.includes("don't want")) {
                 setUnicornClasses("Unicorne");
             }
 
             if (e.results[0].isFinal) {
                 const newArray = [...wholeText, transcript];
                 setWholeText(newArray);
-                setRecText('');
+                setRecText('');                
             }
         }
 
@@ -45,26 +48,37 @@ const Recognition = () => {
             recognition.stop();
         }
 
-    }, [wholeText]);
+    }, [wholeText, lang]);
 
     const resetHandler = () => {
         setWholeText([]);
         setRecText('');
         setUnicornClasses("Unicorne");
     }
+
+    const selectHandler = ({ target }) => {        
+        setLang(target.value);
+    }
     
 
     return (
         <div className="Recognition">            
-            <h2>Speech Recognition</h2>            
-            <button className="btn btn-danger" onClick={resetHandler}>Reset</button>            
-            {/* <button className="btn" onClick={classesHandler}>Unicorne</button> */}
+            <h2>Speech Recognition</h2>
+            <h4>Say something ... </h4>            
+            <div className="controls">
+                <button className="btn btn-danger" onClick={resetHandler}>Reset</button>            
+                <label>Language:</label>
+                <select onChange={selectHandler}>
+                    <option value='en-US'>English</option>
+                    <option value='ru'>Russian</option>
+                </select>
+            </div>
                     
-            <div className="textContainer">{wholeText.map(t => <div className="tex" key={t}>{t}</div>)}
+            <div className="textContainer">
+                {wholeText.map(t => <div className="tex" key={t+Math.random()}>{t}</div>)}
                 <p className="tex">{recText}</p>
             </div>
-            <img className={unicornClasses} src={unicorne} width={800}alt="my lovely unicorn"/>
-            
+            <img className={unicornClasses} src={unicorne} width={800}alt="my lovely unicorn"/>            
         </div>
     )
 }
