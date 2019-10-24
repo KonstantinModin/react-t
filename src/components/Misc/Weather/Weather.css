@@ -1,0 +1,40 @@
+.Weather {
+    /* border: 1px solid red; */
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.Weather .WeatherContainer {
+    display: flex;
+    /* border: 1px solid blue; */
+}
+
+.Weather .WeatherContainer .Day{
+    display: flex;
+    /* border: 1px solid red; */
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-content: center; */
+    /* width: 100px; */
+}
+
+.Weather .WeatherContainer .Day img {
+    width: 50%;
+    margin-left:20px;
+}
+
+.Weather .WeatherContainer .Day > div {
+    margin: auto;
+    /* border:1px solid red; */
+}
+
+.Weather .WeatherContainer .Day .date {
+   position: absolute;
+   border: 1px solid rgba(128, 128, 128, 0.555);
+   background: rgba(255, 255, 255, 0.692);
+   border-radius: 10px;
+   padding: 0 5px 0 5px;
+   color: black;   
+}

@@ -1,0 +1,43 @@
+.SocialCardUI {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.SocialCardUI .carddiv {
+    display: grid;
+    grid-template-rows: 110px 1fr 150px;
+    background: white;
+    border-radius: 30px;
+}
+
+.SocialCardUI .carddiv .top {
+    border: 1px solid rgba(230, 67, 67, 0.74);
+    box-shadow: 3px 5px 5px grey;
+    border-radius: 15px;
+    color:black;
+    padding: 10px;
+    margin: 5px 40px 10px 25px;
+}
+.SocialCardUI .carddiv .mid {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: flex-end;
+}
+.SocialCardUI .carddiv .mid img {
+    margin: 5px;
+}
+
+.SocialCardUI .carddiv .bot {
+    border: 1px solid rgba(145, 144, 144, 0.74);
+    box-shadow: 3px 5px 5px grey;
+    border-radius: 15px;
+    color:black;
+    padding: 10px;
+    margin: 5px 40px 10px 50px;
+}
+
+.SocialCardUI .carddiv .bot .description {
+    width: 70%;
+}
