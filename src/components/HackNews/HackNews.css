@@ -1,16 +1,76 @@
 .HackNews {
+    margin:auto;
     display: flex;
     flex-direction: column;
-    width: 60vw;
-    border: 1px solid red;
+    width: 90%;
+    /* border: 1px solid red; */
 }
 
-.HackNews .list {
-    border: 1px solid blue;    
+.HackNews h4 {
+    display: inline;
+}
+.HackNews h5 {
+    display: inline;
+    color: tomato;
 }
 
 .HackNews .list .listItem {
-    border: 0.1px solid yellow;
+    border-bottom: 0.1px solid black;
+    background: rgba(255, 255, 255, 0.7);
+    color: black;
+    padding-left: 10px;
+    transition: all ease-in-out 0.1s;
+}
+.HackNews .list .listItem:hover {   
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.01);
+}   
+
+.HackNews .list .listItem .title {
+    /* border: 1px solid red; */
+}
+.HackNews .list .listItem .title span{
+    margin-left: 10px;
+    font-weight: 900;
+    font-size: 110%;
+    color: rgb(21, 66, 102);
+}
+.HackNews .list .listItem .secondLine .by{    
+    color: rgb(44, 18, 116);
+    font-style: italic;
+    font-weight: bolder;
+}
+.HackNews .list .listItem .title h4 {
+    /* margin-left: 10px; */
+    text-decoration: none;
+    color: rgb(18, 17, 80);
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.459);
+    display: inline;
+    /* padding: 0 0 2px 0; */
+}
+.HackNews .list .listItem .title a {
+    text-decoration: none;
+    color: rgb(18, 17, 80);
+    /* padding: 0 0 2px 0; */
+}
+
+.HackNews .pagination {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.HackNews .pagination .page {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    transition: all ease-out 0.1s;
+}
+.HackNews .pagination .page:hover {
+    background: rgba(255, 255, 255, 0.829);
+    color: black;
+    transform: scale(1.2);
 }
 
 .HackNews .spinner {
