@@ -6,12 +6,17 @@
     /* border: 1px solid red; */
 }
 
-.HackNews h4 {
+.HackNews .topBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.HackNews .topBar h4 {
     display: inline;
 }
-.HackNews h5 {
+.HackNews .topBar h5 {
     display: inline;
-    color: tomato;
+    color: rgb(255, 71, 71);
 }
 
 .HackNews .list .listItem {
@@ -58,6 +63,10 @@
     margin-top: 5px;
     display: flex;
     justify-content: center;
+}
+.HackNews .pagination .select{
+    padding: 10px;
+    margin: 5px;
 }
 
 .HackNews .pagination .page {

@@ -24,8 +24,8 @@ const HackNews = () => {
             <div className="list">
                 {topStories.slice((page-1)*13,page*13).map(storyId=><ListItem key={storyId} id={storyId}/>)}           
             </div>
-            <div className="pagination">            
-                {[...Array(10)].map((_,i)=>
+            <div className="pagination"><span className="select">Select page:</span>            
+                {[...Array(20)].map((_,i)=>
                     <span className="page" key={i} onClick={()=>setPage(i+1)}>{i+1}</span>
                 )}
             </div>
@@ -33,7 +33,10 @@ const HackNews = () => {
 
     return (
         <div className="HackNews">
-            <div><h4>HackNews </h4><h5> Top stories: page {page}</h5></div>
+            <div className="topBar">
+                <div><h4>Hacker News </h4><h5> Top stories</h5></div>
+                <div><h5>Page: {page}</h5></div>
+            </div>
             {content}
         </div>
     )
