@@ -21,7 +21,7 @@ const Game = () => {
 
     const startNewLevel = () => {
         clearInterval(timerId.current);
-        timerId.current = setInterval(showSlide, 2000-level*100);
+        timerId.current = setInterval(showSlide, 1000-level*100);
     }    
     
     const startGame = () => {

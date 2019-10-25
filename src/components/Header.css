@@ -5,15 +5,15 @@
 }
 
 .Logo h1 {    
-    font-size: 150%;
+    font-size: 130%;
     margin: auto;
     margin-left: 1px;
 }
 
 .Logo {
     display: flex;
-    padding: 0 10px;
-    width: 150px;
+    padding: 0 5px;
+    width: 115px;
 }
 
 .Menu {
@@ -32,9 +32,9 @@
 
 .Menu a {
     text-decoration: none;
-    margin: 5px;
+    margin: 2px;
     align-self: center;    
-    padding: 5px 10px;
+    padding: 5px 7px;
     border: 1px solid white;
     color: white;
     transition: all 0.1s ease-in-out;    

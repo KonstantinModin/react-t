@@ -54,7 +54,7 @@ const Clock = () => {
                     <div ref={hrs} id="hrsHand"></div>
                 </div>
             </div>
-            <h4>Current Time is: </h4><h3>{time}</h3>            
+            <h4>Current Time is: </h4><h3>{time}</h3>                       
         </div>
     )
 }

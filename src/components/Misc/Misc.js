@@ -1,14 +1,17 @@
 import React from 'react';
 import SocialCardData from './Social';
 import Weather from './Weather';
+import Cube from './Cube';
 import Fetch from './Fetch';
 import FetchH from './Fetch/hooks';
 import './Misc.css';
 
 const Misc = () => {
+    
+
     return (
         <div className="Misc">
-            <h1>Misc</h1>                
+            <h1>Miscellaneous</h1>                
             <div className="Grid">                
                 <SocialCardData />                
                 <div className="cont">
@@ -19,15 +22,12 @@ const Misc = () => {
                     </div>
                 </div>               
                 <Weather />
-                <div className="Block4">
-                    <span>4</span>
-                </div>                
-                {/* <div className="Block5">
-                    <span>5</span>
-                </div>                
-                <div className="Block6">
-                    <span>6</span>
-                </div>                 */}
+                <div className="four">
+                    <Cube/>
+                    <Cube/>
+                    <Cube/>
+                    <Cube/>
+                </div>
             </div>
         </div>
     )    

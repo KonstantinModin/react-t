@@ -35,7 +35,12 @@ const PersonInfo = ({ id }) => {
         return num**3;
     },[num]);
   
-    if (!state.loaded) return <div>Loading person with ID of {id}...</div>
+    if (!state.loaded) return (<div>
+                                    <div>Loading person with ID of {id}...</div>
+                                    <div className="spinner-border text-danger" role="status">
+                                        <span className="sr-only">Loading...</span>
+                                    </div>
+                                </div>);
 
     
     return (

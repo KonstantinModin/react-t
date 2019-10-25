@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Shadow from './Shadow';
 import LinkEffect from './LinkEffect';
 import Scroll from './Scroll';
@@ -8,6 +8,13 @@ import Metronome from './Metronome';
 import './Features.css';
 
 const Features = () => {
+    const [ angel, setAngel ] = useState(0);
+    
+    useEffect(()=>{
+        const timerId = setInterval(()=> setAngel((Math.random()*360)|0), 500);
+        return () => clearInterval(timerId);
+    },[]);
+
     return (
         <div className="Features">
             <h1>Features</h1>                
@@ -17,9 +24,7 @@ const Features = () => {
                 <LinkEffect />
                 <Scroll />
                 <Metronome />
-                <div className="Block6">
-                    <span className="innerDiv">6</span>
-                </div>                
+                <div className="six"><span style={{transform:`rotateZ(${angel}deg)`}}>6</span></div>               
             </div>
         </div>
     )    

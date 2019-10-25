@@ -55,7 +55,12 @@ class PersonInfo extends Component {
         const  { loaded, person } = this.state;
 
         // if (!this.props.id) return <div>Please select person... </div>;
-        if (!loaded) return <div>Loading person with ID of {this.props.id}...</div>
+        if (!loaded) return (<div>
+                                <div>Loading person with ID of {this.props.id}...</div>
+                                <div className="spinner-border text-danger" role="status">
+                                    <span className="sr-only">Loading...</span>
+                               </div>
+                            </div>);
         
         return (
         <div>

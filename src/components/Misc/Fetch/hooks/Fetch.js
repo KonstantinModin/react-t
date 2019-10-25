@@ -17,7 +17,9 @@ const Events = () => {
         });
     },[]);  
     
-    if (!state.loaded) return <div>Loading...</div>
+    if (!state.loaded) return (<div className="spinner-border text-danger" role="status">
+                                    <span className="sr-only">Loading...</span>
+                               </div>);
     
     return (
         <div className="Fetch">

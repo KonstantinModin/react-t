@@ -9,7 +9,7 @@ const VideoPlayer = () => {
     const [playButton, setPlayButton] = useState('►');
     const [volume, setVolume] = useState(0.4);
     const [rate, setRate] = useState(1);
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState(0);    
     
     const togglePlay = () => {
         if (!video.current.webkitDisplayingFullscreen) {
@@ -45,7 +45,7 @@ const VideoPlayer = () => {
     }
 
     return (
-        <div className="VideoPlayer">
+        <div className="VideoPlayer">            
             <h1>Video Player</h1>
             <video 
                 onClick={togglePlay} 
@@ -68,7 +68,7 @@ const VideoPlayer = () => {
                 <button onClick={skip} data-skip={-5} className="playerButton">«« 5s</button>
                 <button onClick={skip} data-skip={5} className="playerButton">5s »»</button>
                 <button onClick={toggleFulscreen} className="playerButton">□</button>
-            </div>
+            </div>      
 
         </div>
     )

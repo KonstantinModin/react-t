@@ -2,14 +2,15 @@
     /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
-    width: 50vw;
+    width: 40vw;
 }
 
 .SocialCardUI .carddiv {
     display: grid;
-    grid-template-rows: 110px 1fr 150px;
+    grid-template-rows: 110px 1fr 180px;
     background: white;
     border-radius: 30px;
+    overflow: hidden;
 }
 
 .SocialCardUI .carddiv .top {
@@ -27,6 +28,7 @@
 }
 .SocialCardUI .carddiv .mid img {
     margin: 5px;
+    width: 300px;
 }
 
 .SocialCardUI .carddiv .bot {

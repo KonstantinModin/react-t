@@ -17,6 +17,16 @@
     /* box-sizing: border-box; */
 }
 
+.Features .Grid .six span{
+    transition: 0.2s ease-in-out all;
+    border-radius: 20px;
+    margin: auto;
+    font-size: 4rem;
+    border: 2px solid white;
+    padding: 30px 60px;
+    box-shadow: 3px 5px 10px rgba(255, 255, 255, 0.507);
+}
+
 .Features .Grid > div {
     display: flex;    
     /* border: 1px solid blue; */

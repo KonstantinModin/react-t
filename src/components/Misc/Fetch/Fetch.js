@@ -19,7 +19,9 @@ export default class Fetch extends Component {
 
     render() {
         const {users, selected, loaded} = this.state;
-        if (!loaded) return <div>Loading...</div>
+        if (!loaded) return (<div className="spinner-border text-danger" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </div>);
         
         return (
             <div className="Fetch"> 

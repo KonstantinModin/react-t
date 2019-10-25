@@ -108,7 +108,7 @@ class Draw extends Component {
                     ref={this.canvas} 
                     width="900" 
                     height="800"
-                />
+                />                
             </div>            
         )
     }
