@@ -14,7 +14,8 @@ const Cube = () => {
     useEffect(()=>{        
         const timerId = setTimeout(()=> setSide(selectSide(side)), 1000 + (200 * Math.random())|0);
         return () => clearInterval(timerId);
-    }, [side]);
+    // eslint-disable-next-line    
+    }, [ side ]);
 
 
     return (

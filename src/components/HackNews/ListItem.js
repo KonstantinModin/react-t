@@ -15,7 +15,7 @@ const ListItem = ({ id, pos, history }) => {
     const spinner = <div className="spinner"></div>;
 
     const cutURL = (url) => {
-        const res = (url || '').match(/^https?:\/\/([^\/]*)/);        
+        const res = (url || '').match(/^https?:\/\/([^/]*)/);        
         return (res || [])[1];
     }
 
@@ -36,11 +36,17 @@ const ListItem = ({ id, pos, history }) => {
     }
 
     const { id: dataId, url, title, score, by, time, kids:comments } = data;
-    console.log(history);
+    // console.log(history);
     return dataId ? (
         <div className="listItem">
             <div className="title" >
-                <a href={url} target="_blank"><h4>{pos + ". " + title}</h4></a><span>{cutURL(url)}</span>
+                <a 
+                    href={url} 
+                    target="_blank"
+                    rel="noopener noreferrer">
+                        <h4>{pos + ". " + title}</h4>
+                </a>
+                <span>{cutURL(url)}</span>
             </div>
             <div className="secondLine">
                 {score} points | 

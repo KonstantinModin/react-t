@@ -17,6 +17,7 @@ const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
 const Game = lazy(() => import('./components/Game'));
 const Misc = lazy(() => import('./components/Misc'));
 const HackNews = lazy(() => import('./components/HackNews'));
+const Git = lazy(() => import('./components/Git'));
 
 function App() {    
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
@@ -58,6 +59,7 @@ function App() {
                     <Route path="/videoplayer" component={VideoPlayer} />                    
                     <Route path="/game" component={Game} />
                     <Route path="/misc" component={Misc} />
+                    <Route path="/git" component={Git} />
                     <Route path="/hack" component={HackNews} />
                     <Route path="/hack/:id" render={({ match }) => {
                                             const { id } = match.params;                                        

@@ -3,8 +3,6 @@ import ListItem from './ListItem';
 import axios from 'axios';
 import './HackNews.css';
 
-{/* <span style={{ backgroundImage: `url(${src})` }} /> */}
-
 const HackNews = () => {
     const [ topStories, setTopStories ] = useState([]);
     const [ page, setPage ] = useState(1);
@@ -34,7 +32,7 @@ const HackNews = () => {
     return (
         <div className="HackNews">
             <div className="topBar">
-                <div><h4>Hacker News </h4><h5> Top stories</h5></div>
+                <div><h4>Hacker News (Hooks)</h4><h5> Top stories</h5></div>
                 <div><h6>Page: {page}</h6></div>
             </div>
             {content}

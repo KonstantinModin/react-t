@@ -64,7 +64,7 @@ const VideoPlayer = () => {
                 </div>            
                 <button className="playerButton Toggle" title="Toggle Play" onClick={togglePlay}>{playButton}</button>
                 <input onChange={handleVolume} type="range" name="volume" className="playerSlider volume" min={0} max={1} step={0.05} value={volume}/>
-                <input onChange={handleRate}type="range" name="playbackRate" className="playerSlider rate" min={0.5} max={2} step={0.1} value={rate}/>
+                <input onChange={handleRate}type="range" name="playbackRate" className="playerSlider rate" min={0.5} max={5} step={0.1} value={rate}/>
                 <button onClick={skip} data-skip={-5} className="playerButton">«« 5s</button>
                 <button onClick={skip} data-skip={5} className="playerButton">5s »»</button>
                 <button onClick={toggleFulscreen} className="playerButton">□</button>

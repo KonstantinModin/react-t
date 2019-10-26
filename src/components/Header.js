@@ -13,13 +13,14 @@ const Header = () => {
                 <Link to="/webcam">WebCam</Link>
                 <Link to="/draw">Draw</Link>
                 <Link to="/variables">CSS Vars</Link>
-                <Link to="/features">Features</Link>
-                <Link to="/recognition">Recognition</Link>
-                <Link to="/synthesis">Speech Synth</Link>
-                <Link to="/videoplayer">Video Player</Link>
+                <Link to="/features">Featrs</Link>
+                <Link to="/recognition">Recogntn</Link>
+                <Link to="/synthesis">Speech Syn</Link>
+                <Link to="/videoplayer">Video Plr</Link>
                 <Link to="/game">Game</Link>                
                 <Link to="/misc">Misc</Link>
                 <Link to="/hack">Hacker News</Link>
+                <Link to="/git">Git Issues</Link>
             </div>
         </header>
     )
