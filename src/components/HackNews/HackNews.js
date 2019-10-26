@@ -22,11 +22,11 @@ const HackNews = () => {
     const content = topStories.length ? 
         (<>
             <div className="list">
-                {topStories.slice((page-1)*13,page*13).map(storyId=><ListItem key={storyId} id={storyId}/>)}           
+                {topStories.slice((page-1)*13,page*13).map((storyId, i)=><ListItem key={storyId} id={storyId} pos={i+1+(page-1)*13}/>)}           
             </div>
             <div className="pagination"><span className="select">Select page:</span>            
                 {[...Array(20)].map((_,i)=>
-                    <span className="page" key={i} onClick={()=>setPage(i+1)}>{i+1}</span>
+                    <span className={"page"+(i+1===page?" cur":"")} key={i} onClick={()=>setPage(i+1)}>{i+1}</span>
                 )}
             </div>
         </>) : (<div className="spinner"></div>)
@@ -35,7 +35,7 @@ const HackNews = () => {
         <div className="HackNews">
             <div className="topBar">
                 <div><h4>Hacker News </h4><h5> Top stories</h5></div>
-                <div><h5>Page: {page}</h5></div>
+                <div><h6>Page: {page}</h6></div>
             </div>
             {content}
         </div>

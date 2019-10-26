@@ -2,7 +2,7 @@
     margin:auto;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 95%;
     /* border: 1px solid red; */
 }
 
@@ -75,6 +75,9 @@
     padding: 10px;
     margin: 5px;
     transition: all ease-out 0.1s;
+}
+.HackNews .pagination .page.cur {
+   background: rgba(0, 0, 255, 0.473);
 }
 .HackNews .pagination .page:hover {
     background: rgba(255, 255, 255, 0.829);

@@ -59,6 +59,10 @@ function App() {
                     <Route path="/game" component={Game} />
                     <Route path="/misc" component={Misc} />
                     <Route path="/hack" component={HackNews} />
+                    <Route path="/hack/:id" render={({ match }) => {
+                                            const { id } = match.params;                                        
+                                            return <div item={id}>Comment{id}</div> 
+                                        }} />
                     <Redirect to="/" />
                 </Suspense>
             </div>        

@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import './Cube.css';
 
 const Cube = () => {    
-    const [ side, setSide ] = useState('front');
-
-    const selectSide = () => {
+    
+    const selectSide = ( s = 'default') => {
         const arr = ['front','right','back','left','top','bottom'];
         const rand = arr[(Math.random() * 6)|0];        
-        return rand !== side ? rand : selectSide();
+        return rand !== s ? rand : selectSide(s);
     }
-
+    
+    const [ side, setSide ] = useState(selectSide());
 
     useEffect(()=>{        
-        const timerId = setTimeout(()=> setSide(selectSide()), 1000+(200*Math.random())|0);
+        const timerId = setTimeout(()=> setSide(selectSide(side)), 1000 + (200 * Math.random())|0);
         return () => clearInterval(timerId);
     }, [side]);
 
