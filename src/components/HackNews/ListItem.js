@@ -8,14 +8,14 @@ const ListItem = ({ id, pos, history, dataProps }) => {
         if (!dataProps) {
             axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
             .then(({data}) => {
-                console.log(data);
+                // console.log(data);
                 setData(data);
             })
             .catch(error => console.error(error));
         } else {
             setData(dataProps);
         }
-    },[id]);
+    },[id, dataProps]);
 
     const spinner = <div className="spinner"></div>;
 
@@ -49,7 +49,7 @@ const ListItem = ({ id, pos, history, dataProps }) => {
                     href={url} 
                     target="_blank"
                     rel="noopener noreferrer">
-                        <h4>{pos + ". " + title}</h4>
+                        <h4>{pos + title}</h4>
                 </a>
                 <span>{cutURL(url)}</span>
             </div>

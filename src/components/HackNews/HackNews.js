@@ -24,7 +24,7 @@ const HackNews = ({ history }) => {
                     <ListItem 
                         key={storyId} 
                         id={storyId} 
-                        pos={i+1+(page-1)*13}
+                        pos={i+1+(page-1)*13+". "}
                         history={history}
                     />
                 )}           
