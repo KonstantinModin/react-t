@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ListItem = ({ id, pos, history }) => {
+const ListItem = ({ id, pos, history, dataProps }) => {
     const [ data, setData ] = useState({});
     useEffect(()=>{
-        axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
+        // console.log('history :', history);
+        if (!dataProps) {
+            axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
             .then(({data}) => {
                 console.log(data);
                 setData(data);
             })
             .catch(error => console.error(error));
+        } else {
+            setData(dataProps);
+        }
     },[id]);
 
     const spinner = <div className="spinner"></div>;
@@ -52,7 +57,7 @@ const ListItem = ({ id, pos, history }) => {
                 {score} points | 
                 by <span className="by">{by}</span> | 
                 {" " + timePassed(time)} ago |
-                <span onClick={()=>history.push(`/hack/${dataId}`)}>{getComments(comments)}</span>
+                <span onClick={()=>history.push(`/hack/${dataId}`, [data])}>{getComments(comments)}</span>
             </div>
         </div>
     ) : <div>{spinner}</div>

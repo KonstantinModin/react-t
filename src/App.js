@@ -17,6 +17,7 @@ const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
 const Game = lazy(() => import('./components/Game'));
 const Misc = lazy(() => import('./components/Misc'));
 const HackNews = lazy(() => import('./components/HackNews'));
+const CommentList = lazy(() => import('./components/HackNews/CommentList'));
 const Git = lazy(() => import('./components/Git'));
 
 function App() {    
@@ -60,11 +61,12 @@ function App() {
                     <Route path="/game" component={Game} />
                     <Route path="/misc" component={Misc} />
                     <Route path="/git" component={Git} />
-                    <Route path="/hack" component={HackNews} />
-                    <Route path="/hack/:id" render={({ match }) => {
-                                            const { id } = match.params;                                        
-                                            return <div item={id}>Comment{id}</div> 
-                                        }} />
+                    <Route path="/hack" exact component={HackNews} />
+                    <Route path="/hack/:id" render={({ match, history}) => {
+                        // const { id } = match.params;
+                        console.log(match, history);
+                        return <CommentList id={match.params.id} data={history.location.state} /> 
+                    }} />
                     <Redirect to="/" />
                 </Suspense>
             </div>        

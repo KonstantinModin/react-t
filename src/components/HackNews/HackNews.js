@@ -3,7 +3,7 @@ import ListItem from './ListItem';
 import axios from 'axios';
 import './HackNews.css';
 
-const HackNews = () => {
+const HackNews = ({ history }) => {
     const [ topStories, setTopStories ] = useState([]);
     const [ page, setPage ] = useState(1);
 
@@ -20,7 +20,14 @@ const HackNews = () => {
     const content = topStories.length ? 
         (<>
             <div className="list">
-                {topStories.slice((page-1)*13,page*13).map((storyId, i)=><ListItem key={storyId} id={storyId} pos={i+1+(page-1)*13}/>)}           
+                {topStories.slice((page-1)*13,page*13).map((storyId, i)=>
+                    <ListItem 
+                        key={storyId} 
+                        id={storyId} 
+                        pos={i+1+(page-1)*13}
+                        history={history}
+                    />
+                )}           
             </div>
             <div className="pagination"><span className="select">Select page:</span>            
                 {[...Array(20)].map((_,i)=>
