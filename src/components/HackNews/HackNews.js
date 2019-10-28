@@ -10,7 +10,7 @@ const HackNews = ({ history }) => {
     useEffect(() => {
         axios.get('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
             .then(response=>{
-                console.log(response);
+                // console.log(response);
                 setTopStories(response.data);
             })
             .catch(error => console.error(error));

@@ -62,10 +62,8 @@ function App() {
                     <Route path="/misc" component={Misc} />
                     <Route path="/git" component={Git} />
                     <Route path="/hack" exact component={HackNews} />
-                    <Route path="/hack/:id" render={({ match, history}) => {
-                        // const { id } = match.params;
-                        console.log(match, history);
-                        return <CommentList id={match.params.id} data={history.location.state} /> 
+                    <Route path="/hack/:id" render={({ history}) => {                        
+                        return <CommentList data={history.location.state} history={history} /> 
                     }} />
                     <Redirect to="/" />
                 </Suspense>

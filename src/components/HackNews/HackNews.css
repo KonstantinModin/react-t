@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 95%;
-    /* border: 1px solid red; */
+    /* border: 1px solid pink; */
 }
 
 .HackNews .topBar {
@@ -25,19 +25,43 @@
     color: black;
     padding-left: 10px;
     transition: all ease-in-out 0.1s;
+    /* border: 1px solid yellow; */
 }
-.HackNews .list {
-    overflow: scroll;
-    height: 90vh;
+.HackNews .scroll {
+    overflow-x: scroll;
+    height: 85vh;
+    width: 90vw;
+    /* border: 1px solid red; */
+    
 }
 
 .HackNews .list .Comment {
-    border:1px solid blue;
-    margin-left: 30px;
+    border:1px solid black;
+    margin: 5px 5px 5px 30px;
     padding: 10px;
     background-color: white;
     color: black;
+    overflow: hidden;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.527);
 
+}
+
+.HackNews .list .Comment .author span {
+    color: rgb(44, 18, 116);
+    font-style: italic;
+    font-weight: bolder;
+}
+.HackNews .list .Comment .title {
+    color: rgb(44, 18, 116);    
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+.HackNews .list .Comment .text {    
+    /* font-weight: bolder; */
+    font-size: 1.1rem;
 }
 
 .HackNews .list .listItem:hover {   
