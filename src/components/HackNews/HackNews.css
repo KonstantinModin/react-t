@@ -26,14 +26,19 @@
     padding-left: 10px;
     transition: all ease-in-out 0.1s;
 }
+.HackNews .list {
+    overflow: scroll;
+    height: 90vh;
+}
 
-/* .CommentList {
-    border: 1px solid red;
-    margin:auto;
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-} */
+.HackNews .list .Comment {
+    border:1px solid blue;
+    margin-left: 30px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+
+}
 
 .HackNews .list .listItem:hover {   
     background: rgba(255, 255, 255, 0.9);
