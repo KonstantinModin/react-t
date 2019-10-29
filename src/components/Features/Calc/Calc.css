@@ -1,0 +1,33 @@
+.Calc {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Calc .Controls {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.Calc .Controls div {
+    display: flex;
+    border: 1px solid brown;
+    border-radius: 4px;
+    padding: 10px;
+    background: rgba(255, 192, 203, 0.63);
+    /* color: black; */
+    margin: 1px;    
+}
+.Calc .Controls div span {
+    margin: auto;
+    color: black;
+      
+}
+.Calc .Controls .num {    
+    background: rgba(255, 192, 203, 0.8);    
+}
+.Calc .Controls div:hover {    
+    background: rgba(255, 192, 203, 0.95);    
+}
