@@ -61,8 +61,9 @@ function App() {
                     <Route path="/game" component={Game} />
                     <Route path="/misc" component={Misc} />
                     <Route path="/git" component={Git} />
-                    <Route path="/hack" exact component={HackNews} />
-                    <Route path="/hack/:id" render={({ history}) => {                        
+                    {/* <Route path="/hack" component={HackNews} /> */}
+                    <Route path="/hack/:id" exact component={HackNews} />
+                    <Route path="/hack/comments/:id" render={({ history}) => {                        
                         return <CommentList data={history.location.state} history={history} /> 
                     }} />
                     <Redirect to="/" />

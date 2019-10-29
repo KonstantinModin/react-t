@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useAxios } from './hooks/hooks';
 import ListItem from './ListItem';
-import axios from 'axios';
 import './HackNews.css';
 
-const HackNews = ({ history }) => {
-    const [ topStories, setTopStories ] = useState([]);
-    const [ page, setPage ] = useState(1);
+const HackNews = ({ history, match }) => {    
 
-    useEffect(() => {
-        axios.get('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
-            .then(response=>{
-                // console.log(response);
-                setTopStories(response.data);
-            })
-            .catch(error => console.error(error));
-        
-    },[]);
+    const page = parseInt(match.params.id);    
+
+    const topStories = useAxios('','top');
 
     const content = topStories.length ? 
         (<>
@@ -30,8 +22,8 @@ const HackNews = ({ history }) => {
                 )}           
             </div>
             <div className="pagination"><span className="select">Select page:</span>            
-                {[...Array(20)].map((_,i)=>
-                    <span className={"page"+(i+1===page?" cur":"")} key={i} onClick={()=>setPage(i+1)}>{i+1}</span>
+                {[...Array(20)].map((_,i)=>                    
+                    <span className={"page"+(i+1===page?" cur":"")} key={i} onClick={()=>history.push(`/hack/${i+1}`)}>{i+1}</span>
                 )}
             </div>
         </>) : (<div className="spinner"></div>)

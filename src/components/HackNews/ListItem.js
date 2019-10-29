@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useTimePassed } from './hooks/hooks';
-import axios from 'axios';
+import React from 'react';
+import { useTimePassed, useAxios } from './hooks/hooks';
 
-const ListItem = ({ id, pos, history, dataProps }) => {
-    const [ data, setData ] = useState({});
-    useEffect(()=>{
-        // console.log('history :', history);
-        if (!dataProps) {
-            axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
-            .then(({data}) => {
-                // console.log(data);
-                setData(data);
-            })
-            .catch(error => console.error(error));
-        } else {
-            setData(dataProps);
-        }
-    },[id, dataProps]);
+const ListItem = ({ id, pos, history, dataProps }) => {    
+
+    let data = useAxios(id, 'story', !dataProps);    
+    if (dataProps) data = dataProps;
 
     const spinner = <div className="spinner"></div>;
 
@@ -55,7 +43,7 @@ const ListItem = ({ id, pos, history, dataProps }) => {
                 {score} points | 
                 by <span className="by">{by}</span> | 
                 {" " + timePassed} ago |
-                <span onClick={()=>history.push(`/hack/${dataId}`, [data])}>{getComments(comments)}</span>
+                <span onClick={()=>history.push(`/hack/comments/${dataId}`, [data])}>{getComments(comments)}</span>
             </div>
         </div>
     ) : <div>{spinner}</div>

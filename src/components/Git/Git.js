@@ -11,7 +11,7 @@ export default class Git extends Component {
 
     componentDidMount(){
         console.log('state :', this.state);
-        axios.get('https://api.github.com/resource?page=1')
+        axios.get('https://api.github.com/users/defunkt')
             .then(response => {
                 console.log(response);
                 this.setState({list: response});
@@ -20,7 +20,7 @@ export default class Git extends Component {
     };
 
     render() {
-        const { list, loading, error } = this.state;
+        // const { list, loading, error } = this.state;
 
         return (
             <div className="GitHub">

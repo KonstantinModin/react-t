@@ -1,7 +1,7 @@
 const users = [
-    {name: 'Jhon', id:25, age: 24},
-    {name: 'Mary', id:48, age: 23},
-    {name: 'Scarlet', id:15, age: 21},
+    {name: 'Jhon Snow', id:25, age: 24},
+    {name: 'Mary Gold', id:48, age: 23},
+    {name: 'Scarlet Way', id:15, age: 21},
 ];
 
 function emulateRequest(timeout = 1000){

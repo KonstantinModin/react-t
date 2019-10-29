@@ -28,7 +28,7 @@ const Events = () => {
                 {state.users.map(({name, id})=>(
                     <li onClick={()=>setSelected(id)} 
                     key={id}
-                    className={id===selected ? 'text-success' : ''}>
+                    className={id===selected ? 'selected' : ''}>
                         Name:{name}
                     </li>)
                 )}                    

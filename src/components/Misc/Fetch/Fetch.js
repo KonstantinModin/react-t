@@ -30,7 +30,7 @@ export default class Fetch extends Component {
                     {users.map(({name, id})=>(
                         <li onClick={()=>this.setState({selected:id})} 
                         key={id}
-                        className={id===selected?'text-success':''}>Name: {name}</li>)
+                        className={id===selected?'selected':''}>Name: {name}</li>)
                     )}                    
                 </ul>
                     {!selected? <div>Please select person... </div>:<PersonInfo id={selected} />}                
