@@ -1,4 +1,21 @@
 .GitHub {
     margin:auto;
     width: 90%;
+    /* border:1px solid red; */
+}
+
+.GitHub div span {
+    /* font-weight: bolder; */
+    font-size: 1.1rem;
+    color: brown;
+    margin-right: 10px;
+}
+.GitHub div {
+    transition: all 0.3s ease-in-out;
+    margin-left: 40px;
+    /* border:1px solid red; */
+    width:60%;
+}
+.GitHub div:hover {
+    transform: scale(1.1);
 }
