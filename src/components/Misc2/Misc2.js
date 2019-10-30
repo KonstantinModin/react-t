@@ -4,7 +4,7 @@ import './Misc2.css';
 const Misc2 = () => {
     return (
         <div className="Misc2">
-            <h2>Miscellaneous 2</h2>
+            <h1>Miscellaneous 2</h1>
             <div className="grid">
                 <div><span>1</span></div>
                 <div><span>2</span></div>
