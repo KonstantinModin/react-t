@@ -3,18 +3,18 @@ import { controls } from './controls';
 import { connect } from 'react-redux';
 import './Calc.css';
 
-const Calc = ({ state, keyPress}) => {    
+const Calc = ({ screen, keyPress}) => {    
     return (
         <div className="Calc">
             <h3>Calculator (with Redux)</h3>
-            <div className="Screen"><span>{state}</span></div>
+            <div className="Screen"><span>{screen}</span></div>
             <div className="Controls">
-                {controls.map(({ id, label, action, type })=>
+                {controls.map(({ id, label, action, type, payload })=>
                     <div 
                         key={id} 
                         action={action} 
                         className={type}
-                        onClick={()=> keyPress(action)}
+                        onClick={()=> keyPress(action, payload)}
                         ><span>{label}</span>
                     </div>
                 )}
@@ -22,6 +22,6 @@ const Calc = ({ state, keyPress}) => {
         </div>
     )
 }
-const mapStateToProps = (state) => ({state: state})
-const mapDispatchToProps = (dispatch) => ({ keyPress: (key) => dispatch({type: key}) });
+const mapStateToProps = (state) => ({screen: state.screen})
+const mapDispatchToProps = (dispatch) => ({ keyPress: (action, payload) => dispatch({type: action, payload}) });
 export default connect(mapStateToProps, mapDispatchToProps)(Calc);

@@ -11,7 +11,9 @@ import Calc from './Calc';              //REDUX
 import { createStore } from 'redux';    //REDUX
 import { Provider } from 'react-redux'; //REDUX
 import reducer from './Calc/reducer';   //REDUX
-const store = createStore(reducer);     //REDUX
+const store = createStore(reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );                                  //REDUX
 
 const Features = () => {
     return (
