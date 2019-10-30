@@ -1,0 +1,24 @@
+.Misc2 {
+    margin: auto;
+    width: 100vw;
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    border:1px solid red;
+}
+.Misc2 .grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: calc(100vh - 132px);
+}
+
+.Misc2 .grid div {
+    display: flex;
+    border: 1px solid blue;    
+}
+
+.Misc2 .grid div span {
+    margin: auto;
+    font-size: 3rem;
+}

@@ -19,6 +19,7 @@ const Header = () => {
                 <Link to="/videoplayer">Video Plr</Link>
                 <Link to="/game">Game</Link>                
                 <Link to="/misc">Misc</Link>
+                <Link to="/misc2">Misc2</Link>
                 <Link to="/hack/1">Hacker News</Link>
                 <Link to="/git">Git Issues</Link>
             </div>

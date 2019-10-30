@@ -27,7 +27,6 @@ const firstSecondUpdate = (state, func, begin = false, beginFunc) => {
     return processScreen({ ...state, first: func(state.first) });
 }
 
-
 const reducer = (state = initialState, { type, payload }) => {
     switch( type ) {
         case 'PERC' : {
