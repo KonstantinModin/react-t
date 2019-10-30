@@ -3,10 +3,15 @@ import Shadow from './Shadow';
 import LinkEffect from './LinkEffect';
 import Scroll from './Scroll';
 import Cities from './Cities';
-import Calc from './Calc';
 import Metronome from './Metronome';
 // import Menu from './Menu';
 import './Features.css';
+
+import Calc from './Calc';              //REDUX
+import { createStore } from 'redux';    //REDUX
+import { Provider } from 'react-redux'; //REDUX
+import reducer from './Calc/reducer';   //REDUX
+const store = createStore(reducer);     //REDUX
 
 const Features = () => {
     return (
@@ -18,7 +23,9 @@ const Features = () => {
                 <LinkEffect />
                 <Scroll />
                 <Metronome />
-                <Calc />               
+                <Provider store={store}> {/* REDUX */}
+                    <Calc />             {/* REDUX */}
+                </Provider>              {/* REDUX */}
             </div>
         </div>
     )    
