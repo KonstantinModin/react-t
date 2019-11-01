@@ -2,27 +2,30 @@
 
 Here in one React project included implementation of:
 
-* Clock with CSS transition
-* Drums (keybord or mouse)
-* Receiving data from WebCam
-* Draw on canvas
-* CSS Variables
-* Shadow Effect
-* Metronome
+* Clock with CSS transition (useEffect, useState, useRef)
+* Drums with keybord or mouse (class-based) 
+* Receiving data from WebCam (useEffect, useState)
+* Draw on canvas (class-based)
+* CSS Variables (useState, useEffect)
+* Shadow Effect (class-based)
+* Metronome (class-based)
 * Calculator (with Redux)
-* Link Effect
-* Fetch US cities info
-* Mouse Slide
-* Voice Recognition
-* Speech Synthesis
-* Custom Video Player
-* Catch Peppa Pig Game
-* Social Card Example
-* Weather card Example
-* Fetching data with hooks/classes emulation
-* 3D HTML-CSS cubes rotation
-* Hacker News Fetching
-* Recursive comments Fetching
+* Link Effect (with React.createRef)
+* Fetch US cities info (useEffect, useState, axios )
+* Slide with mouse (useState, createRef)
+* Voice Recognition (useState, useEffect )
+* Speech Synthesis (useState, useEffect )
+* Custom Video Player (createRef, useState)
+* Catch Peppa Pig Game, levels (useEffect, useState, useRef)
+* Social Card Example (static data render)
+* Weather card Example (static data render)
+* Fetching data with hooks/classes emulation (hooks/classes difference in data fetching)
+* 3D HTML-CSS cubes rotation (useState, useEffect )
+* Hacker News Fetching, Recursive comments Fetching (useState, useEffect, custom hooks)
+
+## also used:
+* react-router
+* lazy loading
 
 ## Authors
 
@@ -38,7 +41,7 @@ Here in one React project included implementation of:
 	
 ## This project on web
 
-[will be deployed soon...]
+https://lucid-volhard-4ac45f.netlify.com/
 
 ## License
 
