@@ -10,14 +10,14 @@
 }
 .Misc2 .grid {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     height: calc(100vh - 123px);
 }
 
 .Misc2 .grid div {
     display: flex;
-    /* border: 1px solid blue;     */
+    border: 1px solid blue;    
 }
 
 .Misc2 .grid div span {

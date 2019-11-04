@@ -4,11 +4,12 @@ import ReactMarkdown from 'react-markdown';
 
 const Comment = ({ id }) => {   
 
-    const { by, kids, text, time, parent } = useAxios(id, 'comment');
+    const { by, kids, text, time, parent, type, deleted } = useAxios(id, 'comment');
 
     const timePassed = useTimePassed(time);
 
-    return by ? (
+    return deleted ? null :
+        type ? (
         <div className="Comment">
             <div className="title">This is comment #:{id}, my parent is: {parent}</div>
             <div className="time">Posted {timePassed} ago.</div>
