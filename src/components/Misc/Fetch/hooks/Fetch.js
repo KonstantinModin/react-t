@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PersonInfo from './PersonInfo';
 import * as UserApi from './usersApi';
+import ErrorBoundary from './ErrorBoundary';
+import ListItem from './ListItem';
 
 const Events = () => {
     const [ state, setState ] = useState({
@@ -8,14 +10,14 @@ const Events = () => {
         loaded: false 
     });
 
-    const [ selected, setSelected ] = useState(null);
+    const [ selected, setSelected ] = useState(null);   
 
     useEffect(()=>{
         console.log('effect Main');
         UserApi.all().then(users => {
             setState({ users, loaded:true });
         });
-    },[]);  
+    },[]);    
     
     if (!state.loaded) return (<div className="spinner-border text-danger" role="status">
                                     <span className="sr-only">Loading...</span>
@@ -24,16 +26,14 @@ const Events = () => {
     return (
         <div className="Fetch">
             <h4>With Hooks</h4>
-                <ul>
+            <ul>
                 {state.users.map(({name, id})=>(
-                    <li onClick={()=>setSelected(id)} 
-                    key={id}
-                    className={id===selected ? 'selected' : ''}>
-                        Name:{name}
-                    </li>)
+                    <ErrorBoundary>
+                        <ListItem key={id} id={id} setSelected={setSelected} selected={selected} name={name}/>   
+                    </ErrorBoundary>)
                 )}                    
             </ul>
-                {!selected? <div>Please select person... </div>:<PersonInfo id={selected} />}                
+            {!selected? <div>Please select person... </div>:<PersonInfo id={selected} />}                
         </div>
     )    
 }
