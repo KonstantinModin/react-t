@@ -13,27 +13,26 @@ import triangle from './audio/triangle.wav';
 
 const Drums = () => {
     const keys = {
-        65: {id: 1, key: 'A', label: 'CLAP', file: clap},
-        83: {id: 2, key: 'S', label: 'HIHAT', file: hihat},
-        68: {id: 3, key: 'D', label: 'KICK', file: kick},
-        70: {id: 4, key: 'F', label: 'OPENHAT', file: openhat},
-        71: {id: 5, key: 'G', label: 'BOOM', file: boom},
-        72: {id: 6, key: 'H', label: 'HEY', file: hey},
-        74: {id: 7, key: 'J', label: 'SCREECH', file: screech},
-        75: {id: 8, key: 'K', label: 'HAMMOCK', file: hammock},
-        76: {id: 9, key: 'L', label: 'TRIANGLE', file: triangle}
+        65: { id: 1, key: 'A', label: 'CLAP', sound: new Audio(clap) },
+        83: { id: 2, key: 'S', label: 'HIHAT', sound: new Audio(hihat) },
+        68: { id: 3, key: 'D', label: 'KICK', sound: new Audio(kick) },
+        70: { id: 4, key: 'F', label: 'OPENHAT', sound: new Audio(openhat) },
+        71: { id: 5, key: 'G', label: 'BOOM', sound: new Audio(boom) },
+        72: { id: 6, key: 'H', label: 'HEY', sound: new Audio(hey) },
+        74: { id: 7, key: 'J', label: 'SCREECH', sound: new Audio(screech) },
+        75: { id: 8, key: 'K', label: 'HAMMOCK', sound: new Audio(hammock) },
+        76: { id: 9, key: 'L', label: 'TRIANGLE', sound: new Audio(triangle) }
     }; 
 
     const [playing, setPlaying] = useState(0);    
     
     const keyHandler = (event) => {
         const key = event.keyCode || Number(event.target.dataset.key);        
-        if (!keys[key]) return
+        if (!keys[key]) return        
         
-        const sound = new Audio(keys[key].file);
         setPlaying(key);
-        sound.currentTime = 0;
-        sound.play();
+        keys[key].sound.currentTime = 0;
+        keys[key].sound.play();
     };
 
     useEffect(() => {
