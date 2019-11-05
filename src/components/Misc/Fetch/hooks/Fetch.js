@@ -29,7 +29,12 @@ const Events = () => {
             <ul>
                 {state.users.map(({name, id})=>(
                     <ErrorBoundary>
-                        <ListItem key={id} id={id} setSelected={setSelected} selected={selected} name={name}/>   
+                        <ListItem 
+                            key={id} 
+                            id={id} 
+                            setSelected={setSelected} 
+                            selected={selected} 
+                            name={name}/>   
                     </ErrorBoundary>)
                 )}                    
             </ul>

@@ -18,7 +18,7 @@ const ListItem = ({ setSelected, id, selected, name }) => {
                             key={id}
                             className={id===selected ? 'selected' : ''}>
                             Name:{name}
-                            <button onClick={throwMe}>Throw</button>
+                            <button style={{marginLeft:'30px'}} onClick={throwMe}>Throw Error</button>
         </li>
     )
 }
