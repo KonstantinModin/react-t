@@ -10,7 +10,10 @@ const Menu = () => {
             kids: (
                 <div className="dropdown dropdown1">
                     <div className="bio">
-                        <img src="https://avatars2.githubusercontent.com/u/45493372?s=460&v=4" width={80}/>
+                        <img 
+                            src="https://avatars2.githubusercontent.com/u/45493372?s=460&v=4" 
+                            width={80} 
+                            alt="avatar"/>
                         <p>Konstantin Modin<br/>Software Engineer:<br/>Web Development with React</p>
                     </div>
                 </div>

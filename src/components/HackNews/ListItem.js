@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTimePassed, useAxios } from './hooks/hooks';
+import PropTypes from 'prop-types';
 
 const ListItem = ({ id, pos, history, dataProps }) => {    
 
@@ -50,3 +51,10 @@ const ListItem = ({ id, pos, history, dataProps }) => {
 }
 
 export default ListItem;
+
+ListItem.propTypes = {
+    id: PropTypes.number.isRequired,
+    pos: PropTypes.string,
+    history: PropTypes.object,
+    dataProps: PropTypes.object
+};
