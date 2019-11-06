@@ -1,5 +1,6 @@
 import React from 'react';
 import Menu from './Menu';
+import Test from './Test';
 import './Misc2.css';
 
 const Misc2 = () => {
@@ -8,7 +9,11 @@ const Misc2 = () => {
             <h1>Miscellaneous 2</h1>
             <div className="grid">
                 <Menu />
-                <div><span>2</span></div>
+                <Test>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </Test>
                 <div><span>3</span></div>
                 <div><span>4</span></div>
                 {/* <div><span>5</span></div>
