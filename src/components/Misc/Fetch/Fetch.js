@@ -29,9 +29,8 @@ export default class Fetch extends Component {
                 <h4>With Classes</h4>
                 <ul>
                     {users.map(({name, id})=>
-                        <ErrorBoundary>
+                        <ErrorBoundary key={id}>
                             <ListItem 
-                                key={id} 
                                 id={id} 
                                 setSelected={()=>this.setState({selected:id})} 
                                 selected={selected} 

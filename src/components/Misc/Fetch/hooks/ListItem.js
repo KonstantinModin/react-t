@@ -14,11 +14,11 @@ const ListItem = ({ setSelected, id, selected, name }) => {
     }
     
     return (
-        <li onClick={()=>setSelected(id)} 
-                            key={id}
-                            className={id===selected ? 'selected' : ''}>
-                            Name:{name}
-                            <button style={{marginLeft:'30px'}} onClick={throwMe}>Throw Error</button>
+        <li 
+            onClick={()=>setSelected(id)}                             
+            className={id===selected ? 'selected' : ''}>
+            Name:{name}
+            <button style={{marginLeft:'30px'}} onClick={throwMe}>Throw Error</button>
         </li>
     )
 }

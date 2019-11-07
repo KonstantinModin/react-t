@@ -28,9 +28,8 @@ const Events = () => {
             <h4>With Hooks</h4>
             <ul>
                 {state.users.map(({name, id})=>(
-                    <ErrorBoundary>
-                        <ListItem 
-                            key={id} 
+                    <ErrorBoundary key={id}>
+                        <ListItem                             
                             id={id} 
                             setSelected={setSelected} 
                             selected={selected} 
