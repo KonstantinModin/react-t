@@ -1,7 +1,8 @@
-import React, { Suspense, lazy, Profiler } from 'react';
+import React, { Suspense, lazy, Profiler, useRef, useState, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import Back from './45621.jpg';
 import Header from './components/Header';
+import MyContext from './context';
 import './App.css';
 
 const Clock = lazy(() => import('./components/Clock'));
@@ -21,7 +22,7 @@ const HackNews = lazy(() => import('./components/HackNews'));
 const CommentList = lazy(() => import('./components/HackNews/CommentList'));
 const Git = lazy(() => import('./components/Git'));
 
-function App() {    
+const App = () => {    
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
     // console.dir(document);
     // console.dir(window);    
@@ -37,6 +38,17 @@ function App() {
     ) => {
         // console.table({id, phase, actualDuration, baseDuration, startTime, commitTime, interactions});
     }
+
+    const inputRef = useRef();
+
+    const [ contextValue, setContextValue ] = useState('default context');
+    const inputHandle = ({ target: {value}}) => {
+        setContextValue(value);
+    }
+
+    // useEffect(()=>{
+    //     if (inputRef.current) setContextValue(inputRef.current.value) 
+    // }, [inputRef]);
     
     return (
         <Profiler id="App" onRender={onRenderCallback}>
@@ -48,27 +60,34 @@ function App() {
             </div>
         
             <div className="Container">                                     
-                <Suspense fallback={<h1>Loading...</h1>}>
-                    <Route exact path="/" component={Home} />        
-                    <Route path="/clock" component={Clock} />
-                    <Route path="/drums" component={Drums} />
-                    <Route path="/webcam" component={WebCam} />
-                    <Route path="/draw" component={Draw} />
-                    <Route path="/variables" component={Variables} />
-                    <Route path="/features" component={Features} />
-                    <Route path="/recognition" component={Recognition} />
-                    <Route path="/synthesis" component={SpeechSyn} />
-                    <Route path="/videoplayer" component={VideoPlayer} />                    
-                    <Route path="/game" component={Game} />
-                    <Route path="/misc" component={Misc} />
-                    <Route path="/misc2" component={Misc2} />
-                    <Route path="/git" component={Git} />                   
-                    <Route path="/hack/:id" exact component={HackNews} />
-                    <Route path="/hack/comments/:id" render={({ history}) => {                        
-                        return <CommentList data={history.location.state} history={history} /> 
-                    }} />
-                    <Redirect to="/" />
-                </Suspense>
+                <MyContext.Provider value={contextValue}>
+                    <Suspense fallback={<h1>Loading...</h1>}>
+                        <Route exact path="/" render={()=>
+                            <Home 
+                                ref={inputRef} 
+                                onInputClick={inputHandle}
+                                defaultValue={contextValue}/>} 
+                        />        
+                        <Route path="/clock" component={Clock} />
+                        <Route path="/drums" component={Drums} />
+                        <Route path="/webcam" component={WebCam} />
+                        <Route path="/draw" component={Draw} />
+                        <Route path="/variables" component={Variables} />
+                        <Route path="/features" component={Features} />
+                        <Route path="/recognition" component={Recognition} />
+                        <Route path="/synthesis" component={SpeechSyn} />
+                        <Route path="/videoplayer" component={VideoPlayer} />                    
+                        <Route path="/game" component={Game} />
+                        <Route path="/misc" component={Misc} />
+                        <Route path="/misc2" component={Misc2} />
+                        <Route path="/git" component={Git} />                   
+                        <Route path="/hack/:id" exact component={HackNews} />
+                        <Route path="/hack/comments/:id" render={({ history}) => {                        
+                            return <CommentList data={history.location.state} history={history} /> 
+                        }} />
+                        <Redirect to="/" />
+                    </Suspense>
+                </MyContext.Provider>
             </div>        
         </div>
         </Profiler>
