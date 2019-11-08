@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, Profiler, useRef, useState, useEffect } from 'react';
+import React, { Suspense, lazy, Profiler, useRef, useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import Back from './45621.jpg';
 import Header from './components/Header';
@@ -42,13 +42,7 @@ const App = () => {
     const inputRef = useRef();
 
     const [ contextValue, setContextValue ] = useState('default context');
-    const inputHandle = ({ target: {value}}) => {
-        setContextValue(value);
-    }
-
-    // useEffect(()=>{
-    //     if (inputRef.current) setContextValue(inputRef.current.value) 
-    // }, [inputRef]);
+    const inputHandle = ({ target: {value}}) => setContextValue(value);    
     
     return (
         <Profiler id="App" onRender={onRenderCallback}>

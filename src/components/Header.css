@@ -4,29 +4,30 @@
     height: 75px;
 }
 
-.Logo h1 {    
+.Logo a h3 {    
     font-size: 130%;
+    align-self: center;
+    color: white;    
+    margin: auto;    
+}
+
+.Logo a {    
     margin: auto;
-    margin-left: 1px;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;    
+    display: flex;
 }
 
 .Logo {
-    display: flex;
-    padding: 0 5px;
-    width: 115px;
+    display: flex;    
+    width: 80px;
 }
 
 .Menu {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    /* align-items: flex-end; */
-    
-    /* flex-wrap: wrap; */
-    
-    /* justify-content: space-around; */
-    /* width: 80%; */
-    /* flex-direction: column; */
 
 }
 

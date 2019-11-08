@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
 
-const Home = React.forwardRef((props, ref) => {
+const Home = React.forwardRef((props, ref) => {    
     return (
         <div className="Home">
             <div><h1 className="Home">Select any menu item provided above</h1></div>
@@ -10,7 +10,6 @@ const Home = React.forwardRef((props, ref) => {
                 and then will be provided as a Context to whole App.
                 </div>
                 <input ref={ref} onChange={props.onInputClick} defaultValue={props.defaultValue}/>
-
             </div>
         </div>
     )

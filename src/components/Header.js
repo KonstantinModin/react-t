@@ -5,7 +5,7 @@ import './Header.css';
 const Header = () => {
     return (
         <header className="App-header">
-            <div className="Logo"><h1>React App</h1></div>
+            <div className="Logo"><Link to="/" ><h3>React App</h3></Link></div>
             <div className="Menu">
                 <Link to="/" >Home</Link>
                 <Link to="/clock">Clock</Link>
