@@ -14,7 +14,7 @@ export default class Element extends Component {
     handleClick(){}
     
     render() {        
-        console.log(this.contextType, this, this._a, this.handleClick);
+        // console.log(this.contextType, this, this._a, this.handleClick);
 
         return (
             <div style={{display:'flex',flexDirection:'column'}}>
