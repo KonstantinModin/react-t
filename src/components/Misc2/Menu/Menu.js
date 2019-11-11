@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Menu.css';
 import MenuItem from './MenuItem';
 
 const Menu = () => {
+    const aboutRef = useRef();
+    const tecRef = useRef();
+    const linkRef = useRef();
+    
+    const navRef = useRef();
+    const backRef = useRef();
+
+    const refObject = {about: aboutRef, tec: tecRef, link: linkRef} 
+    
     const menuData = [
         {
             name: 'about',             
             caption: 'About',
             kids: (
-                <ul className="dropdown dropdown1">
+                <ul className="dropdown dropdown1" ref={aboutRef}>
                     <div className="bio">
                         <img 
                             src="https://avatars2.githubusercontent.com/u/45493372?s=460&v=4" 
@@ -23,7 +32,7 @@ const Menu = () => {
             name: 'tec',        
             caption: 'Technologies',
             kids: (
-                <ul className="dropdown courses">
+                <ul className="dropdown courses" ref={tecRef}>
                     <li>React/Redux</li>
                     <li>JavaScript</li>
                     <li>Bootstrap</li>
@@ -37,7 +46,7 @@ const Menu = () => {
             name: 'link',
             caption: 'Links',
             kids: (
-                <ul className="dropdown dropdown3">
+                <ul className="dropdown dropdown3" ref={linkRef}>
                     <li className="linkedin">LinkedIn</li>
                     <li className="git">GitHub</li>
                     <li className="insta">Instagram</li>
@@ -65,19 +74,41 @@ const Menu = () => {
                 newObject[this.props.name] += ' trigger-enter-active';
                 return newObject;
             }); 
-        },150)
+        },100)
+        setDdback('dropDownBackground open');
+        // const dropdown = this.querySelector('.dropdown');
+        
+        setTimeout(()=>{
+            console.dir(refObject[this.props.name].current);
+            const dropdownCoords = refObject[this.props.name].current.getBoundingClientRect();
+            console.log('dropdownCoords', dropdownCoords);
+            const navCoords = navRef.current.getBoundingClientRect();
+
+            const coords = {
+                height: dropdownCoords.height,
+                width: dropdownCoords.width,
+                left: dropdownCoords.left,
+                top: dropdownCoords.top
+            };
+            backRef.current.style.setProperty('width', `${coords.width}px`);
+            backRef.current.style.setProperty('height', `${coords.height}px`);
+            backRef.current.style.setProperty('top', `${coords.top}px`);
+            backRef.current.style.setProperty('left', `${coords.left}px`);
+
+        },200)
        
     }
     function handleLeave(e) { 
        
        console.log('Leave this=', this.props.name);
        setClasses({about: '', tec: '', link: ''});
+       setDdback('dropDownBackground');
     }
     
     return (
-        <nav className="MenuDrop">
-            <div className={ddback}>
-                <span className="arrow">+</span>
+        <nav className="MenuDrop" ref={navRef}>
+            <div className={ddback} ref={backRef}>
+                <span className="arrow"></span>
             </div>
             <ul className="cool">
                 {menuData.map(li=>(
