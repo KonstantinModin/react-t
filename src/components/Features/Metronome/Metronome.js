@@ -8,6 +8,8 @@ export default class Metronome extends Component {
         this.timerId = null;
     }
 
+    sound = new Audio(hihat);
+
     state = {
         beet: 100,
         play: false
@@ -17,14 +19,13 @@ export default class Metronome extends Component {
         this.setState({beet: target.value});
         if (this.state.play) {
             clearInterval(this.timerId);
-            this.timerId = setInterval(this.playBeet, 60/target.value*1000);
+            this.timerId = setInterval(this.playBeet, 60 / target.value * 1000);
         }
     }
 
-    playBeet = () => {        
-        const sound = new Audio(hihat);        
-        sound.currentTime = 0;
-        sound.play();
+    playBeet = () => {                
+        this.sound.currentTime = 0;
+        this.sound.play();
     }
 
     startButtonHandler = () => {
