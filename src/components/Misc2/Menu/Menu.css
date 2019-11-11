@@ -84,6 +84,15 @@
     opacity: 1;
 }
 
+.MenuDrop .arrow {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: white;
+    transform: translateY(-50%) rotate(45deg);
+}
+
 .MenuDrop .bio {
     min-width: 330px;
     /* display: flex; */

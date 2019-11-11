@@ -51,47 +51,36 @@ const Menu = () => {
     const [ classes, setClasses ] = useState({about: '', tec: '', link: ''});
     const [ ddback, setDdback ] = useState('dropDownBackground');
 
-    const handleEnter = (e) => {       
-        console.dir(e.target);
-        if (e.target.className.slice(0,3)==='tar') {
-            console.log('hey');
-            const newClasses = {about: '', tec: '', link: ''};
-            newClasses[e.target.className.split` `[1]] = 'trigger-enter';
-            setClasses(newClasses);
-            setDdback('dropDownBackground open');
-
-            setTimeout(()=> {
-                const newClasses = {about: '', tec: '', link: ''};
-                newClasses[e.target.className.split` `[1]] = 'trigger-enter trigger-enter-active';
-                setClasses(newClasses);
-            },150)
-        }
-        
+    function handleEnter (e) {              
+        e.persist();
+        e.stopPropagation();
+        console.log('Enter', this);
+        console.dir(e);
+        console.log('tarenter=', e.nativeEvent.relatedTarget);
+       
     }
-    const handleLeave = (e) => { 
-        // console.dir(e.target);
-        if (e.target.className.split` `[0] === 'dropdown') {
-            setClasses({about: '', tec: '', link: ''});
-            setDdback('dropDownBackground'); 
-        }       
+    function handleLeave(e) { 
+        e.stopPropagation();
+       console.log('Leave', this);
+       console.log('tarleave', e.nativeEvent.relatedTarget);
     }
     
     return (
         <nav className="MenuDrop">
             <div className={ddback}>
-                <span>+</span>
+                <span className="arrow">+</span>
             </div>
             <ul className="cool">
                 {menuData.map(li=>(
                     <MenuItem 
                         name={li.name} 
                         key={li.name}
-                        onMouseEnter={(e) => handleEnter(e.nativeEvent)}
-                        onMouseLeave={(e) => handleLeave(e.nativeEvent)}
+                        onMouseEnter={handleEnter}
+                        onMouseLeave={handleLeave}
                         liClass={'tar ' + li.name + ' ' + classes[li.name]}
-                        caption={li.caption}
-                        kids={li.kids}
-                        />
+                        caption={li.caption}>
+                        {li.kids}                        
+                    </MenuItem>
                     )
                 )}
             </ul>
