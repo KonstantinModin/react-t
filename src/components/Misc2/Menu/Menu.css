@@ -31,6 +31,7 @@
     display: flex;
     position: relative;
     justify-content: center;
+    border: 1px solid blue;
 }
 
 .MenuDrop li a {
@@ -43,7 +44,7 @@
     
 }
 
-.MenuDrop .dropdown {
+.MenuDrop .dropdown{
     background: wheat;
     color: black;
     opacity: 0;

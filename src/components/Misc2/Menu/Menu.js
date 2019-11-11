@@ -8,7 +8,7 @@ const Menu = () => {
             name: 'about',             
             caption: 'About',
             kids: (
-                <div className="dropdown dropdown1">
+                <ul className="dropdown dropdown1">
                     <div className="bio">
                         <img 
                             src="https://avatars2.githubusercontent.com/u/45493372?s=460&v=4" 
@@ -16,7 +16,7 @@ const Menu = () => {
                             alt="avatar"/>
                         <p>Konstantin Modin<br/>Software Engineer:<br/>Web Development with React</p>
                     </div>
-                </div>
+                </ul>
                 )
         }, 
         {
@@ -52,17 +52,26 @@ const Menu = () => {
     const [ ddback, setDdback ] = useState('dropDownBackground');
 
     function handleEnter (e) {              
-        e.persist();
-        e.stopPropagation();
-        console.log('Enter', this);
-        console.dir(e);
-        console.log('tarenter=', e.nativeEvent.relatedTarget);
+       
+        console.log(this.props.name);
+        setClasses(classes=>{
+            const newObject = {...classes};
+            newObject[this.props.name] = ' trigger-enter';
+            return newObject;
+        });
+        setTimeout(()=>{
+            setClasses(classes=>{
+                const newObject = {...classes};
+                newObject[this.props.name] += ' trigger-enter-active';
+                return newObject;
+            }); 
+        },150)
        
     }
     function handleLeave(e) { 
-        e.stopPropagation();
-       console.log('Leave', this);
-       console.log('tarleave', e.nativeEvent.relatedTarget);
+       
+       console.log('Leave this=', this.props.name);
+       setClasses({about: '', tec: '', link: ''});
     }
     
     return (
@@ -77,7 +86,7 @@ const Menu = () => {
                         key={li.name}
                         onMouseEnter={handleEnter}
                         onMouseLeave={handleLeave}
-                        liClass={'tar ' + li.name + ' ' + classes[li.name]}
+                        liClass={li.name + classes[li.name]}
                         caption={li.caption}>
                         {li.kids}                        
                     </MenuItem>
