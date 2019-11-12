@@ -16,8 +16,9 @@ class Test extends Component {
 
     handleClick = (event) => {
         const a = event.target;
+        console.log(event);
         console.log(event.type);
-        console.log(event.target);
+        console.log(a);
         console.log(event.target.nodeName);
 
         setTimeout(()=>{
@@ -29,8 +30,7 @@ class Test extends Component {
         return (
             <div className="Test">
                 <div><h2>Test</h2></div>
-                <button onClick={this.handleClick}>Event.type?</button>
-                {/* <calendar-component active-date="2018-08-01" items='[{"date":"2018-08-08","subject":"Meeting"}, {"date":"2018-08-14","subject":"Dentist Appointment"}, {"date":"2018-08-24","subject":"Dinner with Friends"}]'></calendar-component> */}
+                <button onClick={this.handleClick}>Event.type?</button>               
                 <Element />
                 <div>My context = {this.context}</div>
                 <input onChange={(e)=>this.setState({dataForReciever: e.target.value})} value={this.state.dataForReciever}/>
