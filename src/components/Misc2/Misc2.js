@@ -6,7 +6,7 @@ import './Misc2.css';
 const Misc2 = () => {
     return (
         <div className="Misc2">
-            <h1>Miscellaneous 2</h1>
+            <h1>Info</h1>
             <div className="grid">
                 <Menu />
                 <Test>

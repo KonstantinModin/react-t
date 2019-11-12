@@ -11,7 +11,7 @@
 .Misc2 .grid {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60% 40%;
     height: calc(100vh - 123px);
 }
 

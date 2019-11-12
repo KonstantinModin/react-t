@@ -15,13 +15,14 @@ const Menu = () => {
     const menuData = [
         {
             name: 'about',             
-            caption: 'About',
+            caption: 'Author',
             kids: (
                 <ul className="dropdown dropdown1" ref={aboutRef}>
                     <div className="bio">
                         <img 
                             src="https://avatars2.githubusercontent.com/u/45493372?s=460&v=4" 
                             width={80} 
+                            height={80} 
                             alt="avatar"/>
                         <p>Konstantin Modin<br/>Software Engineer:<br/>Web Development with React</p>
                     </div>
@@ -35,10 +36,12 @@ const Menu = () => {
                 <ul className="dropdown courses" ref={tecRef}>
                     <li>React/Redux</li>
                     <li>JavaScript</li>
+                    <li>jQuery</li>
+                    <li>HTML5/CSS3</li>
                     <li>Bootstrap</li>
                     <li>Git</li>
                     <li>Webpack</li>
-                    <li>SASS/LESS</li>
+                    <li>Jest/Enzyme</li>
                 </ul>
                 )
         }, 
@@ -62,69 +65,76 @@ const Menu = () => {
 
     function handleEnter (e) {              
        
-        console.log(this.props.name);
+        // console.log(this.props.name);
         setClasses(classes=>{
             const newObject = {...classes};
             newObject[this.props.name] = ' trigger-enter';
             return newObject;
         });
         setTimeout(()=>{
+           
             setClasses(classes=>{
                 const newObject = {...classes};
-                newObject[this.props.name] += ' trigger-enter-active';
+                if (classes[this.props.name]===' trigger-enter') {
+                    newObject[this.props.name] += ' trigger-enter-active';
+                }
                 return newObject;
             }); 
+            
         },100)
         setDdback('dropDownBackground open');
         // const dropdown = this.querySelector('.dropdown');
         
         setTimeout(()=>{
-            console.dir(refObject[this.props.name].current);
+            // console.dir(refObject[this.props.name].current);
             const dropdownCoords = refObject[this.props.name].current.getBoundingClientRect();
-            console.log('dropdownCoords', dropdownCoords);
+            // console.log('dropdownCoords', dropdownCoords);
             const navCoords = navRef.current.getBoundingClientRect();
 
             const coords = {
                 height: dropdownCoords.height,
                 width: dropdownCoords.width,
-                left: dropdownCoords.left,
-                top: dropdownCoords.top
+                left: dropdownCoords.left-navCoords.left,
+                top: dropdownCoords.top-navCoords.top
             };
             backRef.current.style.setProperty('width', `${coords.width}px`);
             backRef.current.style.setProperty('height', `${coords.height}px`);
-            backRef.current.style.setProperty('top', `${coords.top}px`);
-            backRef.current.style.setProperty('left', `${coords.left}px`);
+            backRef.current.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px`);
+            // backRef.current.style.setProperty('left', `${coords.left}px`);
 
-        },200)
+        },120)
        
     }
     function handleLeave(e) { 
        
-       console.log('Leave this=', this.props.name);
+    //    console.log('Leave this=', this.props.name);
        setClasses({about: '', tec: '', link: ''});
        setDdback('dropDownBackground');
     }
     
     return (
-        <nav className="MenuDrop" ref={navRef}>
-            <div className={ddback} ref={backRef}>
-                <span className="arrow"></span>
-            </div>
-            <ul className="cool">
-                {menuData.map(li=>(
-                    <MenuItem 
-                        name={li.name} 
-                        key={li.name}
-                        onMouseEnter={handleEnter}
-                        onMouseLeave={handleLeave}
-                        liClass={li.name + classes[li.name]}
-                        caption={li.caption}>
-                        {li.kids}                        
-                    </MenuItem>
-                    )
-                )}
-            </ul>
-        </nav>
+        <div style={{display:'flex', flexDirection:'column'}}>
+            <h3>About me...</h3>
+            <nav className="MenuDrop" ref={navRef}>            
+                <div className={ddback} ref={backRef}>
+                    <span className="arrow"></span>
+                </div>
+                <ul className="cool">
+                    {menuData.map(li=>(
+                        <MenuItem 
+                            name={li.name} 
+                            key={li.name}
+                            onMouseEnter={handleEnter}
+                            onMouseLeave={handleLeave}
+                            liClass={li.name + classes[li.name]}
+                            caption={li.caption}>
+                            {li.kids}                        
+                        </MenuItem>
+                        )
+                    )}
+                </ul>
+            </nav>
+        </div>
     )
 }
 
