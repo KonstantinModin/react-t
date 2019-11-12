@@ -63,16 +63,13 @@ const Menu = () => {
     const [ classes, setClasses ] = useState({about: '', tec: '', link: ''});
     const [ ddback, setDdback ] = useState('dropDownBackground');
 
-    function handleEnter (e) {              
-       
-        // console.log(this.props.name);
+    function handleEnter (e) {
         setClasses(classes=>{
             const newObject = {...classes};
             newObject[this.props.name] = ' trigger-enter';
             return newObject;
         });
-        setTimeout(()=>{
-           
+        setTimeout(()=>{           
             setClasses(classes=>{
                 const newObject = {...classes};
                 if (classes[this.props.name]===' trigger-enter') {
@@ -82,15 +79,11 @@ const Menu = () => {
             }); 
             
         },100)
-        setDdback('dropDownBackground open');
-        // const dropdown = this.querySelector('.dropdown');
+        setDdback('dropDownBackground open');        
         
-        setTimeout(()=>{
-            // console.dir(refObject[this.props.name].current);
-            const dropdownCoords = refObject[this.props.name].current.getBoundingClientRect();
-            // console.log('dropdownCoords', dropdownCoords);
+        setTimeout(()=>{            
+            const dropdownCoords = refObject[this.props.name].current.getBoundingClientRect();            
             const navCoords = navRef.current.getBoundingClientRect();
-
             const coords = {
                 height: dropdownCoords.height,
                 width: dropdownCoords.width,
@@ -99,15 +92,12 @@ const Menu = () => {
             };
             backRef.current.style.setProperty('width', `${coords.width}px`);
             backRef.current.style.setProperty('height', `${coords.height}px`);
-            backRef.current.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px`);
-            // backRef.current.style.setProperty('left', `${coords.left}px`);
+            backRef.current.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px`);           
 
         },120)
        
     }
-    function handleLeave(e) { 
-       
-    //    console.log('Leave this=', this.props.name);
+    function handleLeave(e) {
        setClasses({about: '', tec: '', link: ''});
        setDdback('dropDownBackground');
     }
