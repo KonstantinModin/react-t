@@ -4,7 +4,6 @@ import LinkEffect from './LinkEffect';
 import Scroll from './Scroll';
 import Cities from './Cities';
 import Metronome from './Metronome';
-// import Menu from './Menu';
 import './Features.css';
 
 import Calc from './Calc';              //REDUX
