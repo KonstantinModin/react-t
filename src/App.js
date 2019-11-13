@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, Profiler, useRef, useState } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import Back from './45621.jpg';
 import Header from './components/Header';
 import MyContext from './context';
@@ -56,30 +56,32 @@ const App = () => {
             <div className="Container">                                     
                 <MyContext.Provider value={contextValue}>
                     <Suspense fallback={<h1>Loading...</h1>}>
-                        <Route exact path="/" render={()=>
-                            <Home 
-                                ref={inputRef} 
-                                onInputClick={inputHandle}
-                                defaultValue={contextValue}/>} 
-                        />        
-                        <Route path="/clock" component={Clock} />
-                        <Route path="/drums" component={Drums} />
-                        <Route path="/webcam" component={WebCam} />
-                        <Route path="/draw" component={Draw} />
-                        <Route path="/variables" component={Variables} />
-                        <Route path="/features" component={Features} />
-                        <Route path="/recognition" component={Recognition} />
-                        <Route path="/synthesis" component={SpeechSyn} />
-                        <Route path="/videoplayer" component={VideoPlayer} />                    
-                        <Route path="/game" component={Game} />
-                        <Route path="/misc" component={Misc} />
-                        <Route path="/misc2" component={Misc2} />
-                        <Route path="/git" component={Git} />                   
-                        <Route path="/hack/:id" exact component={HackNews} />
-                        <Route path="/hack/comments/:id" render={({ history}) => {                        
-                            return <CommentList data={history.location.state} history={history} /> 
-                        }} />
-                        <Redirect to="/" />
+                        <Switch>
+                            <Route exact path="/" render={()=>
+                                <Home 
+                                    ref={inputRef} 
+                                    onInputClick={inputHandle}
+                                    defaultValue={contextValue}/>} 
+                            />        
+                            <Route path="/clock" component={Clock} />
+                            <Route path="/drums" component={Drums} />
+                            <Route path="/webcam" component={WebCam} />
+                            <Route path="/draw" component={Draw} />
+                            <Route path="/variables" component={Variables} />
+                            <Route path="/features" component={Features} />
+                            <Route path="/recognition" component={Recognition} />
+                            <Route path="/synthesis" component={SpeechSyn} />
+                            <Route path="/videoplayer" component={VideoPlayer} />                    
+                            <Route path="/game" component={Game} />
+                            <Route path="/misc" component={Misc} />
+                            <Route path="/misc2" component={Misc2} />
+                            <Route path="/git" component={Git} />                   
+                            <Route path="/hack/:id" exact component={HackNews} />
+                            <Route path="/hack/comments/:id" render={({ history}) => {                        
+                                return <CommentList data={history.location.state} history={history} /> 
+                            }} />
+                            <Redirect to="/" />
+                        </Switch>
                     </Suspense>
                 </MyContext.Provider>
             </div>        
