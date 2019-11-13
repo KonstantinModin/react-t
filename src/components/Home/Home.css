@@ -1,6 +1,6 @@
 .Home {
     margin: auto;
-    height: 200px;
+    height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -8,4 +8,5 @@
 
 .Home .description {
     width: 55%;
+    margin-bottom: 1rem;
 }

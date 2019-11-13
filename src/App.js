@@ -17,10 +17,10 @@ const SpeechSyn = lazy(() => import('./components/SpeechSyn'));
 const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
 const Game = lazy(() => import('./components/Game'));
 const Misc = lazy(() => import('./components/Misc'));
-const Misc2 = lazy(() => import('./components/Misc2'));
+const Info = lazy(() => import('./components/Info'));
 const HackNews = lazy(() => import('./components/HackNews'));
 const CommentList = lazy(() => import('./components/HackNews/CommentList'));
-const Git = lazy(() => import('./components/Git'));
+// const Git = lazy(() => import('./components/Git'));
 
 const App = () => {    
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
@@ -41,7 +41,7 @@ const App = () => {
 
     const inputRef = useRef();
 
-    const [ contextValue, setContextValue ] = useState('default context');
+    const [ contextValue, setContextValue ] = useState('Default context');
     const inputHandle = ({ target: {value}}) => setContextValue(value);    
     
     return (
@@ -74,8 +74,8 @@ const App = () => {
                             <Route path="/videoplayer" component={VideoPlayer} />                    
                             <Route path="/game" component={Game} />
                             <Route path="/misc" component={Misc} />
-                            <Route path="/misc2" component={Misc2} />
-                            <Route path="/git" component={Git} />                   
+                            <Route path="/info" component={Info} />
+                            {/* <Route path="/git" component={Git} />                    */}
                             <Route path="/hack/:id" exact component={HackNews} />
                             <Route path="/hack/comments/:id" render={({ history}) => {                        
                                 return <CommentList data={history.location.state} history={history} /> 

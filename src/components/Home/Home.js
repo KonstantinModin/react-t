@@ -4,7 +4,7 @@ import './Home.css';
 const Home = React.forwardRef((props, ref) => {    
     return (
         <div className="Home">
-            <div><h1 className="Home">Select any menu item provided above</h1></div>
+            <div><h1>Select any menu item provided above</h1></div>
             <div>
                 <div className="description">Type here some text which will be forwarded to App.js with React.forawardRef 
                 and then will be provided as a Context to entire App.
