@@ -1,0 +1,26 @@
+.Info {
+    margin: auto;
+    width: 100vw;
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* border:1px solid red; */
+}
+.Info .grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 60% 40%;
+    height: calc(100vh - 123px);
+}
+
+.Info .grid div {
+    display: flex;
+    /* border: 1px solid blue;     */
+}
+
+.Info .grid div span {
+    margin: auto;
+    font-size: 3rem;
+}
