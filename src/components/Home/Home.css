@@ -5,3 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.Home .description {
+    width: 55%;
+}

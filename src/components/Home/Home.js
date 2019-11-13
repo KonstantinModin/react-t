@@ -6,8 +6,8 @@ const Home = React.forwardRef((props, ref) => {
         <div className="Home">
             <div><h1 className="Home">Select any menu item provided above</h1></div>
             <div>
-                <div>Type here some text which will be forwarded to App.js with React.forawardRef 
-                and then will be provided as a Context to whole App.
+                <div className="description">Type here some text which will be forwarded to App.js with React.forawardRef 
+                and then will be provided as a Context to entire App.
                 </div>
                 <input ref={ref} onChange={props.onInputClick} defaultValue={props.defaultValue}/>
             </div>
