@@ -64,7 +64,7 @@ const Drums = () => {
                             onClick={keyHandler}
                         />
                     )
-               })}
+                })}
             </div>           
         </div>
     )

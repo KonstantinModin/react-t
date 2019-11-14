@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Key.css';
 
 const Key = ({ dataKey, letter, label, playing, onTransitionEnd, onClick }) => {
@@ -16,3 +17,12 @@ const Key = ({ dataKey, letter, label, playing, onTransitionEnd, onClick }) => {
 }
 
 export default Key;
+
+Key.propTypes = {
+    dataKey: PropTypes.string.isRequired,
+    letter: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    playing: PropTypes.bool.isRequired,
+    onTransitionEnd: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired
+}
