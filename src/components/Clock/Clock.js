@@ -3,15 +3,13 @@ import './Clock.css';
 
 const Clock = () => {    
     const [ time, setTime ] = useState(new Date().toString());
-    const [ secClass, setSecClass ] = useState('');
-    const [ init, setInit ] = useState(false);    
+    const [ secClass, setSecClass ] = useState('');    
 
     const sec = useRef();
     const min = useRef();
     const hrs = useRef();
     
-    useEffect(() => {
-        setTimeout(()=>setInit(true), 550);        
+    useEffect(() => {              
         const timeTicking = () => {         
             
             const currentTime = new Date();
@@ -31,7 +29,8 @@ const Clock = () => {
             hrs.current.style.transform = `rotate(${hPerCent * 360 + mPerCent * 30 + 90}deg)`;
 
             setTime(new Date().toString());            
-        } 
+        }
+        timeTicking();
 
         const timeInterval = setInterval(timeTicking, 500);        
 
@@ -41,14 +40,13 @@ const Clock = () => {
         
     }, []);
 
-    const spinner = <div className="spinner"><div></div><div></div></div>;    
+    // const spinner = <div className="spinner"><div></div><div></div></div>;    
     
     return (
         <div className="ClockComponent">
             <h1>Clock</h1>
-            <div className="Clock">
-                {!init && spinner}
-                <div className={"hands"+(init ? ' vis' : '')}>
+            <div className="Clock">                
+                <div className="hands">
                     <div ref={sec} id="secHand" className={secClass}></div>
                     <div ref={min} id="minHand"></div>
                     <div ref={hrs} id="hrsHand"></div>
