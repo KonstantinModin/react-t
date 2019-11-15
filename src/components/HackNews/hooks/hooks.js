@@ -26,7 +26,7 @@ export const useAxios = (id, type, shouldFetch=true) => {
         if (shouldFetch) {
             axios.get(`${urls[type]}${id}.json?print=pretty`)
             .then(response=>{
-                console.log('useAxios hook response', response);
+                // console.log('useAxios hook response', response);
                 setData(response.data);
             })
             .catch(error=>console.error(error));
