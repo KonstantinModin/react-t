@@ -7,8 +7,6 @@ import FetchH from './Fetch/hooks';
 import './Misc.css';
 
 const Misc = () => {
-    
-
     return (
         <div className="Misc">
             <h1>Miscellaneous</h1>                

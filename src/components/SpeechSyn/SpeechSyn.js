@@ -16,13 +16,11 @@ const SpeechSyn = () => {
     }, [voices, currentVoice]);
 
     useEffect(() => {
-        const timer = setInterval(defineVoices, 300);
+        const timer = setTimeout(defineVoices, 500);        
         
-        // speechSynthesis.addEventListener('voiceschanged', defineVoices);
         console.log('timer added');
         return () => {
-            clearInterval(timer);
-            // speechSynthesis.removeEventListener('voiceschanged', defineVoices);
+            clearInterval(timer);           
             console.log('timer removed');
         }
     }, []);

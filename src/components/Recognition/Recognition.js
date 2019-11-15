@@ -14,8 +14,7 @@ const Recognition = () => {
         
         const recognition = new window.SpeechRecognition();
         recognition.interimResults = true;
-        recognition.lang = lang;
-        // console.dir(recognition);
+        recognition.lang = lang;        
        
         const recFunction = (e) => {
             const transcript = Array.from(e.results)
