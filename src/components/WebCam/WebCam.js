@@ -43,8 +43,7 @@ const WebCam = () => {
         canvas.width = width;       
         
         const ctx = canvas.getContext('2d');       
-        ctx.drawImage(video, 0, 0, width, height);
-        // ctx.globalAlpha = 0.8;
+        ctx.drawImage(video, 0, 0, width, height);        
         
         let pixels;
         try {
@@ -65,8 +64,7 @@ const WebCam = () => {
             case 'greenScreen': greenScreen(pixels);
             break;
             default: break;
-        } 
-        
+        }         
         
         if (pixels) ctx.putImageData(pixels, 0, 0);
         requestAnimationFrame(paintToCanvas);       
@@ -141,8 +139,7 @@ const WebCam = () => {
         <div className="WebCam">
             <h1>WebCam</h1>
             <div className="Upper">
-                <div className="Controls">
-                    {/* <button type="button" className="btn btn-success" onClick={paintToCanvas}>Start Canvas</button> */}
+                <div className="Controls">                    
                     <button type="button" className="btn btn-success" onClick={takePhoto}>Take Photo</button>
                     <button className="btn btn-success" onClick={() => setEffect('greenScreen')}>Green Screen</button>
                     <button className="btn btn-success" onClick={() => setEffect('red')}>Red</button>
@@ -174,9 +171,7 @@ const WebCam = () => {
                 />
                 </div>
             <canvas 
-                className="Photo" 
-                // width={canvasSize[0]} 
-                // height={canvasSize[1]} 
+                className="Photo"                 
                 ref={canvasRef}                
             />
             
@@ -185,14 +180,12 @@ const WebCam = () => {
                     return (
                         <a 
                             href={data} 
-                            download={`photo${name}`}
-                            // innerHTML=
+                            download={`photo${name}`}                           
                             ><img src={data} alt="SnapShot" />{name}</a>
                         )
                 })}
             </div>
         </div>
-    )
-}
+    )}
 
 export default WebCam;
