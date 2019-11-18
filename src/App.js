@@ -54,9 +54,9 @@ const App = () => {
             </div>
         
             <div className="Container">                                     
-                <MyContext.Provider value={contextValue}>
-                    <Suspense fallback={<h1>Loading...</h1>}>
-                        <Switch>
+                <MyContext.Provider value={contextValue}>       {/* Context Provider  */}
+                    <Suspense fallback={<h1>Loading...</h1>}>   {/* Lazy Loading Spinner */}
+                        <Switch>                                {/* Routing */}
                             <Route exact path="/" render={()=>
                                 <Home 
                                     ref={inputRef} 
