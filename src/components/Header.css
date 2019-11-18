@@ -28,7 +28,6 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-
 }
 
 .Menu a {
@@ -38,9 +37,7 @@
     padding: 5px 7px;
     border: 1px solid white;
     color: white;
-    transition: all 0.1s ease-in-out;    
-    /* height: auto; */
-    
+    transition: all 0.1s ease-in-out;        
 }
 
 .Menu a:hover {
