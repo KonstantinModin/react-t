@@ -1,17 +1,12 @@
-.Container {
-    /* height: 90vh; */
-    display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    /* border: 3px dotted white; */
+.Container {    
+    display: flex;    
     position: fixed;
     top: 75px;
     left: 0;
     width: 100%;
     height: calc(100vh - 75px);
 }
-.Background {
-    /* border: 1px solid blue; */
+.Background {    
     width: 100vw;
     height: calc(100vh - 75px);
     overflow: hidden;    
