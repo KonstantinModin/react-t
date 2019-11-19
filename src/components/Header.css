@@ -42,7 +42,8 @@
 }
 
 .Menu a.selected {
-    background: tomato;
+    background: rgb(70, 83, 201);
+    transform: scale(1.1);
 }
 
 .Menu a:hover {
