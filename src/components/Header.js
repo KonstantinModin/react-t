@@ -7,8 +7,8 @@ const Header = () => {
         <header className="App-header">
             <div className="Logo"><Link to="/" ><h3>React App</h3></Link></div>
             <div className="Menu">
-                <NavLink exact activeClassName="selected" to="/" >Home</NavLink>       {/* TODO: Replace NavLinks with NavNavLinks  */}
-                <NavLink activeClassName="selected" to="/clock">Clock</NavLink>  {/*  add "Selected" class to menu Item */}
+                <NavLink exact activeClassName="selected" to="/" >Home</NavLink>       
+                <NavLink activeClassName="selected" to="/clock">Clock</NavLink>  
                 <NavLink activeClassName="selected" to="/drums">Drums</NavLink>
                 <NavLink activeClassName="selected" to="/webcam">WebCam</NavLink>
                 <NavLink activeClassName="selected" to="/draw">Draw</NavLink>
