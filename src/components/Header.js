@@ -1,27 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
     return (
         <header className="App-header">
-            <div className="Logo"><Link to="/" ><h3>React App</h3></Link></div>
+            <div className="Logo"><NavLink to="/" ><h3>React App</h3></NavLink></div>
             <div className="Menu">
-                <Link to="/" >Home</Link>       {/* TODO: Replace Links with NavLinks  */}
-                <Link to="/clock">Clock</Link>  {/*  add "Selected" class to menu Item */}
-                <Link to="/drums">Drums</Link>
-                <Link to="/webcam">WebCam</Link>
-                <Link to="/draw">Draw</Link>
-                <Link to="/variables">CSS Vars</Link>
-                <Link to="/features">Featrs</Link>
-                <Link to="/recognition">Recogntn</Link>
-                <Link to="/synthesis">Speech Syn</Link>
-                <Link to="/videoplayer">Video Plr</Link>
-                <Link to="/game">Game</Link>                
-                <Link to="/misc">Misc</Link>
-                <Link to="/hack/1">Hacker News</Link>
-                <Link to="/info">Info</Link>                
-                {/* <Link to="/git">Git Issues</Link> */}
+                <NavLink exact activeClassName="selected" to="/" >Home</NavLink>       {/* TODO: Replace NavLinks with NavNavLinks  */}
+                <NavLink activeClassName="selected" to="/clock">Clock</NavLink>  {/*  add "Selected" class to menu Item */}
+                <NavLink activeClassName="selected" to="/drums">Drums</NavLink>
+                <NavLink activeClassName="selected" to="/webcam">WebCam</NavLink>
+                <NavLink activeClassName="selected" to="/draw">Draw</NavLink>
+                <NavLink activeClassName="selected" to="/variables">CSS Vars</NavLink>
+                <NavLink activeClassName="selected" to="/features">Featrs</NavLink>
+                <NavLink activeClassName="selected" to="/recognition">Recogntn</NavLink>
+                <NavLink activeClassName="selected" to="/synthesis">Speech Syn</NavLink>
+                <NavLink activeClassName="selected" to="/videoplayer">Video Plr</NavLink>
+                <NavLink activeClassName="selected" to="/game">Game</NavLink>                
+                <NavLink activeClassName="selected" to="/misc">Misc</NavLink>
+                <NavLink activeClassName="selected" to="/hack/1">Hacker News</NavLink>
+                <NavLink activeClassName="selected" to="/info">Info</NavLink>                
+                {/* <NavLink activeClassName="selected" to="/git">Git Issues</NavLink> */}
             </div>
         </header>
     )

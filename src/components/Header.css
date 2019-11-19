@@ -30,6 +30,7 @@
     width: 100%;
 }
 
+
 .Menu a {
     text-decoration: none;
     margin: 2px;
@@ -38,6 +39,10 @@
     border: 1px solid white;
     color: white;
     transition: all 0.1s ease-in-out;        
+}
+
+.Menu a.selected {
+    background: tomato;
 }
 
 .Menu a:hover {

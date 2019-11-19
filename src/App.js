@@ -56,7 +56,7 @@ const App = () => {
             <div className="Container">                                     
                 <MyContext.Provider value={contextValue}>       {/* Context Provider  */}
                     <Suspense fallback={<h1>Loading...</h1>}>   {/* Lazy Loading Spinner */}
-                        <Switch>                                {/* Routing */}
+                        {/* <Switch>                                Routing */}
                             <Route exact path="/" render={()=>
                                 <Home 
                                     ref={inputRef} 
@@ -81,7 +81,7 @@ const App = () => {
                                 return <CommentList data={history.location.state} history={history} /> 
                             }} />
                             <Redirect to="/" />
-                        </Switch>
+                        {/* </Switch> */}
                     </Suspense>
                 </MyContext.Provider>
             </div>        
