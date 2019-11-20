@@ -12,7 +12,7 @@ import hammock from './audio/hammock.wav';
 import triangle from './audio/triangle.wav';
 
 const Drums = () => {
-    const keys = {
+    const keys = { // keys initialization
         65: { id: 1, key: 'A', label: 'CLAP', sound: new Audio(clap) },
         83: { id: 2, key: 'S', label: 'HIHAT', sound: new Audio(hihat) },
         68: { id: 3, key: 'D', label: 'KICK', sound: new Audio(kick) },
