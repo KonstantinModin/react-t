@@ -30,7 +30,7 @@ const Clock = () => {
 
             setTime(new Date().toString());            
         }
-        timeTicking();
+        timeTicking(); //initial calculation
 
         const timeInterval = setInterval(timeTicking, 500);        
 
