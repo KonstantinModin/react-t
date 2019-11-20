@@ -55,8 +55,7 @@ class Draw extends Component {
     clearHandler = () => {        
         const canvas = this.canvas.current;
         const ctx = canvas.getContext('2d')
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        console.log('Clear done!')
+        ctx.clearRect(0, 0, canvas.width, canvas.height);        
     }
         
     render() {        
@@ -64,6 +63,7 @@ class Draw extends Component {
             <div className="Draw">
                 <div className="Controls">
                     <h1>Draw</h1>                    
+                    {/* TODO: render button from array ? */}
                     <button 
                         className="btn btn-success" 
                         onClick={() => this.setState({composite: 'source-over'})}
