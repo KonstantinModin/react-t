@@ -2,9 +2,7 @@
     margin: 0 auto 0 auto;
 }
 .RGB {
-    margin: 15px 0;
-    /* display: inline; */
-    /* border: 1px solid red; */
+    margin: 15px 0;   
 }
 
 .RGB input {
@@ -20,7 +18,6 @@
 .Upper {
     display: flex;    
 }
-
 
 .RGB label {
     padding: 2px;
@@ -40,9 +37,7 @@
 .Strip {
     display: flex;
     flex-wrap: wrap;
-    width: 90vw;
-    /* height: 156px; */
-    /* border: 1px solid red; */
+    width: 90vw;   
 }
 
 .Strip img {
