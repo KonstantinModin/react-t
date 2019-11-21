@@ -37,7 +37,7 @@ const App = () => {
         interactions // the Set of interactions belonging to this update
     ) => {
         // console.table({id, phase, actualDuration, baseDuration, startTime, commitTime, interactions});
-    }
+    }   
 
     const inputRef = useRef();
 

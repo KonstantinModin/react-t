@@ -3,6 +3,7 @@ import MyContext from '../../../context/';
 import Element from './Element';
 import Reciever from './Reciever';
 import './Test.css';
+import RouterTest from './RouterTest';
 
 class Test extends Component {
     // console.dir(props.children);
@@ -12,7 +13,7 @@ class Test extends Component {
         dataForReciever: 'def value'
     };
 
-    static contextType =  MyContext;
+    static contextType =  MyContext;    
 
     handleClick = (event) => {
         const a = event.target;
@@ -35,6 +36,7 @@ class Test extends Component {
                 <div>My context = {this.context}</div>
                 <input onChange={(e)=>this.setState({dataForReciever: e.target.value})} value={this.state.dataForReciever}/>
                 <Reciever data={this.state.dataForReciever}/>
+                <RouterTest/>
             </div>
         )
     }
