@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState, useContext } from 'react';
 import MyContext from '../../../context/';
 import Element from './Element';
 import Reciever from './Reciever';
 import './Test.css';
 import RouterTest from './RouterTest';
 
-class Test extends Component {
+const Test = () => {
     // console.dir(props.children);
 
     // React.Children.map(props.children, item=>{console.log('item', item)});
-    state = {
-        dataForReciever: 'def value'
-    };
+    
+    const [ dataForReciever, setDataForReciever ] = useState('def value');
+    const [number, setNumber] = useState(0);
 
-    static contextType =  MyContext;    
+    const context = useContext(MyContext);    
 
-    handleClick = (event) => {
+    const handleClick = (event) => {
         const a = event.target;
         console.log(event);
         console.log(event.type);
@@ -25,21 +25,28 @@ class Test extends Component {
         setTimeout(()=>{
             console.log(event.type);
         },0)
-    }    
-
-    render(){
-        return (
-            <div className="Test">
-                <div><h2>Test</h2></div>
-                <button onClick={this.handleClick}>Event.type?</button>               
-                <Element />
-                <div>My context = {this.context}</div>
-                <input onChange={(e)=>this.setState({dataForReciever: e.target.value})} value={this.state.dataForReciever}/>
-                <Reciever data={this.state.dataForReciever}/>
-                <RouterTest/>
-            </div>
-        )
     }
+    
+    const handleInputNumber = ({target:{value}}) =>{        
+        setNumber(prev=>value);
+    }
+
+    
+    return (
+        <div className="Test">
+            <div><h2>Test</h2></div>
+            <button onClick={handleClick}>Event.type?</button>               
+            <Element />
+            <div>My context = {context}</div>
+            <input onChange={(e)=>setDataForReciever(e.target.value)} value={dataForReciever}/>
+            <Reciever data={dataForReciever}/>
+            <RouterTest/>
+            <input type="number" onChange={handleInputNumber} value={number} />
+            <div>{number}</div>
+            <div>{typeof number}</div>
+        </div>
+    )
+    
 }
 
 export default Test;
