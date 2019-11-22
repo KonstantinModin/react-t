@@ -24,8 +24,7 @@ const Hooks = () => {
                 />
             <button 
                 className="btn-danger" 
-                onClick={()=>setCart(cur=>[...cur, {productLabel, productQuantity, id:Math.random()}])}
-                >
+                onClick={()=>setCart(cur=>[...cur, {productLabel, productQuantity, id:Math.random()}])}>
                 Add to Cart
             </button>
             {cart.map(({productLabel, productQuantity, id})=>(
