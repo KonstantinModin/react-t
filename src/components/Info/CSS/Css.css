@@ -1,0 +1,19 @@
+.cssClass {
+    margin: auto;
+}
+
+.cssClass ul li {
+    color: blue;
+}
+
+.cssClass ul {
+    color: red;
+}
+
+.cssClass ul li a { 
+    color: yellow;
+}
+
+.cssClass ul li .Anchor{
+    color: white;
+}
