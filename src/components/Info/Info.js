@@ -2,6 +2,7 @@ import React from 'react';
 import Menu from './Menu';
 import Test from './Test';
 import Hooks from './Hooks';
+import Css from './CSS';
 import './Info.css';
 
 const Info = () => {
@@ -16,7 +17,7 @@ const Info = () => {
                     <div>3</div>
                 </Test>
                 <Hooks />
-                <div><span>4</span></div>
+                <Css />
                 {/* <div><span>5</span></div>
                 <div><span>6</span></div>
                 <div><span>7</span></div>
