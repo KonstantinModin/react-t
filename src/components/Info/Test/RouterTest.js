@@ -6,7 +6,7 @@ const RouterTest = () => {
     const location = useLocation();
     const params = useParams();
 
-    console.log(history, location, params);
+    // console.log(history, location, params);
     
     return (
         <div className="RouterTest">
