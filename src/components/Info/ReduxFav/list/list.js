@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions/actions';
+import * as actions from '../actions/actions';
 
-const list = ({ data, handleFavorite, all }) => {
+const List = ({ data, handleFavorite, all }) => {
     
     const content = data.filter(i=>all||i.fav).map(({ id, title, description, price, fav})=>(
-        <div className="list-group-item" key={id}>
+        <div className="" key={id}>
             <div>{title}</div>
             <div>{description}</div>
             <div>{price} USD</div>
@@ -14,8 +14,8 @@ const list = ({ data, handleFavorite, all }) => {
     ));
     
     return (
-        <div className="list container justify-content-center">
-            <nav className="list-group col-md-6">        
+        <div className="">
+            <nav className="">        
                 {content.length ? content : 'No favorites'}
             </nav>
         </div>
@@ -24,4 +24,4 @@ const list = ({ data, handleFavorite, all }) => {
 
 const mapStateToProps = ({ shop: {data} }) => ({ data });
 
-export default connect(mapStateToProps, actions)(list);
+export default connect(mapStateToProps, actions)(List);
