@@ -1,9 +1,14 @@
 import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './ReduxFav/reducers/';
 import Menu from './Menu';
 import Test from './Test';
 import Hooks from './Hooks';
-import Css from './CSS';
+import ReduxFav from './ReduxFav';
 import './Info.css';
+
+const store = createStore(reducer);
 
 const Info = () => {
     return (
@@ -17,7 +22,9 @@ const Info = () => {
                     <div>3</div>
                 </Test>
                 <Hooks />
-                <Css />
+                <Provider store={store}>
+                    <ReduxFav />
+                </Provider>
                 {/* <div><span>5</span></div>
                 <div><span>6</span></div>
                 <div><span>7</span></div>
