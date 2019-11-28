@@ -5,7 +5,7 @@ import * as actions from '../actions/actions';
 const List = ({ data, handleFavorite, all }) => {
     
     const content = data.filter(i=>all||i.fav).map(({ id, title, description, price, fav})=>(
-        <div className="" key={id}>
+        <div className="listItem" key={id}>
             <div>{title}</div>
             <div>{description}</div>
             <div>{price} USD</div>
@@ -14,10 +14,8 @@ const List = ({ data, handleFavorite, all }) => {
     ));
     
     return (
-        <div className="">
-            <nav className="">        
-                {content.length ? content : 'No favorites'}
-            </nav>
+        <div className="list">                   
+            {content.length ? content : 'No favorites'}           
         </div>
     );
 }

@@ -1,12 +1,11 @@
 import React from 'react';
-import { Route, NavLink, Switch, useLocation } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import List from './list/';
 import './reduxFav.css';
 
-const ReduxFav = () => {
-    
+const ReduxFav = () => {    
     return (        
-        <div className="ReduxFav">
+        <div className="reduxFav">
             <h3>Redux Favorites</h3>
             <div className="navBar">
                 <NavLink to="/info">List</NavLink>

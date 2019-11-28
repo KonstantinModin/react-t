@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import initialState from '../data';
 
-const reducer = (state = initialState, action) => {
+const firstReducer = (state = initialState, action) => {
     switch(action.type){
         case 'TEST': {
             console.log('test action');
@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
 }
 
 const root = combineReducers({
-    shop: reducer
+    shop: firstReducer
 })
 
 export default root;
