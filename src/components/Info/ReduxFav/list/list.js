@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
 
-const List = ({ data, handleFavorite, all }) => {
-    
-    const content = data.filter(i=>all||i.fav).map(({ id, title, description, price, fav})=>(
+const List = ({ data, handleFavorite, all }) => {    
+    const content = data.filter(i=>all||i.fav).map(({id, title, description, price, fav})=>(
         <div className="listItem" key={id}>
             <div>{title}</div>
             <div>{description}</div>
@@ -20,6 +19,4 @@ const List = ({ data, handleFavorite, all }) => {
     );
 }
 
-const mapStateToProps = ({ shop: {data} }) => ({ data });
-
-export default connect(mapStateToProps, actions)(List);
+export default connect(({ shop: {data} }) => ({ data }), actions)(List);

@@ -19,8 +19,7 @@
 .Select, .Rate, .Pitch, .TextArea {
     width: 100%;
     margin: 10px 0px;
-    outline: none;
-    
+    outline: none;    
 }
 
 .TextArea {
@@ -29,14 +28,12 @@
     border-radius: 5px;
     resize: none;
     outline: none;
-    padding: 3px;
-    
+    padding: 3px;    
 }
 
 .ButtonContainer {
     display: flex;
-    height: 80px;
-    /* border: 1px solid red; */
+    height: 80px;    
 }
 
 .SpeechSyn .btn {
@@ -45,10 +42,9 @@
     margin: auto;
     padding: 8px 50px;
     transition: all 0.1s ease-in-out;
-    font-size: 120%;
-     
-    
+    font-size: 120%;    
 }
+
 .SpeechSyn .btn:hover {
     transform: scale(1.2);
     color: rgb(255, 255, 154);    
@@ -56,25 +52,18 @@
 
 .SpeechSyn .StopButton {
     --op: var(--op-norm);
-    background-color: rgba(255, 0, 0, var(--op));
-    /* color:red; */
+    background-color: rgba(255, 0, 0, var(--op));    
 }
 
 .SpeechSyn .StopButton:hover {
-    --op: var(--op-hov);
-  
-   /* color:blueviolet; */
+    --op: var(--op-hov);  
 }
 
 .SpeechSyn .SpeakButton {
     --op: var(--op-norm);
-    background-color: rgba(0, 255, 20, var(--op));
-    /* color:red; */
+    background-color: rgba(0, 255, 20, var(--op));   
 }
 
 .SpeechSyn .SpeakButton:hover {
-    --op: var(--op-hov);
-   
-   /* color:blueviolet; */
+    --op: var(--op-hov);   
 }
-

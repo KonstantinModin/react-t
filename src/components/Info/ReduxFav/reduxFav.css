@@ -24,6 +24,7 @@
     width: 90%; 
 
 }
+
 .reduxFav .list .listItem {
     border: 1px solid rgba(128, 128, 128, 0.459);
     border-radius: 5px;
@@ -31,12 +32,15 @@
     padding: 4px;
     display: flex;
     justify-content: space-between;
-    /* flex-direction: column; */
-
 }
+
 .reduxFav .list .listItem button{
    width: 110px;
    background: rgba(128, 128, 128, 0.466);
    color: white;
-   outline: none;
+   border: 1px solid white;
+}
+
+.reduxFav .list .listItem button:hover{   
+   background: rgba(128, 128, 128, 0.178);   
 }
