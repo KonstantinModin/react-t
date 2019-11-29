@@ -32,6 +32,10 @@
     padding: 4px;
     display: flex;
     justify-content: space-between;
+    transition: 0.1s all ease-in-out;
+}
+.reduxFav .list .listItem:hover {
+    transform: scale(1.1);
 }
 
 .reduxFav .list .listItem button{
