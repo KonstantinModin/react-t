@@ -1,0 +1,24 @@
+.ShowContext {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* .ShowContext .table {
+    display: flex;    
+} */
+
+.ShowContext > div {
+    border: 1px solid white;
+    margin: 2px;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+}
+
+.ShowContext div span {
+    background: rgba(182, 19, 19, 0.726);
+    
+}
