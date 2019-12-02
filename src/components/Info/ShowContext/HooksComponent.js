@@ -7,7 +7,7 @@ const HooksComponent = () => {
     return (
         <div>
             <h5>Hooks Component</h5>
-            Here is context recieved from hook:
+            Here is context recieved from useContext hook:
             <span>{ context }</span>
         </div>
     )

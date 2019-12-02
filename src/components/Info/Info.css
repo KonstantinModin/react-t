@@ -19,8 +19,3 @@
     display: flex;
     /* border: 1px solid blue;     */
 }
-
-.Info .grid div span {
-    margin: auto;
-    font-size: 3rem;
-}
