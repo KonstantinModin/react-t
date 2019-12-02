@@ -10,32 +10,32 @@ const Hooks = () => {
         <div className="Hooks">
             <h3>Hooks</h3>
             <label>Product Title</label>
-            <input 
-                type="text" 
-                value={productLabel} 
+            <input
+                type="text"
+                value={productLabel}
                 placeholder="Enter Product Title"
-                onChange={({target:{value}})=>setProductLabel(value)} />
+                onChange={({ target: { value } }) => setProductLabel(value)} />
             <label>Product Quantity</label>
-            <input 
-                type="number" 
-                value={productQuantity} 
+            <input
+                type="number"
+                value={productQuantity}
                 placeholder="Enter Product Quantity"
-                onChange={({target:{value}})=>setProductQuantity(value)}                 
-                />
-            <button 
-                className="btn-danger" 
-                onClick={()=>{
-                    setCart(cur=>[...cur, {productLabel, productQuantity, id:Math.random()}]);
+                onChange={({ target: { value } }) => setProductQuantity(value)}
+            />
+            <button
+                className="btn-danger"
+                onClick={() => {
+                    setCart(cur => [...cur, { productLabel, productQuantity, id: Math.random() }]);
                     setProductLabel('');
                     setProductQuantity('');
-                    }}>
+                }}>
                 Add to Cart
             </button>
-            {cart.map(({productLabel, productQuantity, id})=>(
+            {cart.map(({ productLabel, productQuantity, id }) => (
                 <div
-                    className="cartItem" 
+                    className="cartItem"
                     key={id}
-                    onClick={()=>setCart(cur=>cur.filter(({id:idx})=>idx!==id))}>
+                    onClick={() => setCart(cur => cur.filter(({ id: idx }) => idx !== id))}>
                     {productLabel}:{productQuantity}x
                 </div>
             ))}
