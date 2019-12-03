@@ -1,28 +1,23 @@
 .Recognition {
-    margin: 20px auto 0 20px;
-    /* border: 1px solid red; */
+    margin: 20px auto 0 20px;    
     width: 100vw;
     color: '#FFFFFF'
 }
 
 .Recognition .tex {
     font-size: 200%;
-    width: 49vw;
-    /* border: 1px solid blue; */
+    width: 49vw;   
 }
 
 .Recognition .controls {
-    width: 300px;
-    /* border: 1px solid red;     */
+    width: 300px;    
 }
 
 .Recognition .controls button {
     margin-right: 40px;
 }
 
-
-.Recognition .Unicorne {
-    /* border: 1px solid blue; */
+.Recognition .Unicorne {   
     position: absolute;
     top: 50%;
     left: 150%;
@@ -30,17 +25,14 @@
     transition: all 0.3s ease-in-out;
 }
 
-.Recognition .Active {
-    /* border: 1px solid blue; */
-    /* position: absolute; */
+.Recognition .Active {    
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
 
 .Recognition .textContainer {
-    display: flex;
-    /* border: 1px solid red; */
+    display: flex;    
     flex-direction: column;
     flex-wrap: wrap;
     height: 88%;
