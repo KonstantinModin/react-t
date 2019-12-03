@@ -3,11 +3,9 @@
     width: 100vw;
     height: calc(100vh - 75px);
     display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* border:1px solid red; */
+    flex-direction: column;    
 }
+
 .Info .grid {
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -16,6 +14,5 @@
 }
 
 .Info .grid div {
-    display: flex;
-    /* border: 1px solid blue;     */
+    display: flex;    
 }
