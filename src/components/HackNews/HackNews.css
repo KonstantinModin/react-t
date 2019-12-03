@@ -27,12 +27,12 @@
     transition: all ease-in-out 0.1s;
     /* border: 1px solid yellow; */
 }
+
 .HackNews .scroll {
     overflow-x: scroll;
     height: 85vh;
     width: 90vw;
-    /* border: 1px solid red; */
-    
+    /* border: 1px solid red; */    
 }
 
 .HackNews .list .Comment {
@@ -46,7 +46,6 @@
     font-size: 0.9rem;
     font-weight: 500;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.527);
-
 }
 
 .HackNews .list .Comment .author span {
@@ -60,7 +59,6 @@
     font-size: 1.2rem;
 }
 .HackNews .list .Comment .text {    
-    /* font-weight: bolder; */
     font-size: 1.1rem;
 }
 
@@ -69,32 +67,29 @@
     transform: scale(1.01);
 }   
 
-.HackNews .list .listItem .title {
-    /* border: 1px solid red; */
-}
 .HackNews .list .listItem .title span{
     margin-left: 10px;
     font-weight: 900;
     font-size: 110%;
     color: rgb(21, 66, 102);
 }
+
 .HackNews .list .listItem .secondLine .by{    
     color: rgb(44, 18, 116);
     font-style: italic;
     font-weight: bolder;
 }
-.HackNews .list .listItem .title h4 {
-    /* margin-left: 10px; */
+
+.HackNews .list .listItem .title h4 {    
     text-decoration: none;
     color: rgb(18, 17, 80);
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.459);
-    display: inline;
-    /* padding: 0 0 2px 0; */
+    display: inline;   
 }
+
 .HackNews .list .listItem .title a {
     text-decoration: none;
-    color: rgb(18, 17, 80);
-    /* padding: 0 0 2px 0; */
+    color: rgb(18, 17, 80);    
 }
 
 .HackNews .pagination {
@@ -102,6 +97,7 @@
     display: flex;
     justify-content: center;
 }
+
 .HackNews .pagination .select{
     padding: 10px;
     margin: 5px;
@@ -114,9 +110,11 @@
     margin: 5px;
     transition: all ease-out 0.1s;
 }
+
 .HackNews .pagination .page.cur {
    background: rgba(0, 0, 255, 0.473);
 }
+
 .HackNews .pagination .page:hover {
     background: rgba(255, 255, 255, 0.829);
     color: black;
@@ -126,8 +124,7 @@
 .HackNews .spinner {
     width: 40px;
     height: 40px;
-    background-color: rgba(255, 44, 44, 0.774);
-  
+    background-color: rgba(255, 44, 44, 0.774);  
     margin: 10px;    
     animation: anim 1.2s infinite ease-in-out;
 }
