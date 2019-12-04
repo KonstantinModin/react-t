@@ -8,22 +8,16 @@ const Features = () => {
     const [ mouseIn, setMouseIn ] = useState(false);
     const [xCircle, setXCircle] = useState(-50);
 
-    const calculateCircle = () => {
-        console.log('mouseIn :', mouseIn);
-        if (!mouseIn) {
-            console.log('begin', xCircle);
-            
+    const calculateCircle = () => {        
+        if (!mouseIn) {            
             let r = 50;
             let y = Math.sqrt(r*r - xCircle*xCircle);
             if (shadowText.current) draw(xCircle, y);
             setXCircle(prev => {
                 console.log('state :', prev);
                 return prev > 50 ? -50 : prev + 1
-            });
-            
-            console.log('end', xCircle, y);
-        }
-            
+            });            
+        }            
     }
 
     useEffect(() => {
@@ -46,14 +40,9 @@ const Features = () => {
         }
        
         const xWalk = ~~((x / width * walk) - walk / 2);
-        const yWalk = ~~((y / height * walk) - walk / 2);
-        
-        console.dir(e.target);
-        console.log('x, y :', x, y);
-        console.log(~~xWalk, ~~yWalk);
+        const yWalk = ~~((y / height * walk) - walk / 2);       
 
-        draw(xWalk, yWalk);
-        
+        draw(xWalk, yWalk);        
     }
 
     const draw = (xWalk, yWalk) => {
@@ -69,8 +58,7 @@ const Features = () => {
     return (
         <div className="Features">
             <h1>Features{xCircle}{mouseIn.toString()}</h1>
-            <div className="Grid">
-                {/* <span>{mouseIn.toString()}</span> */}
+            <div className="Grid">                
                 <div 
                     className="Block1" 
                     onMouseMove={(e) => mouseMoveHandler(e.nativeEvent)}
