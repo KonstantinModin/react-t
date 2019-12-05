@@ -96,17 +96,7 @@ const Game = () => {
         setRandHole(null);
         setTimeLeft(20);
         setLevel(1);
-    }
-    // const setlocScore=()=>{
-    //     localStorage.setItem('topScore',localStorage.getItem('topScore')+1);
-    // }
-    // const getlocScore=()=>{
-    //     alert(localStorage.getItem('topScore'));
-    // }
-    // const clearlocScore = () => {
-    //     localStorage.removeItem('topScore');
-
-    // }
+    }    
 
     return (
         <div className="Game">
@@ -134,10 +124,7 @@ const Game = () => {
                 )}
             </div>
             <div>
-                <button onClick={startGame}>Start!</button>
-                {/* <button onClick={setlocScore}>SetScore++</button>
-                <button onClick={getlocScore}>getScore</button>
-                <button onClick={clearlocScore}>clear Score</button> */}
+                <button onClick={startGame}>Start!</button>                
             </div>
         </div>
     )

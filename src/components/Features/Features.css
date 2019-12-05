@@ -3,8 +3,7 @@
     width: 100vw;
     height: calc(100vh - 75px);
     display: flex;
-    flex-direction: column;
-    /* border: 1px solid red;     */
+    flex-direction: column;    
 }
 
 .Features .Grid {
@@ -26,7 +25,6 @@
 
 .Features .Grid > div {
     display: flex;    
-    /* border: 1px solid blue; */
 }
 
 .Features .Grid > div > span {
@@ -34,8 +32,5 @@
 }
 
 .Features .Grid .innerDiv{
-    margin: auto;
-    /* border: 1px solid red; */
+    margin: auto;    
 }
-
-
