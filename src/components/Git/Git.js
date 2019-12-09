@@ -27,8 +27,7 @@ export default class Git extends Component {
 
         const content = loading ? [['Loading...','']] :
               error ? [['Some fuckup hapened!</div>','']] :
-              Object.entries(list);
-        console.log('content :', content);
+              Object.entries(list);        
 
         return (
             <div className="GitHub">

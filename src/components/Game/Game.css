@@ -1,24 +1,17 @@
-.Game {
-    /* margin: auto; */
+.Game {    
     width: 100vw;
     height: calc(100vh - 75px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    /* border: 1px solid red; */
+    justify-content: space-around;    
 }
 .Game .topBar {
     width: 50vw;
     display: flex;
     height: 7vh;    
     align-items: flex-end; 
-    justify-content: space-between;  
-    /* border: 2px dotted white;   */
-}
-.Game .topBar .item {
-    /* widows: 100px; */
-    /* border: 1px solid red; */
+    justify-content: space-between;      
 }
 
 .Game .gameOver {
@@ -31,35 +24,26 @@
 }
 
 .Game .gameOver .label {
-    margin: auto;
-    /* font-size: 400%; */
+    margin: auto;    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 20vh;
-    width: 50vw;
-    /* border: 1px solid red; */
+    width: 50vw;    
     align-items: center; 
-
 }
 
-.Game .Grid {
-    
+.Game .Grid {    
     width:95%;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* grid-gap: 2px; */
-    /* border: 2px dotted white; */
-    /* box-sizing: border-box; */
+    grid-template-columns: 1fr 1fr 1fr;    
     height: 65vh;
 }
   
-.Game .hole {
-    /* flex: 1 0 33.33%; */
+.Game .hole {    
     overflow: hidden;
-    position: relative;
-    /* border: 1px solid red; */
+    position: relative;    
 }
   
 .Game .hole:after {
@@ -71,22 +55,14 @@
     height:90px;
     position: absolute;
     z-index: 2;
-    bottom: -30px;
-    /* border: 1px solid red; */
+    bottom: -30px;    
 }
   
-.Game .mole {
-    /* background: url('./Pict/03_Peppa.png') bottom center no-repeat; */
-    /* background-size: 60%; */
+.Game .mole {    
     position: relative;
-    top: 100%;
-    /* left:-20px; */
-    /* width: 40vw; */
-    height: 39vh;
-    /* margin-left: auto;
-    margin-right: auto; */
-    transition:all 0.4s;
-    /* border: 1px solid red; */
+    top: 100%;    
+    height: 39vh;    
+    transition:all 0.4s;    
 }
 
 .Game .Grid .hole1 .mole {
