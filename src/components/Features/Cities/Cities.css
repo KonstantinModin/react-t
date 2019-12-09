@@ -1,10 +1,10 @@
 .Cities {
     display: flex;
-    flex-direction: column;
-    /* align-items: center; */
+    flex-direction: column;    
     height: calc(50vh - 132px);
     overflow: hidden;
 }
+
 .Cities input {
     width: 80%;
 }
