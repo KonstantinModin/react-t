@@ -1,5 +1,4 @@
-.SocialCardUI {
-    /* border: 1px solid red; */
+.SocialCardUI {    
     display: flex;
     flex-direction: column;
     width: 40vw;
@@ -21,11 +20,12 @@
     padding: 10px;
     margin: 5px 40px 10px 25px;
 }
-.SocialCardUI .carddiv .mid {
-    /* border: 1px solid red; */
+
+.SocialCardUI .carddiv .mid {    
     display: flex;
     justify-content: flex-end;
 }
+
 .SocialCardUI .carddiv .mid img {
     margin: 5px;
     width: 300px;
