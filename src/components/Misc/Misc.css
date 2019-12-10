@@ -6,8 +6,7 @@
     flex-direction: column;
 }
 
-.Misc .Grid {
-    /* border: 1px solid red;     */
+.Misc .Grid {    
     display: grid;
     grid-template-areas: 
     "social fetch"
@@ -37,14 +36,8 @@
     flex-direction: column;
 }
 
-.Misc .Grid > div {
-    /* display: flex;     */
-    /* border: 1px solid blue; */
-}
-
 .Misc .twoComp {
     display: flex;
-    width: 50vw;
-    /* border: 1px solid red; */
+    width: 50vw;    
     justify-content: space-around;
 }
