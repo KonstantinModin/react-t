@@ -8,6 +8,7 @@
     --invert: 0%;
     --opacity: 100%;
 }
+
 .VariblesSubDiv img {
     padding: var(--spacing);
     background: var(--base);
@@ -23,12 +24,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;    
-    /* border: 1px solid red; */
 }
 
 .VariblesSubDiv {
-    height: 540px;
-    /* border: 1px solid red; */
+    height: 540px;   
 }
 
 .VarControls label {
@@ -46,16 +45,10 @@
     top: -7px;    
 }
 
-.VarControls .Reset {
-    /* position: relative;
-    top: -8px; */
+.VarControls .Reset {   
     margin: 10px 15px;
     width: 200px;
     float: right;
-}
-
-.Info {
-    /* border: 1px solid grey; */
 }
 
 .Info > * {
