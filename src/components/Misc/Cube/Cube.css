@@ -1,8 +1,7 @@
 .scene {
     width: 200px;
     height: 200px;
-    perspective: 600px;
-    /* border: 1px solid blue; */
+    perspective: 600px;    
 }
   
 .scene .cube {
@@ -23,10 +22,7 @@
 .scene .cube .cube__face {
     position: absolute;
     width: 200px;
-    height: 200px;
-    /* border: 1px solid white; */
-    /* margin: 0 10px 10px 0;     */
-
+    height: 200px;    
     position: absolute;
     width: 200px;
     height: 200px;
