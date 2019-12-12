@@ -20,9 +20,11 @@
 .Misc .Grid .SocialCardUI {
     grid-area: social;
 }
+
 .Misc .Grid .Weather {
     grid-area: weather;
 }
+
 .Misc .Grid .four {
     grid-area: four;
     display: grid;    
