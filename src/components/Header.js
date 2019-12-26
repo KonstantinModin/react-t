@@ -7,23 +7,24 @@ const Header = () => {
         <header className="App-header">
             <div className="Logo"><Link to="/" ><h3>React App</h3></Link></div>
             <div className="Menu">
-                <NavLink exact activeClassName="selected" to="/" >Home</NavLink>       
-                <NavLink activeClassName="selected" to="/clock">Clock</NavLink>  
-                <NavLink activeClassName="selected" to="/drums">Drums</NavLink>
-                <NavLink activeClassName="selected" to="/webcam">WebCam</NavLink>
-                <NavLink activeClassName="selected" to="/draw">Draw</NavLink>
-                <NavLink activeClassName="selected" to="/variables">CSS Vars</NavLink>
-                <NavLink activeClassName="selected" to="/features">Featrs</NavLink>
-                <NavLink activeClassName="selected" to="/recognition">Recogntn</NavLink>
-                <NavLink activeClassName="selected" to="/synthesis">Speech Syn</NavLink>
-                <NavLink activeClassName="selected" to="/videoplayer">Video Plr</NavLink>
-                <NavLink activeClassName="selected" to="/game">Game</NavLink>                
-                <NavLink activeClassName="selected" to="/misc">Misc</NavLink>
-                <NavLink exact={false} activeClassName="selected" to="/hack/1" isActive={(_, location)=>{                    
+                <NavLink exact to="/" >Home</NavLink>       
+                <NavLink to="/clock">Clock</NavLink>  
+                <NavLink to="/drums">Drums</NavLink>
+                <NavLink to="/webcam">WebCam</NavLink>
+                <NavLink to="/draw">Draw</NavLink>
+                <NavLink to="/variables">CSS Vars</NavLink>
+                <NavLink to="/features">Featrs</NavLink>
+                <NavLink to="/recognition">Recogntn</NavLink>
+                <NavLink to="/synthesis">Speech Syn</NavLink>
+                <NavLink to="/videoplayer">Video Plr</NavLink>
+                <NavLink to="/game">Game</NavLink>                
+                <NavLink to="/misc">Misc</NavLink>
+                <NavLink exact={false} to="/hack/1" isActive={(_, location)=>{                    
                     return /^\/hack\/.+$/.test(location.pathname);
                 }}>Hacker News</NavLink>
-                <NavLink activeClassName="selected" to="/info">Test</NavLink>                
-                {/* <NavLink activeClassName="selected" to="/git">Git Issues</NavLink> */}
+                <NavLink to="/info">Test</NavLink>                
+                <NavLink to="/todo">Todo</NavLink>                
+                {/* <NavLink to="/git">Git Issues</NavLink> */}
             </div>
         </header>
     )
