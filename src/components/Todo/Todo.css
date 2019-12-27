@@ -1,0 +1,23 @@
+.Todo {
+    margin: auto;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.Todo .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Todo .list .item {
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.Todo .list {
+    margin: 10px 0;
+}
