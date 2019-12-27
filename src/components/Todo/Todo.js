@@ -15,7 +15,26 @@ const Todo = () => {
                 <button>done</button>
            </div>
            <div className="list">
-                <div className="item">1. Item1<input type="checkbox"/>Important<input type="checkbox"/>Not Important</div>
+                <div className="item">
+                    1. Item1
+                    <button>
+                        <i className="fa fa-exclamation"/>
+                    </button>
+                    <button>
+                        <i className="fa fa-bomb"/>
+                    </button>
+                    <button>
+                    f780
+                        <i className="fa fa-biohazard"/>
+                    </button>
+                    <button>
+                        <i className="fa fa-hotjar"/>
+                    </button>
+                    <button>
+                        <i className="fa fa-trash-o"/>
+                    </button>
+                   
+                </div>
                 <div className="item">2. Item2</div>
                 <div className="item">3. Item3</div>
            </div>
