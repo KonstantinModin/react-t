@@ -1,7 +1,4 @@
 import React from 'react';
-// import { FontAwesomeIcon as Icon} from '@fortawesome/react-fontawesome';
-// import { faGlobeAfrica, faBomb, faBiohazard, faExclamation,  faHatWizard, faTrash } from '@fortawesome/free-solid-svg-icons';
-// import grav from './SVGs/grav-brands.svg';
 import List from './List/';
 import './Todo.css';
 

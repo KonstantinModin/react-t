@@ -1,6 +1,9 @@
 import React, { Suspense, lazy, Profiler, useRef, useState } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import Back from './45621.jpg';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { todoReducer } from './components/Todo/Redux';
 import Header from './components/Header';
 import MyContext from './context';
 import './App.css';
@@ -22,6 +25,9 @@ const Todo = lazy(() => import('./components/Todo'));
 const HackNews = lazy(() => import('./components/HackNews'));
 const CommentList = lazy(() => import('./components/HackNews/CommentList'));
 // const Git = lazy(() => import('./components/Git'));
+
+
+const todoStore = createStore(todoReducer);
 
 const App = () => {    
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
@@ -81,7 +87,9 @@ const App = () => {
                                 return <CommentList data={history.location.state} history={history} /> 
                             }} />
                             <Route path="/info" component={Info} />
-                            <Route path="/todo" component={Todo} />
+                            <Provider store={todoStore}>
+                                <Route path="/todo" component={Todo} />
+                            </Provider>
                             <Redirect to="/" />
                         {/* </Switch> */}
                     </Suspense>
