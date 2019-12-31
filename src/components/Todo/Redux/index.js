@@ -1,4 +1,4 @@
 import todoReducer from './todo-reducer';
-import { addNewItem, deleteItem } from './actions';
+import { addNewItem, deleteItem, selectButtonPressed } from './actions';
 
-export { todoReducer, addNewItem, deleteItem };
+export { todoReducer, addNewItem, deleteItem, selectButtonPressed };

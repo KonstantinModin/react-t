@@ -1,5 +1,6 @@
-import { faGlobeAfrica, faBomb, faSkull, faGrinTongueWink, faThumbsDown, faExclamation,  
-    faHatWizard, faTrash, faRadiation } from '@fortawesome/free-solid-svg-icons';
+import { faGlobeAfrica, faBomb, faSkull,  faThumbsDown, faExclamation, faHatWizard, faTrash, 
+    faRadiation } from '@fortawesome/free-solid-svg-icons';
+import { faGrinTongueWink } from '@fortawesome/free-regular-svg-icons';
 
 const buttonsArray = [
     {
@@ -48,7 +49,7 @@ const buttonsArray = [
         id:7,
         label: 'You can forget about it',
         color: 'DodgerBlue',
-        icon: faGrinTongueWink      
+        icon: faGrinTongueWink     
     },
     {
         id:8,

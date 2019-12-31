@@ -1,5 +1,6 @@
 const ADD_NEW_ITEM = 'ADD_NEW_ITEM';
 const DELETE_ITEM = 'DELETE_ITEM';
+const SELECT_BUTTON_PRESSED = 'SELECT_BUTTON_PRESSED';
 
 const addNewItem = label => {
     return {
@@ -16,6 +17,17 @@ const deleteItem = id => {
         type: DELETE_ITEM,
         payload: id
     }
-}
+};
 
-export { addNewItem, deleteItem, ADD_NEW_ITEM, DELETE_ITEM };
+const selectButtonPressed = ( todoItemId, buttonNumber ) => {
+    return {
+        type: SELECT_BUTTON_PRESSED,
+        payload: {
+            todoItemId,
+            buttonNumber
+        }
+    }
+};
+
+export { addNewItem, deleteItem, selectButtonPressed, 
+    ADD_NEW_ITEM, DELETE_ITEM, SELECT_BUTTON_PRESSED };

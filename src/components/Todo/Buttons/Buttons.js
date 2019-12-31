@@ -1,20 +1,20 @@
 import React from 'react';
 import { FontAwesomeIcon as Icon} from '@fortawesome/react-fontawesome';
 import buttonsArray from './buttonsArray';
+import { deleteItem, selectButtonPressed } from '../Redux';
+import { connect } from 'react-redux';
 import './Buttons.css';
 
-const Buttons = ({ deleteItem, id, buttonsBits }) => {
+const Buttons = ({ deleteItem, selectButtonPressed, id, buttonsBits }) => {    
     return (
         <div className="buttons">
             {buttonsArray.map(({ id:key, label, color, icon, trash })=>{
-                
-                const bits = ("0".repeat(7)+buttonsBits.toString(2)).slice(-8);
-                const curBit = +bits.slice(key,key+1);
-                console.log(bits,curBit,key);
-
-
                 return (
-                    <button onClick={trash?()=>deleteItem(id):()=>{}} key={key} className={curBit&&'sel'}>
+                    <button 
+                        onClick={trash?()=>deleteItem(id):()=>selectButtonPressed(id,key)} 
+                        key={key} 
+                        className={buttonsBits[key]&&'sel'}
+                        >
                         <Icon icon={icon} color={color}/><br/>
                         {label}
                     </button>
@@ -24,4 +24,4 @@ const Buttons = ({ deleteItem, id, buttonsBits }) => {
     )
 }
 
-export default Buttons;
+export default connect(null, {deleteItem, selectButtonPressed})(Buttons);
