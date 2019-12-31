@@ -3,11 +3,11 @@ import ListItem from '../ListItem/';
 import { connect } from 'react-redux';
 import './List.css';
 
-const List = ({ items }) => {
-    console.log(items);
+const List = ({ items }) => {    
     return (
         <div className="list">
-            {items.map(({id, label})=><ListItem key={id} label={label}/>)}
+            {items.map(({ id, label, buttons }, i)=> 
+                <ListItem n={i} key={id} label={label} id={id} buttonsBits={buttons} />)}
         </div>
     )
 }

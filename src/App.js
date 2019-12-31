@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, Profiler, useRef, useState } from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Back from './45621.jpg';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -27,7 +27,9 @@ const CommentList = lazy(() => import('./components/HackNews/CommentList'));
 // const Git = lazy(() => import('./components/Git'));
 
 
-const todoStore = createStore(todoReducer);
+const todoStore = createStore(todoReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );
 
 const App = () => {    
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
