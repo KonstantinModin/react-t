@@ -1,0 +1,23 @@
+.Todo .list .item .buttons {
+    /* border: 1px solid red; */
+    display: flex;
+}
+
+.Todo .list .item .buttons button {
+    width: 90px;
+    font-size: 0.7rem;
+    height: 4rem;
+    border: none;
+    background: rgb(255, 255, 243);
+}
+
+.Todo .list .item .buttons button.sel {
+    background: pink;
+}
+.Todo .list .item .buttons button:hover {
+    background: rgb(255, 234, 238);
+}
+
+.Todo .list .item .buttons button svg{   
+    font-size: 1.5rem;    
+}

@@ -1,0 +1,37 @@
+.Todo .addItem {
+    /* border: 1px solid red; */
+    /* display: flex; */
+    /* justify-content: ; */
+    /* flex-direction: row; */
+    /* align-items: stretch;     */
+    height: 2rem;
+}
+
+.Todo .addItem input{
+    width: 59%;  
+    /* flex-grow:2; */
+}
+.Todo .addItem input.err{
+   border: 2px solid red;
+}
+
+.Todo .addItem button{
+    width: 39%;  
+    margin-left: 1rem;
+    background: pink;
+    border: none;
+    color: rgb(87, 7, 7);
+    transition: all 0.1s ease-in-out;
+}
+
+.Todo .addItem button:hover{   
+    background: rgb(219, 146, 158);
+    /* transform: scale(1.05); */
+    
+}
+
+.Todo .addItem p{
+    color: red;
+    position: relative;
+    /* top: -25px; */
+}
