@@ -1,0 +1,24 @@
+.Todo .filter {
+    border: 1px solid blue;
+    /* display: flex; */
+}
+
+.Todo .filter .con {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 95px;
+    border: 1px solid red;
+    /* width:100%; */
+}
+
+.Todo .filter .con button {
+    width: 88px;
+    font-size: 0.7rem;
+    height: 4rem;
+    border: none;
+    background: rgb(255, 255, 243);
+}
+
+.Todo .filter button svg{   
+    font-size: 1.5rem;    
+}
