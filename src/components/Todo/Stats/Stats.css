@@ -1,3 +1,7 @@
 .Todo .title .stats {
     width: 650px;
 }
+
+.Todo .title .stats span {
+    color: red;
+}

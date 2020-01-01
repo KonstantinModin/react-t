@@ -4,6 +4,12 @@ import { faGrinTongueWink } from '@fortawesome/free-regular-svg-icons';
 
 const buttonsArray = [
     {
+        id:-1,
+        label: 'Show All',
+        // color: '#800000',
+        // icon: faExclamation     
+    },
+    {
         id:0,
         label: 'Important',
         color: '#800000',

@@ -9,6 +9,7 @@ const Buttons = ({ deleteItem, selectButtonPressed, id, buttonsBits }) => {
     return (
         <div className="buttons">
             {buttonsArray.map(({ id:key, label, color, icon, trash })=>{
+                if (key===-1) return null
                 return (
                     <button 
                         onClick={trash?()=>deleteItem(id):()=>selectButtonPressed(id,key)} 

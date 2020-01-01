@@ -1,24 +1,30 @@
 .Todo .filter {
-    border: 1px solid blue;
-    /* display: flex; */
-}
-
-.Todo .filter .con {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     margin-right: 95px;
-    border: 1px solid red;
-    /* width:100%; */
+    margin-top: 3px;
+    /* border: 1px solid red;     */
 }
 
-.Todo .filter .con button {
+.Todo .filter button {
     width: 88px;
     font-size: 0.7rem;
-    height: 4rem;
+    height: 3rem;
     border: none;
-    background: rgb(255, 255, 243);
+    background: rgb(223, 233, 255);
 }
 
-.Todo .filter button svg{   
-    font-size: 1.5rem;    
+.Todo .filter button.sel {    
+    background: rgb(152, 185, 255);
+}
+
+.Todo .filter button:hover {    
+    background: rgb(85, 139, 255);
+}
+
+.Todo .filter input {
+    height: 2rem;
+    margin-right: 10px;
+    width:21%;
 }

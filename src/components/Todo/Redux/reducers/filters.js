@@ -1,21 +1,12 @@
-// import { ADD_NEW_ITEM, DELETE_ITEM } from './actions';
+import { FILTER_BUTTON_PRESSED } from '../actions';
 
-const INITIAL_STATE = {
-    text: '',
-    all: true,
-    done: false,
-    important: false,
-    urgent: false,
-    globalImportant: false,
-    magicNecessary: false,
-    radioactive: false,
-    aMatterOfLifeAndDeath: false,
-    notImportantAtAll: false,
-    youCanForgetAboutIt: false    
-};
+const INITIAL_STATE = [1,0,0,0,0,0,0,0,1];
 
-const filtersReducer = (state = INITIAL_STATE, action) => {
-    switch (action.type) {       
+const filtersReducer = (state = INITIAL_STATE, { type, payload }) => {
+    switch ( type ) {
+        case FILTER_BUTTON_PRESSED:
+            console.log(payload);
+            return state;
         default: return state;
     }
 };

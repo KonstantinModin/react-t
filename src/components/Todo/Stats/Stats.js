@@ -8,9 +8,13 @@ const Stats = ({ todos }) => {
         {buttons:[j,k,l,m,n,o,p,q]})=>[a+j,b+k,c+l,d+m,e+n,f+o,g+p,h+q],[0,0,0,0,0,0,0,0]);
     
     return (
-        <div className="stats">{all} tasks to do. Importants: {a}. Urgents: {b}. Importants globaly: {c}. 
-        Magic required: {d}. Radioactives: {e}. Matter of life and death: {f}. 
-        Not important at all: {g}. You can forget about it: {h}.</div>
+        <div className="stats">
+            <span>{all}</span> tasks to do.  Importants: <span>{a}</span>. Urgents:
+             <span>{b} </span>. Importants globaly: <span>{c}</span>. Magic 
+             required: <span>{d}</span>. Radioactives: <span>{e}</span>. Matter of life 
+             and death: <span>{f}</span>. Not important at all: <span>{g}</span>. You can 
+             forget about it: <span>{h}</span>.
+        </div>
     )
 }
 

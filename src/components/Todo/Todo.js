@@ -9,7 +9,7 @@ const Todo = () => {
     return (
         <div className="Todo">
             <div className="title">
-                <h2>Ultimate Todo App with Redux</h2>
+                <h2>Ultimate Todo App <span style={{color:'red'}}>with Redux</span></h2>
                 <Stats />
             </div>
             <Filter />
