@@ -4,7 +4,7 @@
 }
 
 .Todo .list .item .buttons button {
-    width: 90px;
+    width: 88px;
     font-size: 0.7rem;
     height: 4rem;
     border: none;
@@ -14,8 +14,9 @@
 .Todo .list .item .buttons button.sel {
     background: pink;
 }
+
 .Todo .list .item .buttons button:hover {
-    background: rgb(255, 234, 238);
+    background: rgb(255, 96, 96);
 }
 
 .Todo .list .item .buttons button svg{   

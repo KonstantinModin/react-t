@@ -1,10 +1,12 @@
 import { ADD_NEW_ITEM, DELETE_ITEM, SELECT_BUTTON_PRESSED } from '.././actions';
 
 const INITIAL_STATE = [
-    { label: 'Drink coffee', id: 101, buttons: [1,0,1,0,0,0,0,0,0] },
-    { label: 'Go shopping', id: 102, buttons: [0,1,0,1,0,0,0,0,0] },        
-    { label: 'Repair Car', id: 103, buttons: [0,1,0,1,0,0,0,0,0] },        
-    { label: 'Talk to Barbara', id: 104, buttons: [1,0,1,0,1,0,0,0,0] }        
+    { label: 'Drink coffee', id: 101, buttons: [0,1,0,0,0,0,0,0,0] },
+    { label: 'Debug my project', id: 102, buttons: [0,0,0,1,0,0,0,0,0] },
+    { label: 'Go shopping', id: 103, buttons: [0,0,1,0,0,0,0,0,0] },        
+    { label: 'Repair Car', id: 104, buttons: [1,0,0,1,0,0,0,0,0] },        
+    { label: 'Meet with Tony', id: 105, buttons: [0,0,0,0,0,1,0,0,0] },        
+    { label: 'Talk to Barbara', id: 106, buttons: [1,0,0,0,1,0,0,0,0] }        
 ];
 
 const todosItemsReducer = (state = INITIAL_STATE, {type, payload}) => {
@@ -22,7 +24,7 @@ const todosItemsReducer = (state = INITIAL_STATE, {type, payload}) => {
         case SELECT_BUTTON_PRESSED:           
             return state.map(todoItem=>{
                 if (todoItem.id !== payload.todoItemId) 
-                    return todoItem; // not todo item that we find
+                    return todoItem; // not todoItem that we find
 
                 if (payload.buttonNumber===6) // "not important at all" pressed
                     return {...todoItem, buttons:[0,0,0,0,0,0,todoItem.buttons[6]?0:1,0,0]};                    

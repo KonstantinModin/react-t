@@ -1,21 +1,18 @@
 import React from 'react';
-import List from './List/';
+import List from './List';
 import AddItemInput from './AddItemInput';
+import Stats from './Stats';
+import Filter from './Filter';
 import './Todo.css';
 
 const Todo = () => {    
     return (
         <div className="Todo">
             <div className="title">
-                <h2>Ultimate Todo App</h2>
-                <div>Stats</div>
+                <h2>Ultimate Todo App with Redux</h2>
+                <Stats />
             </div>
-            <div className="filter">
-                <input type="text"/>
-                <button>all</button>
-                <button>active</button>
-                <button>done</button>
-            </div>
+            <Filter />
             <List />
             <AddItemInput />             
         </div>

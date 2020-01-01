@@ -8,7 +8,7 @@ const Header = () => {
             <div className="Logo"><Link to="/" ><h3>React App</h3></Link></div>
             <div className="Menu">
                 <NavLink exact to="/" >Home</NavLink>       
-                <NavLink to="/clock">Clock</NavLink>  
+                <NavLink to="/clock"><span role="img" aria-label="clock">⏰</span></NavLink>  
                 <NavLink to="/drums">Drums</NavLink>
                 <NavLink to="/webcam">WebCam</NavLink>
                 <NavLink to="/draw">Draw</NavLink>
