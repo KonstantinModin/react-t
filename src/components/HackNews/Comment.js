@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useTimePassed, useAxios } from './hooks/hooks';
 import ReactMarkdown from 'react-markdown';
 
-const Comment = ({ id }) => {   
-
-    const { by, kids, text, time, parent, type, deleted } = useAxios(id, 'comment');
+const Comment = ({ id }) => {      
+    
+    const { by, kids, text, time, parent, type, deleted } = useAxios(id, 'comment') || {};
 
     const timePassed = useTimePassed(time);
 
@@ -22,3 +23,7 @@ const Comment = ({ id }) => {
 }
 
 export default Comment;
+
+Comment.propTypes = {
+    id: PropTypes.number.isRequired
+};

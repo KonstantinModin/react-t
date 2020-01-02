@@ -7,7 +7,7 @@ const Comments = ({ data, history }) => {
         <div className="HackNews">
             <h2>Comments</h2>
             <div className="list scroll">
-                <ListItem dataProps={data[0]} pos={''} history={history}/>
+                <ListItem id={0} dataProps={data[0]} pos={''} history={history}/>
                 {data[0].kids.map(id=><Comment key={id} id={id} />)}
             </div>
         </div>

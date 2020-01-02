@@ -62,7 +62,7 @@ class Draw extends Component {
         return (
             <div className="Draw">
                 <div className="Controls">
-                    <h1>Draw</h1>                    
+                    <h2>Draw something with mouse...</h2>
                     {/* TODO: render button from array ? */}
                     <button 
                         className="btn btn-success" 
