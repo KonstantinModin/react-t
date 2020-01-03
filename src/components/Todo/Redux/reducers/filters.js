@@ -9,7 +9,13 @@ const filtersReducer = (state = INITIAL_STATE, { type, payload }) => {
     switch ( type ) {
         case FILTER_BUTTON_PRESSED: 
             if (!payload) return INITIAL_STATE;
-            return {...state, arr:state.arr.map((e,i)=>i?i===payload?+!e:e:0)};
+            const newState = {...state, arr:state.arr.map((e,i)=>i?i===payload?+!e:e:0)};
+            
+            //toggle "Show All" if all unchecked
+            if (newState.arr.every(e=>e===0)) return INITIAL_STATE; 
+            return newState;
+            
+            //controlled input
         case FILTER_INPUT_PRESSED:
             return {...state, text:payload};
         default: return state;
