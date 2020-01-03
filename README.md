@@ -2,14 +2,16 @@
 
 Here in one React project included implementation of:
 
+* Hacker News Fetching, Recursive comments Fetching (useState, useEffect, custom hooks)
 * Clock with CSS transition (useEffect, useState, useRef)
+* Ultimate ToDo List (Redux)
 * Drums with keybord or mouse (class-based) 
 * Receiving data from WebCam (useEffect, useState)
 * Draw on canvas (class-based)
 * CSS Variables (useState, useEffect)
 * Shadow Effect (class-based)
 * Metronome (class-based)
-* Calculator (with Redux)
+* Calculator (Redux)
 * Link Effect (with React.createRef)
 * Fetch US cities info (useEffect, useState, axios )
 * Slide with mouse (useState, createRef)
@@ -20,8 +22,8 @@ Here in one React project included implementation of:
 * Social Card Example (static data render)
 * Weather card Example (static data render)
 * Fetching data with hooks/classes emulation (hooks/classes difference in data fetching)
-* 3D HTML-CSS cubes rotation (useState, useEffect )
-* Hacker News Fetching, Recursive comments Fetching (useState, useEffect, custom hooks)
+* 3D HTML-CSS cubes rotation (useState, useEffect)
+* Setting and showing global context (hooks, class-based)
 
 ## also used:
 * react-router
