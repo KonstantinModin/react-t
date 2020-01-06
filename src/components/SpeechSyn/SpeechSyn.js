@@ -8,7 +8,11 @@ const SpeechSyn = () => {
     const [ currentVoice, setCurrentVoice ] = useState(null);
     const [ [rate, pitch], setOptions ] = useState([1, 1]);
 
-    const defineVoices = () => setVoices(speechSynthesis.getVoices());
+    const defineVoices = () => {
+        const voices = speechSynthesis.getVoices();
+        // console.log(voices, speechSynthesis );
+        setVoices(voices);
+    }
 
     useEffect(()=> {        
         if (!currentVoice) setCurrentVoice(voices[0]);
@@ -16,12 +20,13 @@ const SpeechSyn = () => {
     }, [voices, currentVoice]);
 
     useEffect(() => {
+        // console.log(speechSynthesis );
         const timer = setTimeout(defineVoices, 500);        
         
-        console.log('timer added');
+        // console.log('timer added');
         return () => {
             clearInterval(timer);           
-            console.log('timer removed');
+            // console.log('timer removed');
         }
     }, []);
     
