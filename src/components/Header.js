@@ -11,7 +11,7 @@ const Header = () => {
                 <NavLink exact={false} to="/hack/1" isActive={(_, location)=>{                    
                     return /^\/hack\/.+$/.test(location.pathname);
                 }}>Hacker News</NavLink>
-                <NavLink to="/clock"><span role="img" aria-label="clock">⏰</span></NavLink>  
+                <NavLink to="/clock"><span role="img" aria-label="clock">🕑</span></NavLink>  
                 <NavLink to="/todo">Todo</NavLink>                
                 <NavLink to="/drums">Drums</NavLink>
                 <NavLink to="/webcam">WebCam</NavLink>

@@ -5,6 +5,7 @@
     width: 100%;    
     /* border: 1px solid red; */
     align-items: center;
+    font-size: 1rem;
 }
 
 .reduxFav .navBar {
@@ -36,6 +37,9 @@
 }
 .reduxFav .list .listItem:hover {
     transform: scale(1.1);
+}
+.reduxFav .list .listItem.sel {
+    background: rgba(255, 112, 136, 0.342);
 }
 
 .reduxFav .list .listItem button{

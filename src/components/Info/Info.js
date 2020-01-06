@@ -11,7 +11,7 @@ const store = createStore(reducer);
 
 const Info = () => (
     <div className="Info">
-        <h1>Info</h1>
+        <h1>Test</h1>
         <div className="grid">            
             <ShowContext />
             <Hooks />

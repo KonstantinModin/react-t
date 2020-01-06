@@ -1,4 +1,4 @@
-.Container {    
+.App .Container {    
     display: flex;    
     position: fixed;
     top: 75px;
@@ -7,12 +7,19 @@
     height: calc(100vh - 75px);
 }
 
-.Background {    
+.App .Background {    
     width: 100vw;
     height: calc(100vh - 75px);
     overflow: hidden;    
 }
 
-.Container h1 {
+.App .Container h1 {
     margin:auto;
+}
+
+.App .copyright {
+    position: absolute;
+    top: 95%;
+    width: 420px;
+    /* text-align: center; */
 }

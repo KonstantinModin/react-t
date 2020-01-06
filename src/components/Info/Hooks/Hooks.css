@@ -1,7 +1,7 @@
 .Hooks {
     margin: 20px auto auto 40px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 }
 
 .Hooks button {

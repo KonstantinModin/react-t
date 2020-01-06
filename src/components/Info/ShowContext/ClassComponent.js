@@ -10,7 +10,7 @@ export default class ClassComponent extends Component {
     render() {
         return (
             <div>
-                <h5>This is class-based component</h5>                
+                <h4>This is class-based component</h4>                
                 {/* <div>{this.__SOME_CLASS_VARIABLE}</div> */}
                 Here is context from static contextType:
                 <span>{this.context}</span>

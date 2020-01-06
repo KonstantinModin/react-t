@@ -57,6 +57,7 @@ const App = () => {
         <Profiler id="App" onRender={onRenderCallback}>
         <div className="App">        
             <Route path="/" component={Header} />
+            <div className="copyright">Copyright © 2019 Konstantin Modin All Rights Reserved. Designed with React</div>
 
             <div className="Background" >
                 <img src={Back} alt="background"/>

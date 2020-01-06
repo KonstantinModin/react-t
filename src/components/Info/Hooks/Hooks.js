@@ -9,13 +9,13 @@ const Hooks = () => {
     return (
         <div className="Hooks">
             <h3>Hooks</h3>
-            <label>Product Title</label>
+            <div>Product Title</div>
             <input
                 type="text"
                 value={productLabel}
                 placeholder="Enter Product Title"
                 onChange={({ target: { value } }) => setProductLabel(value)} />
-            <label>Product Quantity</label>
+            <div>Product Quantity</div>
             <input
                 type="number"
                 value={productQuantity}

@@ -4,7 +4,7 @@ import * as actions from '../actions/actions';
 
 const List = ({ data, handleFavorite, all }) => {    
     const content = data.filter(i=>all||i.fav).map(({id, title, description, price, fav})=>(
-        <div className="listItem" key={id}>
+        <div className={'listItem'+(fav?' sel':'')} key={id}>
             <div>{title}</div>
             <div>{description}</div>
             <div>{price} USD</div>
