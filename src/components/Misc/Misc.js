@@ -1,7 +1,6 @@
 import React from 'react';
 import SocialCardData from './Social';
 import Weather from './Weather';
-import Cube from './Cube';
 import Fetch from './Fetch';
 import FetchH from './Fetch/hooks';
 import './Misc.css';
@@ -20,12 +19,7 @@ const Misc = () => {
                     </div>
                 </div>               
                 <Weather />
-                <div className="four">
-                    <Cube/>
-                    <Cube/>
-                    <Cube/>
-                    <Cube/>
-                </div>
+                
             </div>
         </div>
     )    

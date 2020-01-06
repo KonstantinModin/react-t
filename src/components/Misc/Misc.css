@@ -25,20 +25,13 @@
     grid-area: weather;
 }
 
-.Misc .Grid .four {
-    grid-area: four;
-    display: grid;    
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;    
-}
-
 .Misc .Grid .cont {
     grid-area: fetch;
     display: flex;
     flex-direction: column;
 }
 
-.Misc .twoComp {
+.Misc .cont .twoComp {
     display: flex;
     width: 50vw;    
     justify-content: space-around;

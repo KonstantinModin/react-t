@@ -20,7 +20,7 @@ const SpeechSyn = lazy(() => import('./components/SpeechSyn'));
 const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
 const Game = lazy(() => import('./components/Game'));
 const Misc = lazy(() => import('./components/Misc'));
-const Info = lazy(() => import('./components/Info'));
+const Test = lazy(() => import('./components/Test'));
 const Todo = lazy(() => import('./components/Todo'));
 const HackNews = lazy(() => import('./components/HackNews'));
 const CommentList = lazy(() => import('./components/HackNews/CommentList'));
@@ -89,7 +89,7 @@ const App = () => {
                             <Route path="/hack/comments/:id" render={({ history}) => {                        
                                 return <CommentList data={history.location.state} history={history} /> 
                             }} />
-                            <Route path="/info" component={Info} />
+                            <Route path="/test" component={Test} />
                             <Provider store={todoStore}>
                                 <Route path="/todo" component={Todo} />
                             </Provider>
