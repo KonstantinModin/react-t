@@ -1,0 +1,54 @@
+.reduxFav {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    width: 100%;    
+    /* border: 1px solid red; */
+    align-items: center;
+    font-size: 1rem;
+}
+
+.reduxFav .navBar {
+    /* border: 1px solid red; */
+    background: rgba(128, 128, 128, 0.411);
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 5px 0;
+    padding: 3px;
+}
+
+.reduxFav .list {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 90%; 
+
+}
+
+.reduxFav .list .listItem {
+    border: 1px solid rgba(128, 128, 128, 0.459);
+    border-radius: 5px;
+    margin: 2px 0;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.1s all ease-in-out;
+}
+.reduxFav .list .listItem:hover {
+    transform: scale(1.1);
+}
+.reduxFav .list .listItem.sel {
+    background: rgba(255, 112, 136, 0.342);
+}
+
+.reduxFav .list .listItem button{
+   width: 110px;
+   background: rgba(128, 128, 128, 0.466);
+   color: white;
+   border: 1px solid white;
+}
+
+.reduxFav .list .listItem button:hover{   
+   background: rgba(128, 128, 128, 0.178);   
+}

@@ -1,0 +1,22 @@
+.Hooks {
+    margin: 20px auto auto 40px;
+    display: flex;
+    flex-direction: column;    
+}
+
+.Hooks button {
+    margin-top: 20px;
+}
+
+.Hooks .cartItem {
+    border: 1px solid grey;
+    margin: 4px 0;
+    padding: 0 3px;
+    border-radius: 3px;
+    background: rgba(128, 128, 128, 0.212);
+    transition: 0.1s all ease-in-out;
+}
+
+.Hooks .cartItem:hover {
+    transform: scale(1.05);
+}

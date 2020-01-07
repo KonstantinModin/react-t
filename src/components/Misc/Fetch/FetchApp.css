@@ -1,0 +1,30 @@
+.Fetch {    
+    width: 100%;
+    /* padding: 2px; */
+}
+
+.Fetch ul {
+    list-style: none;
+    padding: 2px;    
+}
+
+.Fetch ul li{
+    list-style: none;
+    border: 0.3px solid rgba(255, 255, 255, 0.849);   
+    padding: 2px;
+    background: linear-gradient(45deg,rgb(255, 144, 144),rgba(255, 192, 203, 0.507));
+    color:black;
+    font-weight: bolder;        
+}
+
+.Fetch ul li.selected{    
+    background: linear-gradient(45deg,rgb(247, 72, 72),rgba(228, 74, 169, 0.753));
+    color:white;
+    font-weight: bolder;        
+}
+
+.Fetch ul li:hover{    
+    background: linear-gradient(45deg,rgb(255, 144, 144),rgba(255, 71, 215, 0.795));
+    color:black;
+    cursor: pointer;    
+}

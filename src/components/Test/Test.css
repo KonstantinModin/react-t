@@ -1,0 +1,29 @@
+.Test {
+    margin: auto;
+    width: 100vw;
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    /* font-size: 1rem;     */
+}
+
+.Test .grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 55% 45%;
+    height: calc(100vh - 123px);
+}
+
+.Test .grid div {
+    display: flex;
+}
+
+.Test .grid .four {   
+    /* border: 1px solid red; */
+    height: calc(100% + 5rem);
+    position: relative;
+    top:-5rem;    
+    display: grid;    
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;    
+}
