@@ -3,8 +3,7 @@
     width: 100vw;
     height: calc(100vh - 75px);
     display: flex;
-    flex-direction: column;
-    /* font-size: 1rem;     */
+    flex-direction: column;    
 }
 
 .Test .grid {
@@ -18,8 +17,7 @@
     display: flex;
 }
 
-.Test .grid .four {   
-    /* border: 1px solid red; */
+.Test .grid .four {    
     height: calc(100% + 5rem);
     position: relative;
     top:-5rem;    
