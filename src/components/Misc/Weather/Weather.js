@@ -15,7 +15,7 @@ const data = [
 const Weather = () => {
     return (
         <div className="Weather">
-            <div><h3>Weather</h3></div>
+            <div className="title"><h3>Weather</h3><p>(Hardcoded data)</p></div>
             <div className="WeatherContainer">
                 {data.map(({id, date, caption, low, high, type})=>
                     <Day key={id} date={date} caption={caption} low={low} high={high} type={type}/>

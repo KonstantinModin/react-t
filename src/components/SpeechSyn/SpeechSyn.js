@@ -12,6 +12,7 @@ const SpeechSyn = () => {
         const voices = speechSynthesis.getVoices();
         // console.log(voices, speechSynthesis );
         setVoices(voices);
+        setOptions([1,1]);
     }
 
     useEffect(()=> {        
@@ -77,9 +78,12 @@ const SpeechSyn = () => {
     return (
         <div className="SpeechSyn">
             <h1>Speech Synthesis</h1>
-            <select className="Select" onChange={defineVoice}>
-                {voices.map(({name, lang})=><option key={name+lang} value={name}>{name}(lang)</option>)}
-            </select>
+            <div className="langs">
+                <select className="Select" onChange={defineVoice}>
+                    {voices.map(({name, lang})=><option key={name+lang} value={name}>{name}(lang)</option>)}
+                </select>
+                <button onClick={defineVoices}><span role="img" aria-label="refresh">🔄</span></button>
+            </div>
             <label htmlFor="rate">Rate: {rate}</label>
             <input className="Rate" name="rate" type="range" onChange={controlsHandler} min={0} max={3} value={rate} step={0.1}/>
             <label htmlFor="pitch">Pitch: {pitch}</label>

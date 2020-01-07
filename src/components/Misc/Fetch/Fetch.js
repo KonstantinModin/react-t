@@ -3,7 +3,6 @@ import PersonInfo from './PersonInfo';
 import ErrorBoundary from './ErrorBoundary';
 import ListItem from './ListItem';
 import * as UserApi from './usersApi';
-import './Fetch.css';
 
 export default class Fetch extends Component {
     state = {

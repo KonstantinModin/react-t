@@ -15,8 +15,7 @@ const Header = () => {
                 <NavLink to="/todo">Todo</NavLink>                
                 <NavLink to="/drums">Drums</NavLink>
                 <NavLink to="/webcam">WebCam</NavLink>
-                <NavLink to="/draw">Draw</NavLink>
-                <NavLink to="/variables">CSS Vars</NavLink>
+                <NavLink to="/draw">Draw</NavLink>                
                 <NavLink to="/features">Featrs</NavLink>
                 <NavLink to="/recognition">Recogntn</NavLink>
                 <NavLink to="/synthesis">Speech Syn</NavLink>

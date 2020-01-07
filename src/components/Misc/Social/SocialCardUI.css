@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 40vw;
+    /* border: 1px solid blue; */
+    /* height:300px; */
 }
 
 .SocialCardUI .carddiv {
@@ -10,6 +12,16 @@
     background: white;
     border-radius: 30px;
     overflow: hidden;
+}
+
+.SocialCardUI .title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;    
+}
+
+.SocialCardUI .title > div {
+    margin-right: 10px;  
 }
 
 .SocialCardUI .carddiv .top {

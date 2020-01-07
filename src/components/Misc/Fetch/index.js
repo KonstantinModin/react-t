@@ -1,3 +1,3 @@
-import Fetch from './Fetch';
+import FetchApp from './FetchApp';
 
-export default Fetch;
+export default FetchApp;

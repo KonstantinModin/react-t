@@ -1,8 +1,8 @@
 import React from 'react';
 import SocialCardData from './Social';
 import Weather from './Weather';
-import Fetch from './Fetch';
-import FetchH from './Fetch/hooks';
+import FetchApp from './Fetch';
+import Vars from './Variables';
 import './Misc.css';
 
 const Misc = () => {
@@ -11,15 +11,9 @@ const Misc = () => {
             <h1>Miscellaneous</h1>                
             <div className="Grid">                
                 <SocialCardData />                
-                <div className="cont">
-                    <div><h3>Fetching data emulation</h3></div>
-                    <div className="twoComp">
-                        <Fetch/>
-                        <FetchH/>
-                    </div>
-                </div>               
+                <FetchApp />   
                 <Weather />
-                
+                <Vars />                
             </div>
         </div>
     )    

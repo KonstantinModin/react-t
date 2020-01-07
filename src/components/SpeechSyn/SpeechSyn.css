@@ -16,6 +16,17 @@
     border-radius: 30px;
 }
 
+.SpeechSyn .langs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.SpeechSyn .langs button{
+    height: 28px;
+    margin-left: 2px;
+}
+
 .Select, .Rate, .Pitch, .TextArea {
     width: 100%;
     margin: 10px 0px;

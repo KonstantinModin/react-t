@@ -10,11 +10,15 @@
     display: grid;
     grid-template-areas: 
     "social fetch"
-    "social four"
-    "weather four";
-    grid-template-rows: 1fr 1fr 1fr;
+    "social var"
+    "weather var";
+    grid-template-rows: 33% 33% 33%;
     grid-template-columns: 1fr 1fr;
-    height: calc(100vh - 132px);   
+    height: calc(100vh - 132px);
+}
+
+.Misc .Grid > div {
+    /* border: 1px solid red;    */
 }
 
 .Misc .Grid .SocialCardUI {
@@ -23,6 +27,10 @@
 
 .Misc .Grid .Weather {
     grid-area: weather;
+}
+
+.Misc .Grid .Variables {
+    grid-area: var;
 }
 
 .Misc .Grid .cont {

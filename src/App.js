@@ -13,7 +13,6 @@ const Drums = lazy(() => import('./components/Drums'));
 const WebCam = lazy(() => import('./components/WebCam'));
 const Home = lazy(() => import('./components/Home'));
 const Draw = lazy(() => import('./components/Draw'));
-const Variables = lazy(() => import('./components/Variables'));
 const Features = lazy(() => import('./components/Features'));
 const Recognition = lazy(() => import('./components/Recognition'));
 const SpeechSyn = lazy(() => import('./components/SpeechSyn'));
@@ -76,8 +75,7 @@ const App = () => {
                             <Route path="/clock" component={Clock} />
                             <Route path="/drums" component={Drums} />
                             <Route path="/webcam" component={WebCam} />
-                            <Route path="/draw" component={Draw} />
-                            <Route path="/variables" component={Variables} />
+                            <Route path="/draw" component={Draw} />                            
                             <Route path="/features" component={Features} />
                             <Route path="/recognition" component={Recognition} />
                             <Route path="/synthesis" component={SpeechSyn} />

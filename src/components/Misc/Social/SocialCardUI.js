@@ -9,7 +9,7 @@ const SocialCardUI = ({
 
     return (
         <div className="SocialCardUI">
-            <div><h3>Social Card</h3></div>
+            <div className="title"><div><h3>Social Card</h3></div><p>(Hardcoded data)</p></div>
             <div className="carddiv">
                 <div className="top">
                     <div><strong>{caption}</strong> <label className="text-secondary">{tag} {date}</label></div>

@@ -4,6 +4,16 @@
     flex-direction: column;
 }
 
+.Weather .title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.Weather .title > * {
+    margin-right: 10px;
+}
+
 .Weather .WeatherContainer {
     display: flex;    
 }
