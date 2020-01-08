@@ -18,10 +18,7 @@ const Test = () => (
             <Hooks />
             <Provider store={store}><ReduxFav /></Provider>
             <div className="four">
-                <Cube/>
-                <Cube/>
-                <Cube/>
-                <Cube/>
+                {[...Array(4)].map((_,i)=><Cube key={i}/>)}
             </div>               
         </div>
     </div>
