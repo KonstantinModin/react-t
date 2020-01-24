@@ -27,9 +27,7 @@ const CommentList = lazy(() => import('./components/HackNews/CommentList'));
 // const Git = lazy(() => import('./components/Git'));
 
 
-const todoStore = createStore(todoReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    );
+const todoStore = createStore(todoReducer);
 
 const App = () => {    
     // console.log('%c CSS Styled console.log', 'color: red; font-size: 400%; text-shadow: 5px 5px 10px black');
