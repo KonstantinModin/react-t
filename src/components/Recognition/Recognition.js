@@ -63,7 +63,10 @@ const Recognition = () => {
     return (
         <div className="Recognition">            
             <h2>Speech Recognition</h2>
-            <h4>Say something ... </h4>            
+            <div className="secondLine">
+                <h4>Say something ...</h4>
+                <h6>BTW would you like to see unicorn?</h6>
+            </div>
             <div className="controls">
                 <button className="btn btn-danger" onClick={resetHandler}>Reset</button>            
                 <label>Language:</label>

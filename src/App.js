@@ -21,6 +21,7 @@ const Game = lazy(() => import('./components/Game'));
 const Misc = lazy(() => import('./components/Misc'));
 const Test = lazy(() => import('./components/Test'));
 const Todo = lazy(() => import('./components/Todo'));
+const Beer = lazy(() => import('./components/Beer'));
 const HackNews = lazy(() => import('./components/HackNews'));
 const CommentList = lazy(() => import('./components/HackNews/CommentList'));
 // const Git = lazy(() => import('./components/Git'));
@@ -82,6 +83,7 @@ const App = () => {
                             <Route path="/videoplayer" component={VideoPlayer} />                    
                             <Route path="/game" component={Game} />
                             <Route path="/misc" component={Misc} />
+                            <Route path="/beer" component={Beer} />
                             {/* <Route path="/git" component={Git} />                    */}
                             <Route path="/hack/:id" exact component={HackNews} />
                             <Route path="/hack/comments/:id" render={({ history}) => {                        

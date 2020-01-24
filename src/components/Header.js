@@ -23,6 +23,7 @@ const Header = () => {
                 <NavLink to="/game">Game</NavLink>                
                 <NavLink to="/misc">Misc</NavLink>
                 <NavLink to="/test">Test</NavLink>                
+                <NavLink to="/beer">Beer</NavLink>                
                 {/* <NavLink to="/git">Git Issues</NavLink> */}
             </div>
         </header>
