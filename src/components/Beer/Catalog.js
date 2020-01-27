@@ -5,7 +5,7 @@ import CatalogItem from './CatalogItem';
 const Catalog = () => {
     return (
         <div className="catalog">
-            {[...Array(45)].map((e,i)=><CatalogItem id={i} key={i} />)}
+            {[...Array(20)].map((e,i)=><CatalogItem id={i} key={i} />)}
         </div>
     )
 }
