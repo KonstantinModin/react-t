@@ -1,0 +1,43 @@
+.beer {
+    display: flex;
+    flex-direction: column;    
+    /* border: 1px solid red; */
+    align-items: center;
+}
+
+.beer .catalog {
+    /* margin: auto; */
+    width: 90%;
+    height: 89%;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid grey; */
+    overflow: scroll;
+    overflow-x: hidden;    
+}
+
+.beer .catalog .catalogItem {
+    border: 1px solid grey;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}

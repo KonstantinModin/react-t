@@ -3,21 +3,20 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './redux/reducer';
 import axios from 'axios';
+import Catalog from './Catalog';
 import './Beer.css';
 
 const beerStore = createStore(reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
 
-const Beer = () => {
-    
-
+const Beer = () => { 
     return (
-        <Provider store={beerStore}>
+        <Provider store={beerStore}>                       
             <div className="beer">
-                <h2>Beer here</h2>
-                
-            </div>
+                <h2>Beer here</h2>                
+                <Catalog />
+            </div>            
         </Provider>
     )
 }
