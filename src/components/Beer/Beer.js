@@ -18,7 +18,7 @@ const beerStore = createStore(
 const Beer = () => { 
     return (
         <Provider store={beerStore}>                       
-            <div className="beer">
+            <div onScroll={console.log('scroll')} className="beer">
                 <h2>Beer here</h2>                
                 <Catalog />
             </div>            

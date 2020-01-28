@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import * as actions from './redux/actions';
 import CatalogItem from './CatalogItem';
-// import { Scrollbars } from 'react-custom-scrollbars';
 
-const Catalog = () => {
+const Catalog = ({ items, addNewPage }) => {
+    useEffect(()=>{
+
+    },[])
+
     return (
         <div className="catalog">
-            {[...Array(20)].map((e,i)=><CatalogItem id={i} key={i} />)}
+            {/* {[...Array(50)].map((e,i)=><CatalogItem id={i} key={i} />)} */}
+            <button onClick={addNewPage}>Add it! </button>            
         </div>
     )
 }
 
-export default Catalog;
+const mapStateToProps = state => {
+    return {
+        items: state.items
+    }
+};
+
+export default connect(mapStateToProps, actions)(Catalog);
