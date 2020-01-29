@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { fetchItemRequest } from './redux/actions';
 
-const CatalogItem = ({ id, items }) => {
-    const { data='und', error, loading } = items[id];
+const CatalogItem = ({ id, info, fetchItemRequest }) => {
+    
+    const { shouldFetch, data, error, loading } = info;
+
+    useEffect(()=>{
+        if (shouldFetch) {
+            fetchItemRequest(id);
+        }
+    },[id]);
+    
 
     return (
         <div className="catalogItem">
@@ -14,10 +23,4 @@ const CatalogItem = ({ id, items }) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        items: state.items
-    }
-};
-
-export default connect(mapStateToProps)(CatalogItem);
+export default connect(null, { fetchItemRequest })(CatalogItem);

@@ -3,12 +3,13 @@
     flex-direction: column;    
     /* border: 1px solid red; */
     align-items: center;
+    width: 100%;
 }
 
 .beer .catalog {
     /* margin: auto; */
-    width: 90%;
-    height: 89%;
+    width: 90vw;
+    height: 80vh;
     display: flex;
     flex-wrap: wrap;
     /* border: 1px solid grey; */
@@ -18,6 +19,7 @@
 
 .beer .catalog .catalogItem {
     border: 1px solid grey;
+    width: calc(90vw / 5);
     margin: 1rem;
     padding: 1rem;
 }
