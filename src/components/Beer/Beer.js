@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './redux/reducers';
-import axios from 'axios';
 import Catalog from './Catalog';
 import './Beer.css';
 
 const beerStore = createStore(
     reducer,
     compose(
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-        applyMiddleware(thunkMiddleware)
+        applyMiddleware(thunkMiddleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )            
 );
 

@@ -14,7 +14,7 @@ const items = (state = INITIAL_STATE, action) => {
                 shouldFetch: true,
                 data: null,
                 loading: false,
-                error: null
+                error: false
             }));            
             return [...state, ...newPage];
         };
@@ -25,13 +25,15 @@ const items = (state = INITIAL_STATE, action) => {
         };
 
         case FETCH_ITEM_SUCCESS: {
-            console.log('success', action.id);
-            return state;
+            const { id, data } = action;
+            console.log('success', id);
+            return state.map((e,i)=>i !== id? e : {...e, loading:false, shouldFetch:false, data });
         };
 
         case FETCH_ITEM_FAILURE: {
-            console.log('fail', action.id);
-            return state;
+            const { id, error } = action;
+            console.log('fail', id);
+            return state.map((e,i)=>i !== id? e : {...e, loading:false, shouldFetch:false, error });
         };
 
         default: return state;

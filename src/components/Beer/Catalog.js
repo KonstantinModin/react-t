@@ -7,7 +7,7 @@ const Catalog = ({ items, addNewPage }) => {
     useEffect(()=>{
         //initialization (addin first page to infinite scroll )
         addNewPage();
-    }, [])
+    }, [addNewPage])
 
     return (
         <div className="catalog">
