@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchItem } from './redux/actions';
+import { useHistory } from 'react-router-dom';
 
 const CatalogItem = ({ id, info, fetchItem }) => {
     
+    const history = useHistory();
+
     const { shouldFetch, data, error, loading } = info;
     const { name, tagline, description, first_brewed, image_url } = data || {};
 
@@ -12,6 +15,10 @@ const CatalogItem = ({ id, info, fetchItem }) => {
             fetchItem(id);
         }
     }, [id, shouldFetch, fetchItem ]);
+
+    const handleShowMeMoreClick = () => {
+        history.push(`/beer/${id}`, [name, tagline, description, first_brewed, image_url]);
+    }
     
 
     return loading || shouldFetch ? 'Loading...': (
@@ -23,7 +30,13 @@ const CatalogItem = ({ id, info, fetchItem }) => {
             <h5>{tagline}</h5>
             <p><span>First Brewed: </span>{first_brewed}</p>
             <p>{description}</p>            
-            <button type="button" class="btn btn-outline-danger">More info ...</button>
+            <button 
+                type="button" 
+                className="btn btn-outline-danger"
+                onClick={handleShowMeMoreClick}
+                >
+                More info ...
+            </button>
         </div>
     )
 }

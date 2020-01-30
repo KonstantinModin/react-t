@@ -3,7 +3,9 @@ import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './redux/reducers';
+import { Route } from 'react-router-dom';
 import Catalog from './Catalog';
+import ItemPage from './ItemPage';
 import './Beer.css';
 
 const beerStore = createStore(
@@ -22,7 +24,8 @@ const Beer = () => {
                     <h2>Beer Catalog</h2>
                     <h3>with redux, redux-thunk</h3>
                 </div>                
-                <Catalog />
+                <Route exact path="/beer/:id"><ItemPage /></Route>
+                <Route exact path="/beer"><Catalog /></Route>
             </div>            
         </Provider>
     )
