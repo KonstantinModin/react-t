@@ -18,7 +18,10 @@ const Beer = () => {
     return (
         <Provider store={beerStore}>                       
             <div className="beer">
-                <h2>Beer here</h2>                
+                <div className="mainTitle">
+                    <h2>Beer Catalog</h2>
+                    <h3>with redux, redux-thunk</h3>
+                </div>                
                 <Catalog />
             </div>            
         </Provider>

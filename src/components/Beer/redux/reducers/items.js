@@ -10,7 +10,7 @@ const items = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case ADD_NEW_PAGE: {
             console.log('new page');
-            const newPage = [...Array(25)].map(_=>({
+            const newPage = [...Array(15)].map(_=>({
                 shouldFetch: true,
                 data: null,
                 loading: false,

@@ -40,8 +40,8 @@ export const fetchItem = (id) => {
         axios.get(`https://api.punkapi.com/v2/beers/${id+1}`)
             .then(
                 ({ data })=>{
-                    console.log(data);
-                    dispatch(fetchItemSuccess(id, data));
+                    console.log(data[0]);
+                    dispatch(fetchItemSuccess(id, data[0]));
                 }, 
                 error=>{
                     console.warn(error);

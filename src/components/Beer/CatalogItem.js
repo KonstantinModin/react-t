@@ -5,6 +5,7 @@ import { fetchItem } from './redux/actions';
 const CatalogItem = ({ id, info, fetchItem }) => {
     
     const { shouldFetch, data, error, loading } = info;
+    const { name, tagline, description, first_brewed, image_url } = data || {};
 
     useEffect(()=>{
         if (shouldFetch) {
@@ -13,12 +14,16 @@ const CatalogItem = ({ id, info, fetchItem }) => {
     }, [id, shouldFetch, fetchItem ]);
     
 
-    return (
+    return loading || shouldFetch ? 'Loading...': (
         <div className="catalogItem">
-            <h3>Data: </h3>
-            <h6>Number {id}</h6>
-            <h6>loading {loading}</h6>
-            <h6>error {error}</h6>
+            <div className="title">
+                <img src={image_url} alt={tagline} />
+                <h3>{name}</h3>
+            </div>
+            <h5>{tagline}</h5>
+            <p><span>First Brewed: </span>{first_brewed}</p>
+            <p>{description}</p>            
+            <button type="button" class="btn btn-outline-danger">More info ...</button>
         </div>
     )
 }
