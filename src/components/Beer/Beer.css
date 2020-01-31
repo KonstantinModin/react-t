@@ -18,8 +18,7 @@
     color: rgb(187, 29, 55);
 }
 
-.beer .catalog {
-    /* margin: auto; */
+.beer .catalog {    
     width: 100vw;
     height: 80vh;
     display: flex;
