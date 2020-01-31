@@ -7,7 +7,7 @@ const CatalogItem = ({ id, info, fetchItem }) => {
     
     const history = useHistory();
 
-    const { shouldFetch, data, error, loading } = info;
+    const { shouldFetch, data, loading } = info;
     const { name, tagline, description, first_brewed, image_url } = data || {};
 
     useEffect(()=>{

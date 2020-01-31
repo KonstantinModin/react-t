@@ -6,8 +6,8 @@ import {
 
 const INITIAL_STATE = [];
 
-const items = (state = INITIAL_STATE, action) => {
-    switch (action.type) {
+const items = (state = INITIAL_STATE, { type, id, action, data, error}) => {
+    switch (type) {
         case ADD_NEW_PAGE: {
             console.log('new page');
             const newPage = [...Array(15)].map(_=>({
@@ -19,22 +19,17 @@ const items = (state = INITIAL_STATE, action) => {
             return [...state, ...newPage];
         };
 
-        case FETCH_ITEM_REQUEST: {
-            console.log('fetching...', action.id);            
-            return state.map((e,i)=>i!== action.id? e : {...e, loading:true, shouldFetch:false});
-        };
+        case FETCH_ITEM_REQUEST: 
+            console.log('fetching...', id);            
+            return state.map((e,i)=>i!== id ? e : {...e, loading:true, shouldFetch:false});        
 
-        case FETCH_ITEM_SUCCESS: {
-            const { id, data } = action;
+        case FETCH_ITEM_SUCCESS:             
             console.log('success', id);
-            return state.map((e,i)=>i !== id? e : {...e, loading:false, shouldFetch:false, data });
-        };
+            return state.map((e,i)=>i !== id? e : {...e, loading:false, shouldFetch:false, data });        
 
-        case FETCH_ITEM_FAILURE: {
-            const { id, error } = action;
+        case FETCH_ITEM_FAILURE:             
             console.log('fail', id);
-            return state.map((e,i)=>i !== id? e : {...e, loading:false, shouldFetch:false, error });
-        };
+            return state.map((e,i)=>i !== id? e : {...e, loading:false, shouldFetch:false, error });        
 
         default: return state;
     };
