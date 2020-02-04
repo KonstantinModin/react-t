@@ -1,12 +1,10 @@
 import React from 'react';
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { connect } from 'react-redux';
 
-const ItemPage = () => {    
-    const location = useLocation();
-
-    console.log(location);
-    
-    const { name, tagline, description, first_brewed, image_url } = location.state;    
+const ItemPage = ({ id, data }) => {   
+    console.log(data);
+    const { name, tagline, description, first_brewed, image_url } = data || {};    
 
     return (
         <div className="itemPage">            
@@ -22,4 +20,10 @@ const ItemPage = () => {
     )
 }
 
-export default ItemPage;
+const mapStateToProps = (state, { id }) => {
+    return {
+        data: state.items[id].data
+    }
+}
+
+export default connect(mapStateToProps)(ItemPage);

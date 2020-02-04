@@ -24,7 +24,7 @@ const Beer = () => {
                     <h2>Beer Catalog</h2>
                     <h3>with redux, redux-thunk</h3>
                 </div>                
-                <Route exact path="/beer/:id"><ItemPage /></Route>
+                <Route exact path="/beer/:id" render={({ match })=><ItemPage id={match.params.id} />}/>
                 <Route exact path="/beer"><Catalog /></Route>
             </div>            
         </Provider>

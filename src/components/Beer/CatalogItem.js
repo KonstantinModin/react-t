@@ -17,7 +17,7 @@ const CatalogItem = ({ id, info, fetchItem }) => {
     }, [id, shouldFetch, fetchItem ]);
 
     const handleShowMeMoreClick = () => {
-        history.push(`/beer/${id}`, {name, tagline, description, first_brewed, image_url});
+        history.push(`/beer/${id}`);
     }
     
 
