@@ -61,7 +61,7 @@
 
 .beer .itemPage {
     /* border: 1px solid red; */
-    width: 90%;
+    width: 95%;
     /*display: flex;
     justify-content: space-around;
     align-items: center;
@@ -78,4 +78,16 @@
 
 .beer .itemPage .content h3 {
     color: yellowgreen;
+}
+
+.beer .itemPage .content h4 {
+    /* border: 1px solid red; */
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.beer .itemPage .content .ing {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
 }

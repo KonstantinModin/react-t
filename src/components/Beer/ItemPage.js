@@ -1,14 +1,11 @@
 import React from 'react';
-import { useParams } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 
 const ItemPage = ({ id, data }) => {   
     const { name, tagline, description, first_brewed, image_url, abv, ibu, target_fg,
         target_og, ebc, srm, ph, attenuation_level, food_pairing, brewers_tips,
-        contributed_by, ingredients:{ malt, hops, yeast } } = data || {};    
-    
-    console.log( malt, hops, yeast );
+        contributed_by, ingredients:{ malt, hops, yeast } } = data || {};   
 
     return (
         <Row className="itemPage">            
@@ -18,17 +15,35 @@ const ItemPage = ({ id, data }) => {
             <Col md={10} className="content">
                 <h3>{name}</h3>
                 <h5>{tagline}</h5>
-                <p><span>First Brewed: </span>{first_brewed}</p>
+                <div><span>First Brewed: </span>{first_brewed}</div>
                 <p>abv: {abv}, ibu: {ibu}, target_fg: {target_fg}, target_og: {target_og},
                 ebc: {ebc}, srm: {srm}, ph: {ph}, attenuation_level: {attenuation_level}</p>
-                <p>{description}</p>
-                <div>Food Pairing:
+                <div><h4>Description: </h4><p>{description}</p></div>
+                <div><h4>Food Pairing:</h4>
                     <ul>
                         {food_pairing.map(e=><li key={e}>{e}</li>)}
                     </ul>
                 </div>
-                <p>Brewers tips: {brewers_tips}</p>
-                            
+                <h4>Ingredients: </h4>
+                <div className="ing">
+                    <div><h6>Malt:</h6>
+                        <ul>
+                            {malt.map((e,i)=><li key={i}>{e.name}</li>)}
+                        </ul>
+                    </div>
+                    <div><h6>Hops:</h6>
+                        <ul>
+                            {hops.map((e,i)=><li key={i}>{e.name}</li>)}
+                        </ul>
+                    </div>
+                    <div><h6>Yeast:</h6>
+                        <ul>
+                            <li>{yeast}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div><h4>Brewers tips: </h4><p>{brewers_tips}</p></div>
+                <p>Contributed by: {contributed_by}</p>            
                 <button type="button" className="btn btn-outline-danger">Go back ...</button>
             </Col>            
         </Row>

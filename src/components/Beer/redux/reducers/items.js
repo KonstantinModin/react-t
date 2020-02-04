@@ -20,15 +20,15 @@ const items = (state = INITIAL_STATE, { type, id, action, data, error}) => {
         };
 
         case FETCH_ITEM_REQUEST: 
-            console.log('fetching...', id);            
-            return state.map((e,i)=>i!== id ? e : {...e, loading:true, shouldFetch:false});        
+            // console.log('fetching...', id);            
+            return state.map((e,i)=>i!== id ? e : {...e, loading:true, shouldFetch:false });        
 
         case FETCH_ITEM_SUCCESS:             
-            console.log('success', id);
+            // console.log('success', id);
             return state.map((e,i)=>i !== id? e : {...e, loading:false, shouldFetch:false, data });        
 
         case FETCH_ITEM_FAILURE:             
-            console.log('fail', id);
+            // console.log('fail', id);
             return state.map((e,i)=>i !== id? e : {...e, loading:false, shouldFetch:false, error });        
 
         default: return state;
