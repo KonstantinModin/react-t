@@ -5,7 +5,9 @@ import { Row, Col } from 'react-bootstrap';
 const ItemPage = ({ id, data }) => {   
     const { name, tagline, description, first_brewed, image_url, abv, ibu, target_fg,
         target_og, ebc, srm, ph, attenuation_level, food_pairing, brewers_tips,
-        contributed_by, ingredients:{ malt, hops, yeast } } = data || {};   
+        contributed_by, ingredients:{ malt, hops, yeast } } = data || {};
+        
+    console.log(malt, hops, yeast);
 
     return (
         <Row className="itemPage">            

@@ -19,13 +19,7 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) =>
             addNewPage();
             updateFirstStart(false);
         }
-    }, [addNewPage, firstStart, updateFirstStart, scroll]);
-
-    const showRefHandler = () => {
-        if (catRef.current) {
-            console.dir(catRef.current.scrollTop);
-        }
-    }
+    }, [addNewPage, firstStart, updateFirstStart, scroll]);   
 
     return (
         <div ref={catRef} className="catalog">
@@ -35,12 +29,8 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) =>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        items: state.items,
-        firstStart: state.sys.firstStart,
-        scroll: state.sys.scroll
-    }
+const mapStateToProps = ({ items, sys: { firstStart, scroll } }) => {
+    return { items, firstStart, scroll }
 };
 
 export default connect(mapStateToProps, { addNewPage,  updateFirstStart })(Catalog);
