@@ -1,20 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { addNewPage, updateFirstStart } from './redux/actions';
 import CatalogItem from './CatalogItem';
 
-const Catalog = ({ items, addNewPage, firstStart,  updateFirstStart }) => {
+const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) => {
+    const catRef = useRef();
+
     useEffect(()=>{
-        //initialization (addin first page to infinite scroll )
+        //initialization (addin first page to infinite scroll );
+        console.log('use effect catalog');
+
+        if (catRef.current) {
+            catRef.current.scrollTo(0, scroll);
+        }
+
         if (firstStart) {
+            console.log('use effect catalog- firstStart');
             addNewPage();
             updateFirstStart(false);
         }
-    }, [addNewPage, firstStart])
+    }, [addNewPage, firstStart, updateFirstStart, scroll]);
+
+    const showRefHandler = () => {
+        if (catRef.current) {
+            console.dir(catRef.current.scrollTop);
+        }
+    }
 
     return (
-        <div className="catalog">
-            {items.map((e,i)=><CatalogItem id={i} key={i} info={items[i]}/>)}
+        <div ref={catRef} className="catalog">
+            {items.map((e,i)=><CatalogItem catRef={catRef} id={i} key={i} info={items[i]}/>)}
             <button onClick={addNewPage}>Add it! </button>            
         </div>
     )
@@ -23,7 +38,8 @@ const Catalog = ({ items, addNewPage, firstStart,  updateFirstStart }) => {
 const mapStateToProps = state => {
     return {
         items: state.items,
-        firstStart: state.sys.firstStart
+        firstStart: state.sys.firstStart,
+        scroll: state.sys.scroll
     }
 };
 

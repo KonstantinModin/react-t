@@ -5,3 +5,4 @@ export const FETCH_ITEM_FAILURE = 'FETCH_ITEM_FAILURE';
 export const ADD_NEW_PAGE = 'ADD_NEW_PAGE';
 
 export const UPDATE_FIRST_START = 'UPDATE_FIRST_START';
+export const SET_SCROLL_TOP = 'SET_SCROLL_TOP';

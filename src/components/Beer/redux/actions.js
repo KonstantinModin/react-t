@@ -3,7 +3,10 @@ import {
     FETCH_ITEM_REQUEST, 
     FETCH_ITEM_SUCCESS,
     FETCH_ITEM_FAILURE,
-    UPDATE_FIRST_START } from './actionTypes.js';
+    UPDATE_FIRST_START,
+    SET_SCROLL_TOP
+} from './actionTypes.js';
+
 import axios from 'axios';
 
 export const addNewPage = () => {
@@ -12,7 +15,7 @@ export const addNewPage = () => {
     }
 };
 
-export const fetchItemRequest = id => {
+export const fetchItemRequest = ( id ) => {
     return {
         type: FETCH_ITEM_REQUEST,
         id
@@ -35,7 +38,7 @@ export const fetchItemFailure = (id, error) => {
     }
 };
 
-export const fetchItem = (id) => {
+export const fetchItem = ( id ) => {
     return (dispatch) => {
         dispatch(fetchItemRequest(id));
         axios.get(`https://api.punkapi.com/v2/beers/${id+1}`)
@@ -56,6 +59,13 @@ export const fetchItem = (id) => {
 export const updateFirstStart = ( value ) => {
     return {
         type: UPDATE_FIRST_START,
+        value
+    }
+};
+
+export const setScrollTop = ( value ) => {
+    return {
+        type: SET_SCROLL_TOP,
         value
     }
 };

@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchItem } from './redux/actions';
+import { fetchItem, setScrollTop } from './redux/actions';
 import { useHistory } from 'react-router-dom';
 
-const CatalogItem = ({ id, info, fetchItem }) => {
+const CatalogItem = ({ id, info, fetchItem, setScrollTop, catRef }) => {
     
     const history = useHistory();
 
     const { shouldFetch, data, loading } = info;
-    const { name, tagline, description, first_brewed, image_url } = data || {};
+    const { name, tagline, description, first_brewed, image_url } = data || {};    
 
     useEffect(()=>{
         if (shouldFetch) {
@@ -17,9 +17,9 @@ const CatalogItem = ({ id, info, fetchItem }) => {
     }, [id, shouldFetch, fetchItem ]);
 
     const handleShowMeMoreClick = () => {
+        setScrollTop(catRef.current.scrollTop);
         history.push(`/beer/${id}`);
-    }
-    
+    }    
 
     return loading || shouldFetch ? 'Loading...': (
         <div className="catalogItem">
@@ -41,4 +41,4 @@ const CatalogItem = ({ id, info, fetchItem }) => {
     )
 }
 
-export default connect(null, { fetchItem })(CatalogItem);
+export default connect(null, { fetchItem, setScrollTop })(CatalogItem);
