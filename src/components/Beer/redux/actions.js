@@ -2,7 +2,8 @@ import {
     ADD_NEW_PAGE, 
     FETCH_ITEM_REQUEST, 
     FETCH_ITEM_SUCCESS,
-    FETCH_ITEM_FAILURE } from './actionTypes.js';
+    FETCH_ITEM_FAILURE,
+    UPDATE_FIRST_START } from './actionTypes.js';
 import axios from 'axios';
 
 export const addNewPage = () => {
@@ -50,4 +51,11 @@ export const fetchItem = (id) => {
             )
             .catch(error=>console.warn('From catch error in item #', id))
     }
-}
+};
+
+export const updateFirstStart = ( value ) => {
+    return {
+        type: UPDATE_FIRST_START,
+        value
+    }
+};

@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { addNewPage } from './redux/actions';
+import { addNewPage, updateFirstStart } from './redux/actions';
 import CatalogItem from './CatalogItem';
 
-const Catalog = ({ items, addNewPage }) => {
+const Catalog = ({ items, addNewPage, firstStart,  updateFirstStart }) => {
     useEffect(()=>{
         //initialization (addin first page to infinite scroll )
-        addNewPage();
-    }, [addNewPage])
+        if (firstStart) {
+            addNewPage();
+            updateFirstStart(false);
+        }
+    }, [addNewPage, firstStart])
 
     return (
         <div className="catalog">
@@ -19,8 +22,9 @@ const Catalog = ({ items, addNewPage }) => {
 
 const mapStateToProps = state => {
     return {
-        items: state.items
+        items: state.items,
+        firstStart: state.sys.firstStart
     }
 };
 
-export default connect(mapStateToProps, { addNewPage })(Catalog);
+export default connect(mapStateToProps, { addNewPage,  updateFirstStart })(Catalog);
