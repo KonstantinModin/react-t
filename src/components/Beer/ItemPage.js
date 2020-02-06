@@ -6,7 +6,7 @@ const ItemPage = ({ id, data }) => {
     const { name, tagline, description, first_brewed, image_url, abv, ibu, target_fg,
         target_og, ebc, srm, ph, attenuation_level, food_pairing, brewers_tips,
         contributed_by, ingredients:{ malt, hops, yeast } } = data || {};
-        
+
     console.log(malt, hops, yeast);
 
     return (
@@ -30,12 +30,12 @@ const ItemPage = ({ id, data }) => {
                 <div className="ing">
                     <div><h6>Malt:</h6>
                         <ul>
-                            {malt.map((e,i)=><li key={i}>{e.name}</li>)}
+                            {malt.map((e,i)=><li key={i}>{e.name} {e.amount.value} {e.amount.unit}</li>)}
                         </ul>
                     </div>
                     <div><h6>Hops:</h6>
                         <ul>
-                            {hops.map((e,i)=><li key={i}>{e.name}</li>)}
+                            {hops.map((e,i)=><li key={i}>{e.name}  {e.amount.value} {e.amount.unit}</li>)}
                         </ul>
                     </div>
                     <div><h6>Yeast:</h6>
