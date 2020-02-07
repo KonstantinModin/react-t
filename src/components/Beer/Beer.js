@@ -18,8 +18,8 @@ const beerStore = createStore(
 
 const Beer = () => { 
     return (
-        <Provider store={beerStore}>                       
-            <div className="beer">
+        <Provider store={beerStore}>
+            <div className="beer">                                     
                 <div className="mainTitle">
                     <h2>Beer Catalog</h2>
                     <h3>with redux, redux-thunk</h3>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchItem, setScrollTop } from './redux/actions';
 import { useHistory } from 'react-router-dom';
+import Spinner from './Spinner';
 
 const CatalogItem = React.forwardRef(({ id, info, fetchItem, setScrollTop, catRef }, ref) => {
     
@@ -21,7 +22,7 @@ const CatalogItem = React.forwardRef(({ id, info, fetchItem, setScrollTop, catRe
         history.push(`/beer/${id}`);
     }
     
-    const content = loading || shouldFetch ? 'Loading...' : (<>
+    const content = loading || shouldFetch ? <Spinner/> : (<>
         <div className="title">
             <img src={image_url} alt={tagline} />
             <h3>{name}</h3>
