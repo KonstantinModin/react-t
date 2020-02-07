@@ -8,7 +8,15 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) =>
 
     const observer = useRef();
     const lastCatalogItem = useCallback(item => {
-        console.log(item);
+        console.dir(item);
+        if (observer.current) observer.current.disconnect();
+        observer.current = new IntersectionObserver(array => {
+            if (array[0].isIntersecting) {
+                console.log('Visible', item);
+                addNewPage();
+            }
+        })
+        if (item) observer.current.observe(item);
     });
 
     useEffect(()=>{

@@ -38,21 +38,25 @@ export const fetchItemFailure = (id, error) => {
     }
 };
 
+const getInfo = (id, dispatch) => {
+    axios.get(`https://api.punkapi.com/v2/beers/${id+1}`)
+        .then(
+            ({ data }) => {
+                // console.log(data[0]);
+                dispatch(fetchItemSuccess(id, data[0]));
+            }, 
+            error => {
+                // console.warn(error);
+                dispatch(fetchItemFailure(id, error));
+            }
+        )
+        .catch(error=>console.warn('From catch error in item #', id))
+}
+
 export const fetchItem = ( id ) => {
     return (dispatch) => {
         dispatch(fetchItemRequest(id));
-        axios.get(`https://api.punkapi.com/v2/beers/${id+1}`)
-            .then(
-                ({ data }) => {
-                    // console.log(data[0]);
-                    dispatch(fetchItemSuccess(id, data[0]));
-                }, 
-                error => {
-                    // console.warn(error);
-                    dispatch(fetchItemFailure(id, error));
-                }
-            )
-            .catch(error=>console.warn('From catch error in item #', id))
+        setTimeout(()=>getInfo(id, dispatch), 2000);
     }
 };
 
