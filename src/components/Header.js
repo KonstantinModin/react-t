@@ -11,6 +11,7 @@ const Header = () => {
                 <NavLink exact={false} to="/hack/1" isActive={(_, location)=>{                    
                     return /^\/hack\/.+$/.test(location.pathname);
                 }}>Hacker News</NavLink>
+                <NavLink to="/beer">Beer</NavLink>                
                 <NavLink to="/clock"><span role="img" aria-label="clock">🕑</span></NavLink>  
                 <NavLink to="/todo">Todo</NavLink>                
                 <NavLink to="/drums">Drums</NavLink>
@@ -23,7 +24,6 @@ const Header = () => {
                 <NavLink to="/game">Game</NavLink>                
                 <NavLink to="/misc">Misc</NavLink>
                 <NavLink to="/test">Test</NavLink>                
-                <NavLink to="/beer">Beer</NavLink>                
                 {/* <NavLink to="/git">Git Issues</NavLink> */}
             </div>
         </header>

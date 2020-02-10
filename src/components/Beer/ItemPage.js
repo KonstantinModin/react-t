@@ -1,13 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 
-const ItemPage = ({ id, data }) => {   
+const ItemPage = ({ id, data }) => {
+    const history = useHistory();    
+    
     const { name, tagline, description, first_brewed, image_url, abv, ibu, target_fg,
         target_og, ebc, srm, ph, attenuation_level, food_pairing, brewers_tips,
-        contributed_by, ingredients:{ malt, hops, yeast } } = data || {};
+        contributed_by, ingredients: { malt, hops, yeast } } = data || {};
 
-    console.log(malt, hops, yeast);
+    // console.log(malt, hops, yeast);
+
+    const goBackHandler = () => {
+        history.goBack();
+    }
 
     return (
         <Row className="itemPage">            
@@ -30,12 +37,12 @@ const ItemPage = ({ id, data }) => {
                 <div className="ing">
                     <div><h6>Malt:</h6>
                         <ul>
-                            {malt.map((e,i)=><li key={i}>{e.name} {e.amount.value} {e.amount.unit}</li>)}
+                            {malt.slice(0,6).map((e,i)=><li key={i}>{e.name} {e.amount.value} {e.amount.unit}</li>)}
                         </ul>
                     </div>
                     <div><h6>Hops:</h6>
                         <ul>
-                            {hops.map((e,i)=><li key={i}>{e.name}  {e.amount.value} {e.amount.unit}</li>)}
+                            {hops.slice(0,6).map((e,i)=><li key={i}>{e.name}  {e.amount.value} {e.amount.unit}</li>)}
                         </ul>
                     </div>
                     <div><h6>Yeast:</h6>
@@ -46,7 +53,13 @@ const ItemPage = ({ id, data }) => {
                 </div>
                 <div><h4>Brewers tips: </h4><p>{brewers_tips}</p></div>
                 <p>Contributed by: {contributed_by}</p>            
-                <button type="button" className="btn btn-outline-danger">Go back ...</button>
+                <button 
+                    type="button" 
+                    className="btn btn-outline-danger"
+                    onClick={goBackHandler}
+                    >
+                    Go back ...
+                </button>
             </Col>            
         </Row>
     )

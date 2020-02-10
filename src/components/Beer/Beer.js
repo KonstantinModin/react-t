@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
@@ -16,13 +16,20 @@ const beerStore = createStore(
     )            
 );
 
-const Beer = () => { 
+const Beer = () => {
+    const [ num, setNum ] = useState(0);
+
+    beerStore.subscribe(()=>{
+        setNum(beerStore.getState().items.length);
+    });
+
     return (
         <Provider store={beerStore}>
             <div className="beer">                                     
                 <div className="mainTitle">
-                    <h2>Beer Catalog</h2>
+                    <h2>Infinite Scroll Beer Catalog</h2>
                     <h3>with redux, redux-thunk</h3>
+                    <span> Items in catalog: {num} </span>
                 </div>                
                 <Route exact path="/beer/:id" render={({ match })=><ItemPage id={match.params.id} />}/>
                 <Route exact path="/beer"><Catalog /></Route>

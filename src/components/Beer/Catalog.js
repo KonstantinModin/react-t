@@ -4,20 +4,18 @@ import { addNewPage, updateFirstStart } from './redux/actions';
 import CatalogItem from './CatalogItem';
 
 const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) => {
-    const catRef = useRef();
+    const catRef = useRef(); //ref to save scrolling position
 
-    const observer = useRef();
-    const lastCatalogItem = useCallback(item => {
-        console.dir(item);
+    const observer = useRef(); // infinite scroll
+    const lastCatalogItem = useCallback(item => {        
         if (observer.current) observer.current.disconnect();
-        observer.current = new IntersectionObserver(array => {
-            if (array[0].isIntersecting) {
-                console.log('Visible', item);
-                addNewPage();
+        observer.current = new IntersectionObserver(array => {            
+            if (array[0].isIntersecting) {                
+                if (items.length < 315) addNewPage();                
             }
         })
         if (item) observer.current.observe(item);
-    });
+    }, [addNewPage, items.length]);
 
     useEffect(()=>{
         //initialization (addin first page to infinite scroll );

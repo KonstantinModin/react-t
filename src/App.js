@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, Profiler, useRef, useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Back from './45621.jpg';
+// import Back from './45621.jpg';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { todoReducer } from './components/Todo/Redux';
@@ -58,7 +58,7 @@ const App = () => {
             <div className="copyright">Copyright © 2019 Konstantin Modin All Rights Reserved. Designed with React</div>
 
             <div className="Background" >
-                <img src={Back} alt="background"/>
+                {/* <img src={Back} alt="background"/> */}
             </div>
         
             <div className="Container">                                     

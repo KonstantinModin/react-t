@@ -12,9 +12,13 @@
     margin-top: 0.5rem;
 }
 
-.beer .mainTitle h3{
+.beer .mainTitle h3 {
     margin-left: 1rem;
     color: rgb(187, 29, 55);
+}
+
+.beer .mainTitle span {
+    margin-left: 2rem;    
 }
 
 .beer .catalog {    

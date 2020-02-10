@@ -7,7 +7,8 @@
     height: calc(100vh - 75px);
 }
 
-.App .Background {    
+.App .Background {
+    background: url(./45621.jpg) center center;    
     width: 100vw;
     height: calc(100vh - 75px);
     overflow: hidden;    

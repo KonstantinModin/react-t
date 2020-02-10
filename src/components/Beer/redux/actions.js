@@ -38,8 +38,8 @@ export const fetchItemFailure = (id, error) => {
     }
 };
 
-const getInfo = (id, dispatch) => {
-    axios.get(`https://api.punkapi.com/v2/beers/${id+1}`)
+const getInfo = (id, dispatch, fakeError) => {
+    axios.get(`https://api.${fakeError?'f':''}punkapi.com/v2/beers/${id+1}`)
         .then(
             ({ data }) => {
                 // console.log(data[0]);
@@ -54,9 +54,10 @@ const getInfo = (id, dispatch) => {
 }
 
 export const fetchItem = ( id ) => {
+    const fakeError = Math.random() < 0.2;
     return (dispatch) => {
         dispatch(fetchItemRequest(id));
-        setTimeout(()=>getInfo(id, dispatch), 2000);
+        setTimeout(()=>getInfo(id, dispatch, fakeError), 1000);
     }
 };
 

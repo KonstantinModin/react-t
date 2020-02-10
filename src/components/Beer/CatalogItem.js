@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { fetchItem, setScrollTop } from './redux/actions';
 import { useHistory } from 'react-router-dom';
 import Spinner from './Spinner';
+import ErrorIndicator from './ErrorIndicator';
 
 const CatalogItem = React.forwardRef(({ id, info, fetchItem, setScrollTop, catRef }, ref) => {
     
     const history = useHistory();
 
-    const { shouldFetch, data, loading } = info;
+    const { shouldFetch, data, loading, error } = info;
     const { name, tagline, description, first_brewed, image_url } = data || {};    
 
     useEffect(()=>{
@@ -18,11 +19,13 @@ const CatalogItem = React.forwardRef(({ id, info, fetchItem, setScrollTop, catRe
     }, [id, shouldFetch, fetchItem ]);
 
     const handleShowMeMoreClick = () => {
-        setScrollTop(catRef.current.scrollTop);
-        history.push(`/beer/${id}`);
-    }
+        if (data) {
+            setScrollTop(catRef.current.scrollTop);
+            history.push(`/beer/${id}`);
+        }
+    };
     
-    const content = loading || shouldFetch ? <Spinner/> : (<>
+    const content = error ? <ErrorIndicator error={error}/> : loading || shouldFetch ? <Spinner/> : (<>
         <div className="title">
             <img src={image_url} alt={tagline} />
             <h3>{name}</h3>
@@ -33,14 +36,14 @@ const CatalogItem = React.forwardRef(({ id, info, fetchItem, setScrollTop, catRe
         <button 
             type="button" 
             className="btn btn-outline-danger"
-            onClick={handleShowMeMoreClick}
+            // onClick={handleShowMeMoreClick}
             >
             More info ...
         </button>
     </>)
 
     return  (
-        <div ref={ref} className="catalogItem">
+        <div ref={ref} className="catalogItem" onClick={handleShowMeMoreClick}>
             {content}
         </div>
     )
