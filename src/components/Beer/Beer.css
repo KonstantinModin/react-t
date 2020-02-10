@@ -96,3 +96,18 @@
     justify-content: space-around;
     width: 80%;
 }
+
+.beer .errorIndicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.beer .errorIndicator img{
+    max-width: 90%;
+}
+
+.beer .errorIndicator h3{
+    color: rgb(202, 143, 153);
+    margin-top: 1rem;
+}
