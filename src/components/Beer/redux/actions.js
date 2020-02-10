@@ -45,16 +45,16 @@ const getInfo = (id, dispatch, fakeError) => {
                 // console.log(data[0]);
                 dispatch(fetchItemSuccess(id, data[0]));
             }, 
-            error => {
+            ({ stack, config: {url}}) => {
                 // console.warn(error);
-                dispatch(fetchItemFailure(id, error));
+                dispatch(fetchItemFailure(id, {stack, url, fakeError}));
             }
         )
         .catch(error=>console.warn('From catch error in item #', id))
 }
 
 export const fetchItem = ( id ) => {
-    const fakeError = Math.random() < 0.2;
+    const fakeError = Math.random() < 0.1;
     return (dispatch) => {
         dispatch(fetchItemRequest(id));
         setTimeout(()=>getInfo(id, dispatch, fakeError), 1000);
