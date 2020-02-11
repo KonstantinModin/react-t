@@ -3,6 +3,7 @@
 Here in one React project included implementation of:
 
 * Hacker News Fetching, Recursive comments Fetching (useState, useEffect, custom hooks)
+* Beer Catalog with Infinite Scroll (redux, redux-thunk)
 * Clock with CSS transition (useEffect, useState, useRef)
 * Ultimate ToDo List (Redux)
 * Drums with keybord or mouse (class-based) 

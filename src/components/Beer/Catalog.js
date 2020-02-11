@@ -18,13 +18,13 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart, setS
     }, [addNewPage, items.length]);
 
     useEffect(()=>{
-        //initialization (addin first page to infinite scroll );
-        console.log('use effect catalog', catRef.current);
-
+        console.log('use effect catalog');
+        
         if (catRef.current) {
             catRef.current.scrollTo(0, scroll);
         }
-
+        
+        //initialization (addin first page to infinite scroll );
         if (firstStart) {
             console.log('use effect catalog- firstStart');
             addNewPage();
@@ -33,7 +33,10 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart, setS
 
         return () => {
             console.log('catalog effect cleanup');
+            //saving scrolling position to redux
             if (catRef.current) {
+                // we need last (changed) scrollTop property of catRef.current
+                // eslint-disable-next-line
                 setScrollTop(catRef.current.scrollTop);
             };
         }
@@ -41,20 +44,14 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart, setS
 
     return (
         <div ref={catRef} className="catalog">
-            {items.map((e,i)=>{
-                if (items.length === i+1) {
-                    return (
-                        <CatalogItem 
-                            ref={lastCatalogItem} 
-                            catRef={catRef} 
-                            id={i} 
-                            key={i} 
-                            info={items[i]}
-                        />
-                    )
-                } else {
-                    return <CatalogItem catRef={catRef} id={i} key={i} info={items[i]} />
-                }
+            {items.map((_,i)=>{
+                return (
+                    <CatalogItem 
+                        ref={items.length - 1 === i ? lastCatalogItem : null} 
+                        id={i} 
+                        key={i} 
+                        info={items[i]} />
+                ) 
             })}                       
         </div>
     )

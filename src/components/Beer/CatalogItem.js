@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import Spinner from './Spinner';
 import ErrorIndicator from './ErrorIndicator';
 
-const CatalogItem = React.forwardRef(({ id, info, fetchItem, catRef }, ref) => {
+const CatalogItem = React.forwardRef(({ id, info, fetchItem }, ref) => {
     
     const history = useHistory();
 
@@ -26,8 +26,7 @@ const CatalogItem = React.forwardRef(({ id, info, fetchItem, catRef }, ref) => {
     }, [id, shouldFetch, fetchItem ]);
 
     const handleShowMeMoreClick = () => {
-        if (data) {
-            // setScrollTop(catRef.current.scrollTop);
+        if (data) {            
             history.push(`/beer/${id}`);
         }
     };
@@ -42,8 +41,7 @@ const CatalogItem = React.forwardRef(({ id, info, fetchItem, catRef }, ref) => {
         <p>{description}</p>            
         <button 
             type="button" 
-            className="btn btn-outline-danger"
-            // onClick={handleShowMeMoreClick}
+            className="btn btn-outline-danger"            
             >
             More info ...
         </button>
