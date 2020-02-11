@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
-import { addNewPage, updateFirstStart } from './redux/actions';
+import { addNewPage, updateFirstStart, setScrollTop } from './redux/actions';
 import CatalogItem from './CatalogItem';
 
-const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) => {
+const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart, setScrollTop }) => {
     const catRef = useRef(); //ref to save scrolling position
 
     const observer = useRef(); // infinite scroll
@@ -29,11 +29,15 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) =>
             console.log('use effect catalog- firstStart');
             addNewPage();
             updateFirstStart(false);
-        }
+        }        
+
         return () => {
-            console.log('catalog effect endpoint');
+            console.log('catalog effect cleanup');
+            if (catRef.current) {
+                setScrollTop(catRef.current.scrollTop);
+            };
         }
-    }, [addNewPage, firstStart, updateFirstStart, scroll]);   
+    }, [addNewPage, firstStart, updateFirstStart, scroll, setScrollTop]);   
 
     return (
         <div ref={catRef} className="catalog">
@@ -60,4 +64,4 @@ const mapStateToProps = ({ items, sys: { firstStart, scroll } }) => {
     return { items, firstStart, scroll }
 };
 
-export default connect(mapStateToProps, { addNewPage,  updateFirstStart } )(Catalog);
+export default connect(mapStateToProps, { addNewPage,  updateFirstStart, setScrollTop } )(Catalog);

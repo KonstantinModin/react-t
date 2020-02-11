@@ -1,16 +1,23 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchItem, setScrollTop } from './redux/actions';
+import { fetchItem } from './redux/actions';
 import { useHistory } from 'react-router-dom';
 import Spinner from './Spinner';
 import ErrorIndicator from './ErrorIndicator';
 
-const CatalogItem = React.forwardRef(({ id, info, fetchItem, setScrollTop, catRef }, ref) => {
+const CatalogItem = React.forwardRef(({ id, info, fetchItem, catRef }, ref) => {
     
     const history = useHistory();
 
     const { shouldFetch, data, loading, error } = info;
-    const { name, tagline, description, first_brewed, image_url } = data || {};    
+    const { name, tagline, description, first_brewed, image_url } = data || {};
+    
+    // useEffect(()=>{
+    //     console.log('catalog item effect', id, !!ref);
+    //     return () => {
+    //         console.log('catalog item effect end point', id, !!ref);
+    //     }
+    // },[id, ref]);
 
     useEffect(()=>{
         if (shouldFetch) {
@@ -20,7 +27,7 @@ const CatalogItem = React.forwardRef(({ id, info, fetchItem, setScrollTop, catRe
 
     const handleShowMeMoreClick = () => {
         if (data) {
-            setScrollTop(catRef.current.scrollTop);
+            // setScrollTop(catRef.current.scrollTop);
             history.push(`/beer/${id}`);
         }
     };
@@ -49,4 +56,4 @@ const CatalogItem = React.forwardRef(({ id, info, fetchItem, setScrollTop, catRe
     )
 })
 
-export default connect(null, { fetchItem, setScrollTop }, null, { forwardRef: true })(CatalogItem);
+export default connect(null, { fetchItem }, null, { forwardRef: true })(CatalogItem);
