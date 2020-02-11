@@ -19,7 +19,7 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) =>
 
     useEffect(()=>{
         //initialization (addin first page to infinite scroll );
-        console.log('use effect catalog');
+        console.log('use effect catalog', catRef.current);
 
         if (catRef.current) {
             catRef.current.scrollTo(0, scroll);
@@ -29,6 +29,9 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) =>
             console.log('use effect catalog- firstStart');
             addNewPage();
             updateFirstStart(false);
+        }
+        return () => {
+            console.log('catalog effect endpoint');
         }
     }, [addNewPage, firstStart, updateFirstStart, scroll]);   
 
@@ -48,8 +51,7 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart }) =>
                 } else {
                     return <CatalogItem catRef={catRef} id={i} key={i} info={items[i]} />
                 }
-            })}
-            <button onClick={addNewPage}>Add it! </button>            
+            })}                       
         </div>
     )
 }
