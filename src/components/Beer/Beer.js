@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
@@ -18,10 +18,11 @@ const beerStore = createStore(
 
 const Beer = () => {
     const [ num, setNum ] = useState(0);
+    const getSetNum = () => setNum(beerStore.getState().items.length);
 
-    beerStore.subscribe(()=>{
-        setNum(beerStore.getState().items.length);
-    });
+    beerStore.subscribe(()=>getSetNum());
+
+    useEffect(() => getSetNum(), []);
 
     return (
         <Provider store={beerStore}>
