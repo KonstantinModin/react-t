@@ -1,14 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 
-const ItemPage = ({ id, data }) => {
-    const history = useHistory();    
+const ItemPage = ({ id, data, history }) => {      
     
     const { name, tagline, description, first_brewed, image_url, abv, ibu, target_fg,
         target_og, ebc, srm, ph, attenuation_level, food_pairing, brewers_tips,
-        contributed_by, ingredients: { malt, hops, yeast } } = data || {};
+        contributed_by, ingredients: { malt, hops, yeast } } = data;
 
     // console.log(malt, hops, yeast);
 

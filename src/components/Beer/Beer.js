@@ -17,11 +17,10 @@ const beerStore = createStore(
 );
 
 const Beer = () => {
+    //updating number of items in catalog
     const [ num, setNum ] = useState(0);
     const getSetNum = () => setNum(beerStore.getState().items.length);
-
     beerStore.subscribe(()=>getSetNum());
-
     useEffect(() => getSetNum(), []);
 
     return (
@@ -32,7 +31,11 @@ const Beer = () => {
                     <h3>with redux, redux-thunk</h3>
                     <span> Items in catalog: {num} </span>
                 </div>                
-                <Route exact path="/beer/:id" render={({ match })=><ItemPage id={match.params.id} />}/>
+                <Route 
+                    exact 
+                    path="/beer/:id" 
+                    render={({ history, match })=><ItemPage id={match.params.id} history={history}/>}
+                />
                 <Route exact path="/beer"><Catalog /></Route>
             </div>            
         </Provider>
