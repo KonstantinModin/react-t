@@ -7,7 +7,11 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart, setS
     const catRef = useRef(); //ref to save scrolling position
 
     const observer = useRef(); // infinite scroll
-    const lastCatalogItem = useCallback(item => {        
+
+    const lastCatalogItem = useCallback(item => {          // callback ref for last item
+        
+        // console.log('callback ref', items.length, item);
+
         if (observer.current) observer.current.disconnect();
         observer.current = new IntersectionObserver(array => {            
             if (array[0].isIntersecting) {                
