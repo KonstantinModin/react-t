@@ -10,14 +10,7 @@ const CatalogItem = React.forwardRef(({ id, info, fetchItem }, ref) => {
     const history = useHistory();
 
     const { shouldFetch, data, loading, error } = info;
-    const { name, tagline, description, first_brewed, image_url } = data || {};
-    
-    // useEffect(()=>{
-    //     console.log('catalog item effect', id, !!ref);
-    //     return () => {
-    //         console.log('catalog item effect end point', id, !!ref);
-    //     }
-    // },[id, ref]);
+    const { name, tagline, description, first_brewed, image_url } = data || {};    
 
     useEffect(()=>{
         if (shouldFetch) {
