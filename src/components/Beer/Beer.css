@@ -5,8 +5,7 @@
     width: 100%;
 }
 
-.beer .mainTitle {
-    /* border: 1px solid red; */
+.beer .mainTitle {   
     display: flex;
     align-items: baseline;
     margin-top: 0.5rem;
