@@ -25,8 +25,7 @@ const HackNews = ({ history, match }) => {
                 {[...Array(20)].map((_,i)=>                    
                     <span className={"page"+(i+1===page?" cur":"")} key={i} onClick={()=>history.push(`/hack/${i+1}`)}>{i+1}</span>
                 )}
-            </div>
-            <div style={{height:'20px'}}></div>
+            </div>            
         </>) : (<div className="spinner"></div>)
 
     return (

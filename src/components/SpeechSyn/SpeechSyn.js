@@ -3,7 +3,7 @@ import './SpeechSyn.css';
 
 const SpeechSyn = () => {    
     const [ start, setStart ] = useState(false);
-    const [ text, setText ] = useState("Hello! I love React and I really have fan with it !");
+    const [ text, setText ] = useState("Hello! I love React and I really have fun with it !");
     const [ voices, setVoices ] = useState([]);
     const [ currentVoice, setCurrentVoice ] = useState(null);
     const [ [rate, pitch], setOptions ] = useState([1, 1]);

@@ -15,7 +15,7 @@ body {
     top: 55px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 55px);
+    height: calc(100vh - 79px);
     overflow-x: hidden;
     /* overflow-y: hidden;   */
 }

@@ -1,11 +1,13 @@
 .Game {    
-    width: 100vw;
-    height: calc(100vh - 75px);
+    width: 100%;
+    /* height: calc(100vh - 75px); */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;    
+    justify-content: space-around;
+    /* border: 1px solid red;     */
 }
+
 .Game .topBar {
     width: 50vw;
     display: flex;
@@ -62,26 +64,34 @@
     position: relative;
     top: 100%;    
     height: 39vh;    
-    transition:all 0.4s;    
+    transition:all 0.4s;
+    
+    /* border: 1px solid red;     */
 }
 
 .Game .Grid .hole1 .mole {
     background: url('./Pict/01_George.png') bottom center no-repeat;
+    background-size: 80%;
 }
 .Game .Grid .hole2 .mole {
     background: url('./Pict/02_George.png') bottom center no-repeat;
+    background-size: 80%;
 }
 .Game .Grid .hole3 .mole {
     background: url('./Pict/03_Peppa.png') bottom center no-repeat;
+    background-size: 80%;
 }
 .Game .Grid .hole4 .mole {
     background: url('./Pict/04_Peppa.png') bottom center no-repeat;
+    background-size: 80%;
 }
 .Game .Grid .hole5 .mole {
     background: url('./Pict/05_Papa.png') bottom center no-repeat;
+    background-size: 80%;
 }
 .Game .Grid .hole6 .mole {
     background: url('./Pict/06_Mama.png') bottom center no-repeat;
+    background-size: 80%;
 }
   
 .Game .hole.up .mole {
@@ -89,16 +99,16 @@
 }
 
 .Game button {
-    height: 60px;
-    padding: 5px;
+    /* height: 50px; */
+    padding: 2px;
     width: 200px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     background: none;
     color: white;
     transition: all ease-in-out .05s
 }
 
 .Game button:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     background-color: rgba(255, 255, 255, 0.089);
 }
