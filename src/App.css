@@ -12,10 +12,10 @@ body {
 .App .Container {    
     display: flex;    
     position: fixed;
-    top: 75px;
+    top: 55px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 75px);
+    height: calc(100vh - 55px);
     overflow-x: hidden;
     /* overflow-y: hidden;   */
 }
@@ -23,7 +23,7 @@ body {
 .App .Background {
     background: url(./45621.jpg) center center;    
     width: 100vw;
-    height: calc(100vh - 75px);
+    height: calc(100vh - 55px);
     /* overflow: hidden;  */
     /* overflow-x: hidden;
     overflow-y: hidden;      */

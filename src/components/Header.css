@@ -1,11 +1,11 @@
 .App-header {
     display: flex;
     border-bottom: 1px solid white;
-    height: 75px;
+    height: 55px;
 }
 
 .Logo a h3 {    
-    font-size: 130%;
+    font-size: 120%;
     align-self: center;
     color: white;    
     margin: auto;    
@@ -30,7 +30,6 @@
     width: 100%;
 }
 
-
 .Menu a {
     text-decoration: none;
     margin: 2px;
@@ -49,4 +48,3 @@
 .Menu a:hover {
     transform: scale(1.1);
 }
-

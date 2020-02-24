@@ -56,6 +56,7 @@ const ItemPage = ({ id, data, history }) => {
                     >
                     Go back ...
                 </button>
+                <div style={{height:'25px'}}></div>
             </Col>            
         </Row>
     )
