@@ -1,3 +1,14 @@
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;  
+    /* border: 1px solid red; */
+}
+
+.App {
+    /* overflow-x: hidden;
+    overflow-y: hidden;   */
+}
+
 .App .Container {    
     display: flex;    
     position: fixed;
@@ -5,13 +16,17 @@
     left: 0;
     width: 100%;
     height: calc(100vh - 75px);
+    overflow-x: hidden;
+    /* overflow-y: hidden;   */
 }
 
 .App .Background {
     background: url(./45621.jpg) center center;    
     width: 100vw;
     height: calc(100vh - 75px);
-    overflow: hidden;    
+    /* overflow: hidden;  */
+    /* overflow-x: hidden;
+    overflow-y: hidden;      */
 }
 
 .App .Container h1 {
@@ -20,9 +35,7 @@
 
 .App .copyright {
     position: absolute;
-    top: 95%;
-    width: 420px;
-    /* text-align: center; */
+    bottom: 0;    
 }
 
 

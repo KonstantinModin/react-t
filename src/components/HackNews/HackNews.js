@@ -12,11 +12,11 @@ const HackNews = ({ history, match }) => {
     const content = topStories.length ? 
         (<>
             <div className="list">
-                {topStories.slice((page-1)*13,page*13).map((storyId, i)=>
+                {topStories.slice((page-1)*10,page*10).map((storyId, i)=>
                     <ListItem 
                         key={storyId} 
                         id={storyId} 
-                        pos={i+1+(page-1)*13+". "}
+                        pos={i+1+(page-1)*10+". "}
                         history={history}
                     />
                 )}           
