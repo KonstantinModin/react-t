@@ -22,7 +22,7 @@
 
 .beer .catalog {    
     width: 100vw;
-    height: 80vh;
+    /* height: 80vh; */
     display: flex;
     flex-wrap: wrap;
     /* border: 1px solid grey; */

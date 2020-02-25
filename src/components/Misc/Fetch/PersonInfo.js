@@ -1,16 +1,3 @@
-// import React from 'react';
-
-// const PersonInfo = ({id}) => {
-//     if (!id) return <div>Please select person... </div>;
-//     return (
-//         <div>
-//             This person has ID of {id}
-//         </div>
-//     )
-// }
-
-
-
 import React, { Component } from 'react';
 import * as UserApi from './usersApi';
 

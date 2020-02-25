@@ -10,7 +10,7 @@ const picture = {
     sun: sun
 };
 
-const Day = ({ date, caption, low, high, type }) => {    
+const Day = ({ date, caption, low, high, type, scroll }) => {    
 
     const [ [x,y], setXY ] = useState([]);
     
@@ -18,7 +18,7 @@ const Day = ({ date, caption, low, high, type }) => {
 
     const mouseEnterHandler = ({ nativeEvent }) => {
         const { clientX, clientY } = nativeEvent;
-        setXY([ clientX - 40, clientY - 40 ]);
+        setXY([ clientX - 40 - scroll, clientY - 40 ]);
     }
 
     return (

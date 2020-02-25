@@ -12,13 +12,13 @@ const data = [
     {id:24, date: '24-12-2025', caption: 'San', low: 18, high: 20, type: 'rain'}
 ]
 
-const Weather = () => {
+const Weather = ({ scroll }) => {
     return (
         <div className="Weather">
             <div className="title"><h3>Weather</h3><p>(Hardcoded data)</p></div>
             <div className="WeatherContainer">
                 {data.map(({id, date, caption, low, high, type})=>
-                    <Day key={id} date={date} caption={caption} low={low} high={high} type={type}/>
+                    <Day key={id} date={date} caption={caption} low={low} high={high} type={type} scroll={scroll}/>
                 )}
             </div>
         </div>

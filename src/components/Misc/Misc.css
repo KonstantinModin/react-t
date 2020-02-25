@@ -1,9 +1,11 @@
 .Misc {
-    margin: auto;
-    width: 100vw;
-    height: calc(100vh - 75px);
+    /* margin: auto; */
+    /* width: 100vw; */
+    /* height: calc(100vh - 75px); */
     display: flex;
     flex-direction: column;
+    border: 1px solid red;
+    /* overflow: hidden; */
 }
 
 .Misc .Grid {    
@@ -14,11 +16,11 @@
     "weather var";
     grid-template-rows: 33% 33% 33%;
     grid-template-columns: 1fr 1fr;
-    height: calc(100vh - 132px);
+    /* height: calc(100vh - 132px); */
 }
 
 .Misc .Grid > div {
-    /* border: 1px solid red;    */
+    border: 1px solid red;   
 }
 
 .Misc .Grid .SocialCardUI {
