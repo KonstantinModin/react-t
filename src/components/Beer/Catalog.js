@@ -22,7 +22,7 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart, setS
     }, [addNewPage, items.length]);
 
     useEffect(()=>{
-        console.log('use effect catalog');
+        // console.log('use effect catalog');
         
         if (catRef.current) {
             catRef.current.scrollTo(0, scroll);
@@ -30,13 +30,13 @@ const Catalog = ({ items, scroll, firstStart, addNewPage, updateFirstStart, setS
         
         //initialization (addin first page to infinite scroll );
         if (firstStart) {
-            console.log('use effect catalog- firstStart');
+            // console.log('use effect catalog- firstStart');
             addNewPage();
             updateFirstStart(false);
         }        
 
         return () => {
-            console.log('catalog effect cleanup');
+            // console.log('catalog effect cleanup');
             //saving scrolling position to redux
             if (catRef.current) {
                 // we need last (changed) scrollTop property of catRef.current

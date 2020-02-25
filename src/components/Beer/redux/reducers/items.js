@@ -9,7 +9,7 @@ const INITIAL_STATE = [];
 const items = (state = INITIAL_STATE, { type, id, action, data, error }) => {
     switch (type) {
         case ADD_NEW_PAGE: {
-            console.log('new page');
+            // console.log('new page');
             const newPage = [...Array(15)].map(_=>({
                 shouldFetch: true,
                 data: null,

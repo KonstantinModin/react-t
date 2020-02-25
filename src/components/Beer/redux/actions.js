@@ -50,7 +50,7 @@ const getInfo = (id, dispatch, fakeError) => {
                 dispatch(fetchItemFailure(id, {stack, url, fakeError}));
             }
         )
-        .catch(error=>console.warn('From catch error in item #', id))
+        .catch(error=>console.warn('From catch error in item #', id, error))
 }
 
 export const fetchItem = ( id ) => {

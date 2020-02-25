@@ -2,13 +2,24 @@
     /* margin: auto; */
     /* width: 100vw; */
     /* height: calc(100vh - 75px); */
-    display: flex;
+    
     flex-direction: column;
-    border: 1px solid red;
+    /* align-items: flex-start; */
+    /* justify-content: flex-start; */
+    /* border: 1px solid red; */
     /* overflow: hidden; */
 }
 
+.Misc .title {
+    display: flex;
+}
+
+.Misc .title h1 {    
+    margin: 0 auto 0.2rem auto;
+}
+
 .Misc .Grid {    
+    /* border: 1px solid yellow; */
     display: grid;
     grid-template-areas: 
     "social fetch"
@@ -20,7 +31,7 @@
 }
 
 .Misc .Grid > div {
-    border: 1px solid red;   
+    /* border: 1px solid red;    */
 }
 
 .Misc .Grid .SocialCardUI {
