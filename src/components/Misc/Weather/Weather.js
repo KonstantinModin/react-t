@@ -13,6 +13,8 @@ const data = [
 ]
 
 const Weather = ({ scroll }) => {
+    
+
     return (
         <div className="Weather">
             <div className="title"><h3>Weather</h3><p>(Hardcoded data)</p></div>

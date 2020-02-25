@@ -20,12 +20,13 @@
 }
 
 .Variables {
-    margin: 50px 0 0 50px;
+    margin: 90px 0 0 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;  
     position: relative;  
-    top: 4rem;
+    height: 400px;
+    /* top: 4rem; */
 }
 
 .VariblesSubDiv {

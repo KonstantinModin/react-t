@@ -47,6 +47,7 @@ const App = () => {
     }   
 
     const inputRef = useRef();
+    const contRef = useRef();
 
     const [ contextValue, setContextValue ] = useState('Default context');
     const inputHandle = ({ target: {value}}) => setContextValue(value);    
@@ -61,7 +62,7 @@ const App = () => {
                 {/* <img src={Back} alt="background"/> */}
             </div>
         
-            <div className="Container">                                     
+            <div ref={contRef} className="Container">                                     
                 <MyContext.Provider value={contextValue}>       {/* Context Provider  */}
                     <Suspense fallback={<h1>Loading...</h1>}>   {/* Lazy Loading Spinner */}
                         {/* <Switch>                                Routing */}
@@ -80,7 +81,7 @@ const App = () => {
                             <Route path="/synthesis" component={SpeechSyn} />
                             <Route path="/videoplayer" component={VideoPlayer} />                    
                             <Route path="/game" component={Game} />
-                            <Route path="/misc" component={Misc} />
+                            <Route path="/misc" render={()=><Misc scroll={contRef}/>} />
                             <Route path="/beer" component={Beer} />
                             {/* <Route path="/git" component={Git} />                    */}
                             <Route path="/hack/:id" exact component={HackNews} />
