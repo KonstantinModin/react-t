@@ -1,7 +1,7 @@
 .Features {
     margin: auto;
     width: 100vw;
-    height: calc(100vh - 75px);
+    /* height: calc(100vh - 75px); */
     display: flex;
     flex-direction: column;    
 }
@@ -10,10 +10,11 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    height: calc(100vh - 132px);    
+    height: calc(100vh - 132px); 
+    /* border: 1px solid red;    */
 }
 
-.Features .Grid .six span{
+/* .Features .Grid .six span{
     transition: 0.2s ease-in-out all;
     border-radius: 20px;
     margin: auto;
@@ -21,16 +22,17 @@
     border: 2px solid white;
     padding: 30px 60px;
     box-shadow: 3px 5px 10px rgba(255, 255, 255, 0.507);
-}
+    border: 1px solid pink;    
+} */
 
 .Features .Grid > div {
-    display: flex;    
+    /* display: flex;     */
 }
 
 .Features .Grid > div > span {
-    font-size: 5vw;
+    /* font-size: 5vw; */
 }
 
 .Features .Grid .innerDiv{
-    margin: auto;    
+    margin: auto;
 }

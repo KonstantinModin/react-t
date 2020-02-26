@@ -37,20 +37,23 @@ const Scroll = () => {
         setPersp(parseInt(scrollDiv.current.style.perspective));
     }
 
-    return (
-        <div 
-            className={'Scroll' + (isDown? ' active' : '')}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={() => setIsDown(false)}
-            onMouseUp={() => setIsDown(false)}
-            onMouseMove={handleMouseMove}
-            ref={scrollDiv}
-            style={{perspective:'100px'}}
-        >
-            {[...Array(25)].map((e,i)=>{
-                return <div key={i} className={`item item${i+1}`}>{`${('0'+(i+1)).slice(-2)}`}</div>
-            })}     
-        </div>
+    return ( 
+        // <div className="main">
+            // <h4>Slide it with mouse ... </h4>
+            <div 
+                className={'Scroll' + (isDown? ' active' : '')}
+                onMouseDown={handleMouseDown}
+                onMouseLeave={() => setIsDown(false)}
+                onMouseUp={() => setIsDown(false)}
+                onMouseMove={handleMouseMove}
+                ref={scrollDiv}
+                style={{perspective:'100px'}}
+            >            
+                {[...Array(25)].map((e,i)=>{
+                    return <div key={i} className={`item item${i+1}`}>{`${('0'+(i+1)).slice(-2)}`}</div>
+                })}     
+            </div>
+        // </div>
     )
 }
 

@@ -2,36 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './Recognition.css';
 import unicorne from './photo/1.png';
 
-const Recognition = () => {
-    
-    const testText = [
-        'asd',
-        'a222sd',
-        'a11sd',
-        'a12sd',
-        'asd',
-        'a222sd',
-        'a11sd',
-        'a12sd',
-        'asd',
-        'a222sd',
-        'a11sd',
-        'a12sd',
-        'asd',
-        'a222sd',
-        'a11sd',
-        'a222sd',
-        'a11sd',
-        'a12sd',
-        'asd',
-        'a222sd',
-        'a11sd',
-        'a12sd'
-    ];
+const Recognition = () => {    
 
     const [ recText, setRecText ] = useState('');
     const [ lang, setLang ] = useState('en-US');
-    const [ wholeText, setWholeText ] = useState(testText);
+    const [ wholeText, setWholeText ] = useState([]);
     const [ unicornClasses, setUnicornClasses ] = useState("Unicorne");
 
     useEffect(() => {
@@ -91,7 +66,7 @@ const Recognition = () => {
                 <h2>Speech Recognition</h2>
                 <div className="secondLine">
                     <h4>Say something ...</h4>
-                    <h6>BTW would you like to see unicorn?</h6>
+                    <h6>BTW would you like to see unicorn? Or you don't want?</h6>
                 </div>
                 <div className="controls">
                     <button className="btn btn-danger" onClick={resetHandler}>Reset</button>            

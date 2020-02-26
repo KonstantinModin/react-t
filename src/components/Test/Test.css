@@ -1,7 +1,7 @@
 .Test {
     margin: auto;
     width: 100vw;
-    height: calc(100vh - 75px);
+    /* height: calc(100vh - 75px); */
     display: flex;
     flex-direction: column;    
 }
@@ -10,7 +10,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 55% 45%;
-    height: calc(100vh - 123px);
+    /* height: calc(100vh - 123px); */
 }
 
 .Test .grid div {

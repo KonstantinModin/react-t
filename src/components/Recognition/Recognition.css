@@ -2,9 +2,14 @@
     margin: 20px auto 0 20px;    
     width: 100%;
     color: '#FFFFFF';
-    border: 1px solid red;
-    display: flex;
+    /* border: 1px solid red; */
+    display: flex;    
     flex-direction: column;
+}
+
+.Recognition .top {
+    height: 122px;
+    /* border: 1px dotted white; */
 }
 
 .Recognition .secondLine {
@@ -19,6 +24,7 @@
 
 .Recognition .secondLine h6 {
     color: red;
+    font-size: 0.8rem;
 }
 
 .Recognition .tex {
@@ -52,6 +58,6 @@
     display: flex;    
     flex-direction: column;
     flex-wrap: wrap;
-    /* height: 100%; */
-    border: 1px solid yellowgreen;
+    height: calc(100% - 122px);
+    /* border: 1px solid yellowgreen; */
 }

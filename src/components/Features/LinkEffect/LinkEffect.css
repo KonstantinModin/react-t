@@ -1,5 +1,6 @@
 .LinkEffect {
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
+    display: flex;    
 }
 
 .LinkEffect a {

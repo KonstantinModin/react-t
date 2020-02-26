@@ -1,3 +1,7 @@
+.Block1 {
+    display: flex;
+}
+
 .Block1 h1 {    
     font-size: 300%;
     margin: auto;
