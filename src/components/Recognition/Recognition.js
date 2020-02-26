@@ -4,9 +4,34 @@ import unicorne from './photo/1.png';
 
 const Recognition = () => {
     
+    const testText = [
+        'asd',
+        'a222sd',
+        'a11sd',
+        'a12sd',
+        'asd',
+        'a222sd',
+        'a11sd',
+        'a12sd',
+        'asd',
+        'a222sd',
+        'a11sd',
+        'a12sd',
+        'asd',
+        'a222sd',
+        'a11sd',
+        'a222sd',
+        'a11sd',
+        'a12sd',
+        'asd',
+        'a222sd',
+        'a11sd',
+        'a12sd'
+    ];
+
     const [ recText, setRecText ] = useState('');
     const [ lang, setLang ] = useState('en-US');
-    const [ wholeText, setWholeText ] = useState([]);
+    const [ wholeText, setWholeText ] = useState(testText);
     const [ unicornClasses, setUnicornClasses ] = useState("Unicorne");
 
     useEffect(() => {
@@ -62,19 +87,21 @@ const Recognition = () => {
 
     return (
         <div className="Recognition">            
-            <h2>Speech Recognition</h2>
-            <div className="secondLine">
-                <h4>Say something ...</h4>
-                <h6>BTW would you like to see unicorn?</h6>
-            </div>
-            <div className="controls">
-                <button className="btn btn-danger" onClick={resetHandler}>Reset</button>            
-                <label>Language:</label>
-                <select onChange={selectHandler}>
-                    <option value='en-US'>English</option>
-                    <option value='ru'>Russian</option>
-                </select>
-            </div>
+            <div className="top">
+                <h2>Speech Recognition</h2>
+                <div className="secondLine">
+                    <h4>Say something ...</h4>
+                    <h6>BTW would you like to see unicorn?</h6>
+                </div>
+                <div className="controls">
+                    <button className="btn btn-danger" onClick={resetHandler}>Reset</button>            
+                    <label>Language:</label>
+                    <select onChange={selectHandler}>
+                        <option value='en-US'>English</option>
+                        <option value='ru'>Russian</option>
+                    </select>
+                </div>
+            </div>           
                     
             <div className="textContainer">
                 {wholeText.map(t => <div className="tex" key={t+Math.random()}>{t}</div>)}

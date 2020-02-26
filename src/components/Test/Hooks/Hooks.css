@@ -1,22 +1,35 @@
 .Hooks {
     margin: 20px auto auto 40px;
     display: flex;
-    flex-direction: column;    
+    flex-direction: row;
+    overflow: hidden;    
 }
 
-.Hooks button {
+.Hooks .left {
+    display: flex;
+    flex-direction: column;
+    /* width: 200px; */
+}
+
+.Hooks .right {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 0 0 2rem;
+}
+
+.Hooks .left button {
     margin-top: 20px;
 }
 
-.Hooks .cartItem {
+.Hooks .right .cartItem {
     border: 1px solid grey;
-    margin: 4px 0;
-    padding: 0 3px;
+    margin: 4px;
+    padding: 0 15px;
     border-radius: 3px;
     background: rgba(128, 128, 128, 0.212);
     transition: 0.1s all ease-in-out;
 }
 
-.Hooks .cartItem:hover {
+.Hooks .right .cartItem:hover {
     transform: scale(1.05);
 }

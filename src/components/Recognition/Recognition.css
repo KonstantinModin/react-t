@@ -1,7 +1,10 @@
 .Recognition {
     margin: 20px auto 0 20px;    
-    width: 100vw;
-    color: '#FFFFFF'
+    width: 100%;
+    color: '#FFFFFF';
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
 }
 
 .Recognition .secondLine {
@@ -36,7 +39,7 @@
     top: 50%;
     left: 150%;
     transform: translateX(-50%) translateY(-50%);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;        
 }
 
 .Recognition .Active {    
@@ -49,5 +52,6 @@
     display: flex;    
     flex-direction: column;
     flex-wrap: wrap;
-    height: 88%;
+    /* height: 100%; */
+    border: 1px solid yellowgreen;
 }

@@ -12,20 +12,16 @@
     margin-bottom: 1rem;
 }
 
-.Home .title {
-    /* border: 1px solid red; */
+.Home .title {    
     display: flex;
 }
 
-.Home .title h1 {
-    /* border: 1px solid red; */
+.Home .title h1 {   
     display: inline;
-
 }
 
-.Home .title .finger {
-    display: inline;
-    /* margin: 0 1rem; */
+.Home .title .finger {    
     font-size: 6rem;
-    /* border: 1px solid red; */
+    color: transparent;    
+    text-shadow: 0 0 0 yellowgreen;
 }

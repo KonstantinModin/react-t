@@ -36,7 +36,7 @@
     transition: 0.1s all ease-in-out;
 }
 .reduxFav .list .listItem:hover {
-    transform: scale(1.1);
+    transform: scale(1.04);
 }
 .reduxFav .list .listItem.sel {
     background: rgba(255, 112, 136, 0.342);

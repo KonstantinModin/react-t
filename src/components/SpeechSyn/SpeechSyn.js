@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import './SpeechSyn.css';
 
 const SpeechSyn = () => {    
@@ -10,25 +10,34 @@ const SpeechSyn = () => {
 
     const defineVoices = () => {
         const voices = speechSynthesis.getVoices();
-        // console.log(voices, speechSynthesis );
+        
         setVoices(voices);
         setOptions([1,1]);
-    }   
+    }
+    
+    const speakHandler = useCallback(() => {
+        setStart(true);
+        const msg = new SpeechSynthesisUtterance();
+        msg.text = text;
+        msg.voice = currentVoice;
+        msg.pitch = pitch;
+        msg.rate = rate;        
+        speechSynthesis.speak(msg);
+    }, [currentVoice, pitch, rate, text]);
+    
+    const toggle = useCallback((play = true) => {
+        // console.log('toggle fire');
+        speechSynthesis.cancel();
+        if (play) speakHandler();
+    }, [speakHandler]);
 
     useEffect(() => {
-        // console.log(speechSynthesis );
-        const timer = setTimeout(defineVoices, 500);        
-        
-        // console.log('timer added');
-        return () => {
-            clearInterval(timer);           
-            // console.log('timer removed');
-        }
+        // getting the list of voices        
+        window.speechSynthesis.onvoiceschanged = () => defineVoices();        
     }, []);
 
     useEffect(()=> {        
-        if (!currentVoice) setCurrentVoice(voices[0]);
-    
+        if (!currentVoice) setCurrentVoice(voices[0]);    
     }, [voices, currentVoice]);
     
     useEffect(() => {
@@ -45,27 +54,12 @@ const SpeechSyn = () => {
             break;
             default: return;
         }
-    }    
-
-    const speakHandler = () => {
-        setStart(true);
-        const msg = new SpeechSynthesisUtterance();
-        msg.text = text;
-        msg.voice = currentVoice;
-        msg.pitch = pitch;
-        msg.rate = rate;        
-        speechSynthesis.speak(msg);
-    }   
+    }     
 
     const defineVoice = ({ target: {value}}) => {
         setStart(true);
         setCurrentVoice(voices.find(voice => voice.name === value));       
-    }
-    
-    const toggle = (play = true) => {
-        speechSynthesis.cancel();
-        if (play) speakHandler();
-    }
+    }   
 
     const enterHitedCheck = ( { key } ) => {        
         if (key === 'Enter') {
