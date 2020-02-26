@@ -5,7 +5,7 @@ import './Home.css';
 const Home = React.forwardRef((props, ref) => { 
     return (
         <div className="Home">
-            <div><h1>Select any menu item provided above</h1></div>
+            <div className="title"><h1>Select any menu item provided above</h1><div className="finger">☝</div></div>
             <div className="description">
                 <div>
                     Type here some text then App.js will get it from ref provided with React.forawardRef

@@ -31,7 +31,7 @@ const HackNews = ({ history, match }) => {
     return (
         <div className="HackNews">
             <div className="topBar">
-                <div><h4>Hacker News </h4><h5> Top stories</h5><h4>(Hooks)</h4></div>
+                <div><h4>Hacker News </h4><h5> Top stories</h5><h4> (Hooks, recursive comments)</h4></div>
                 <div><h6>Page: {page}</h6></div>
             </div>
             {content}

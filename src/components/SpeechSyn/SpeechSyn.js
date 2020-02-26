@@ -13,12 +13,7 @@ const SpeechSyn = () => {
         // console.log(voices, speechSynthesis );
         setVoices(voices);
         setOptions([1,1]);
-    }
-
-    useEffect(()=> {        
-        if (!currentVoice) setCurrentVoice(voices[0]);
-    
-    }, [voices, currentVoice]);
+    }   
 
     useEffect(() => {
         // console.log(speechSynthesis );
@@ -30,11 +25,15 @@ const SpeechSyn = () => {
             // console.log('timer removed');
         }
     }, []);
+
+    useEffect(()=> {        
+        if (!currentVoice) setCurrentVoice(voices[0]);
+    
+    }, [voices, currentVoice]);
     
     useEffect(() => {
-        if (start) toggle();
-    // eslint-disable-next-line
-    }, [currentVoice, rate, pitch]);
+        if (start) toggle();    
+    }, [start, currentVoice, rate, pitch, toggle]);
 
     const controlsHandler = ({ target: {name, value} }) => {
         switch(name) {

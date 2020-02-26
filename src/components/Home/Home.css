@@ -11,3 +11,21 @@
     width: 55%;
     margin-bottom: 1rem;
 }
+
+.Home .title {
+    /* border: 1px solid red; */
+    display: flex;
+}
+
+.Home .title h1 {
+    /* border: 1px solid red; */
+    display: inline;
+
+}
+
+.Home .title .finger {
+    display: inline;
+    /* margin: 0 1rem; */
+    font-size: 6rem;
+    /* border: 1px solid red; */
+}
