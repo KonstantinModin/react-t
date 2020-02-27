@@ -1,12 +1,6 @@
 body {
     overflow-x: hidden;
-    overflow-y: hidden;  
-    /* border: 1px solid red; */
-}
-
-.App {
-    /* overflow-x: hidden;
-    overflow-y: hidden;   */
+    overflow-y: hidden;      
 }
 
 .App .Container {    
@@ -16,17 +10,13 @@ body {
     left: 0;
     width: 100%;
     height: calc(100vh - 79px);
-    overflow-x: hidden;
-    /* overflow-y: hidden;   */
+    overflow-x: hidden;    
 }
 
 .App .Background {
     background: url(./45621.jpg) center center;    
     width: 100vw;
-    height: calc(100vh - 55px);
-    /* overflow: hidden;  */
-    /* overflow-x: hidden;
-    overflow-y: hidden;      */
+    height: calc(100vh - 55px);   
 }
 
 .App .Container h1 {
