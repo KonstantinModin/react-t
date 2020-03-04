@@ -1,15 +1,10 @@
 .Home {
     margin: auto;
-    height: 40vh;
+    /* height: 40vh; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
-}
-
-.Home .description {
-    width: 55%;
-    margin-bottom: 1rem;
 }
 
 .Home .title {    

@@ -1,4 +1,6 @@
 import React, { Suspense, lazy, Profiler, useRef, useState } from 'react';
+import { FontAwesomeIcon as Icon} from '@fortawesome/react-fontawesome';
+import { faDizzy } from '@fortawesome/free-solid-svg-icons';
 import { Route, Redirect } from 'react-router-dom';
 // import Back from './45621.jpg';
 import { createStore } from 'redux';
@@ -54,7 +56,11 @@ const App = () => {
     
     return (
         <Profiler id="App" onRender={onRenderCallback}>
-        <div className="App">        
+        <div className="App">
+            <div className="mobileOverlay">
+                <Icon icon={faDizzy} color={'white'}/>
+                <h2>Non-desktop version is temporarily not available</h2>
+            </div>        
             <Route path="/" component={Header} />
             <div className="copyright">Copyright © 2019 Konstantin Modin All Rights Reserved. Designed with React</div>
 
@@ -66,13 +72,12 @@ const App = () => {
                 <MyContext.Provider value={contextValue}>       {/* Context Provider  */}
                     <Suspense fallback={<h1>Loading...</h1>}>   {/* Lazy Loading Spinner */}
                         {/* <Switch>                                Routing */}
-                            <Route exact path="/" render={()=>
-                                <Home 
+                            <Route exact path="/" component={Home} />        
+                            <Route path="/clock" render={()=>
+                                <Clock 
                                     ref={inputRef} 
                                     onInputClick={inputHandle}
-                                    defaultValue={contextValue}/>} 
-                            />        
-                            <Route path="/clock" component={Clock} />
+                                    defaultValue={contextValue}/>} />
                             <Route path="/drums" component={Drums} />
                             <Route path="/webcam" component={WebCam} />
                             <Route path="/draw" component={Draw} />                            

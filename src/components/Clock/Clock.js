@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './Clock.css';
 
-const Clock = () => {    
+const Clock = React.forwardRef((props, ref) => {    
     const [ time, setTime ] = useState(new Date().toString());
     const [ secClass, setSecClass ] = useState('');    
 
@@ -52,9 +53,19 @@ const Clock = () => {
                     <div ref={hrs} id="hrsHand"></div>
                 </div>
             </div>
-            <h4>Current Time is: </h4><h3>{time}</h3>                       
+            <h4>Current Time is: </h4><h3>{time}</h3>
+            <div className="description">
+                <h2>Context</h2>
+                <div>
+                    Type here some text then App.js will get it from ref provided with React.forawardRef
+                    and then this text will be provided as a Context to entire App. 
+                    You will be able to see it in <Link to="/test">Test section </Link> 
+                    of this site.
+                </div>                
+                <input ref={ref} onChange={props.onInputClick} defaultValue={props.defaultValue}/>                
+            </div>                       
         </div>
     )
-}
+});
 
 export default Clock;

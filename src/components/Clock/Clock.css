@@ -1,8 +1,16 @@
 .ClockComponent {    
-    margin: auto;    
+    margin: auto;
+    width: 80vw;    
+    display: flex;    
+    flex-direction: column;        
+}
+
+.App .ClockComponent h1 {
+    margin: 0;
 }
 
 .ClockComponent .Clock {
+    /* border: 1px solid red; */
     border: 2px solid white;
     width: 300px;
     height: 300px;
@@ -35,4 +43,10 @@
 
 .ClockComponent #secHand {
     height: 1px;
+}
+
+.ClockComponent .description {    
+    width: 55%;
+    margin-top: 7rem;
+    /* border: 1px solid red;   */
 }

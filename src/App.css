@@ -3,6 +3,10 @@ body {
     overflow-y: hidden;      
 }
 
+.App .mobileOverlay {
+    display: none;    
+}
+
 .App .Container {    
     display: flex;    
     position: fixed;
@@ -50,4 +54,27 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
+}
+
+@media screen and (max-width: 800px) {
+    .App .mobileOverlay {
+        display: flex;
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(85, 24, 13);
+        z-index: 10;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;        
+    }
+
+    .App .mobileOverlay svg{
+        font-size: 5rem;
+        margin-bottom: 2rem;
+    }
+    
 }

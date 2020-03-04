@@ -7,7 +7,7 @@ import './ShowContext.css';
 const ShowContext = () => ( 
     <div className="ShowContext">
         <h3>ShowContext</h3>        
-        <header>You can update context in <Link to="/">Home Section</Link></header>        
+        <header>You can update context in <Link to="/clock">Clock/Context Section</Link></header>        
         <HooksComponent />
         <ClassComponent />        
     </div>   
