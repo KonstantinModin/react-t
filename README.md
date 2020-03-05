@@ -1,4 +1,4 @@
-# React Example Features
+# React Experiments
 
 Here in one React project included implementation of:
 
@@ -39,8 +39,8 @@ Here in one React project included implementation of:
 
 ## Version History
 
-* 1.0
-    * Initial Release
+* 2.0 - Updates
+* 1.0 - Initial Release
 	
 ## This project on web
 

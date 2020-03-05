@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
+    text-align: center;
 }
 
 .Home .title {    
@@ -20,3 +21,19 @@
     color: transparent;    
     text-shadow: 0 0 0 yellowgreen;
 }
+
+#root > div > div.Container > div > div.portfolioLink > a {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    transition: 0.1s cubic-bezier(0,-0.85,1,1.84) all;   
+}
+
+#root > div > div.Container > div > div.portfolioLink > a:hover {   
+   text-decoration: none;
+   transform: scale(1.2);   
+}
+
