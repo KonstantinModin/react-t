@@ -100,7 +100,7 @@ const Game = () => {
 
     return (
         <div className="Game">
-            <div className="item"><h1>Catch Peppa!</h1></div>
+            <div className="item"><h1>Catch Peppa Pig!</h1></div>
             <div className="topBar">
                 <div className="item"><h3 className="level">Level: {level}</h3></div>                            
                 <div className="item"><h3 className="score">Score: {scoreVis}</h3></div>                            
