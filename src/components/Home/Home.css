@@ -1,6 +1,5 @@
 .Home {
-    margin: auto;
-    /* height: 40vh; */
+    margin: auto;    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
