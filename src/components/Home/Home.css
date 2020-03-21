@@ -1,5 +1,5 @@
 .Home {
-    margin: auto;    
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -7,18 +7,36 @@
     text-align: center;
 }
 
-.Home .title {    
+.Home .title {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
 }
 
-.Home .title h1 {   
+.Home h1 {
+    /* display: inline; */
+    font-size: 5rem;
+    /* border: 1px solid red; */
+    /* margin: 1rem; */
+    /* padding: 1rem 0 0 0; */
+}
+.Home .title h2 {
     display: inline;
+    font-size: 2.3rem;
+    /* border: 1px solid red; */
+    margin: 1rem;
+    padding: 1rem 0 0 0;
 }
 
-.Home .title .finger {    
+.Home .title .finger {
+    /* border: 1px solid red; */
+    margin: 1rem;
+    padding: 1rem;
     font-size: 6rem;
-    color: transparent;    
+    color: transparent;
     text-shadow: 0 0 0 yellowgreen;
+    /* height: 8rem; */
 }
 
 #root > div > div.Container > div > div.portfolioLink > a {
@@ -28,11 +46,10 @@
     align-items: center;
     text-align: center;
     color: white;
-    transition: 0.1s cubic-bezier(0,-0.85,1,1.84) all;   
+    transition: 0.1s cubic-bezier(0, -0.85, 1, 1.84) all;
 }
 
-#root > div > div.Container > div > div.portfolioLink > a:hover {   
-   text-decoration: none;
-   transform: scale(1.2);   
+#root > div > div.Container > div > div.portfolioLink > a:hover {
+    text-decoration: none;
+    transform: scale(1.2);
 }
-
